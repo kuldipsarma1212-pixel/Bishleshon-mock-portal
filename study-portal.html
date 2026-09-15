@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ADRE Mock Tests — Bishleshon Education | Kuldip Sir</title>
+<title>ADRE Mock Tests — Bishleshon Education</title>
 <meta name="description" content="Exam-realistic ADRE mock tests for Maths and GK — 4th Grade, 3rd Grade (HS Pass), 3rd Grade (Graduate). Free test to start. Full series ₹9.">
 <meta name="theme-color" content="#0B1F35">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230B1F35'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='600' fill='%23E8AC3D' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -32,8 +33,8 @@
 
   .topbar{position:sticky;top:0;z-index:40;background:var(--navy);border-bottom:1px solid var(--navy-line);}
   .topbar-inner{max-width:1100px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
-  .brand{font-family:var(--serif);font-weight:600;font-size:1.05rem;text-decoration:none;color:#fff;}
-  .brand span{color:var(--gold);}
+  .brand{text-decoration:none;color:#fff;font-family:var(--serif);font-weight:600;font-size:1.15rem;letter-spacing:.01em;}
+  .brand span{color:var(--gold);font-style:italic;font-weight:500;}
   .toplinks{display:flex;gap:20px;flex-wrap:wrap;font-size:.9rem;align-items:center;}
   .toplinks a{text-decoration:none;color:#C7D2E0;border-bottom:1px solid transparent;padding-bottom:2px;transition:color .15s,border-color .15s;}
   .toplinks a:hover{color:#fff;border-color:var(--gold);}
@@ -61,16 +62,14 @@
   .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:26px;}
   .section-head p{margin:0;max-width:48ch;}
 
-  .teacher-card{display:flex;gap:24px;align-items:center;flex-wrap:wrap;}
-  .teacher-avatar{width:84px;height:84px;border-radius:50%;background:var(--navy);color:var(--gold);font-family:var(--serif);font-size:1.7rem;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .teacher-card{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;}
   .teacher-info{flex:1;min-width:240px;}
   .teacher-info h3{font-size:1.15rem;margin-bottom:2px;}
-  .teacher-role{color:var(--orange);font-size:.85rem;font-weight:600;margin-bottom:8px;}
-  .teacher-bio{font-size:.92rem;max-width:60ch;margin-bottom:0;}
+  .teacher-role{color:var(--orange);font-size:.85rem;font-weight:600;margin-bottom:8px;display:block;}
+  .teacher-bio{font-size:.92rem;max-width:65ch;margin-bottom:0;}
 
-  /* selector rows */
-  .selector-row{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 20px;}
-  .selector-label{font-size:.75rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint);align-self:center;margin-right:4px;}
+  .selector-row{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 20px;align-items:center;}
+  .selector-label{font-size:.75rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint);margin-right:4px;}
   .grade-tab, .subject-tab{background:#fff;border:1px solid var(--border);color:var(--ink-dim);font-family:var(--sans);font-size:.88rem;font-weight:600;padding:10px 18px;border-radius:8px;cursor:pointer;transition:.15s;}
   .grade-tab:hover, .subject-tab:hover{border-color:var(--ink-faint);color:var(--ink);}
   .grade-tab.active{background:var(--navy);border-color:var(--navy);color:#fff;}
@@ -84,8 +83,6 @@
   .mock-card ul{margin:0;padding-left:18px;font-size:.87rem;color:var(--ink-dim);}
   .mock-card li{margin-bottom:4px;}
   .mock-card h3{margin-bottom:2px;}
-  .mock-price{font-family:var(--serif);font-size:1.4rem;color:var(--ink);}
-  .mock-price small{font-size:.72rem;color:var(--ink-faint);font-family:var(--sans);}
 
   .quiz-box{background:#fff;border:1px solid var(--border);border-radius:10px;padding:24px;margin-top:20px;}
   .qnum{font-family:var(--serif);font-style:italic;color:var(--teal);font-size:.9rem;margin-bottom:8px;}
@@ -103,33 +100,41 @@
   .btn-small:disabled{opacity:.4;cursor:default;}
   .empty-note{color:var(--ink-dim);font-size:.92rem;border:1px dashed var(--border);border-radius:8px;padding:26px;text-align:center;background:var(--surface);margin:0;}
 
-  /* payment panel */
-  .pay-panel{background:#fff;border:1px solid var(--border);border-radius:10px;padding:24px;margin-top:20px;display:none;}
-  .pay-panel.open{display:block;}
-  .pay-grid{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start;}
-  @media (max-width:600px){.pay-grid{grid-template-columns:1fr;}}
-  .qr-wrap{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px;}
-  .qr-wrap img{width:180px;height:180px;}
-  .upi-line{font-family:var(--serif);font-size:1.05rem;color:var(--ink);background:var(--teal-soft);padding:10px 14px;border-radius:6px;display:inline-block;margin:6px 0 14px;}
-  .upi-line strong{color:var(--navy);font-weight:700;}
-  .pay-amount{font-family:var(--serif);font-size:2rem;color:var(--navy);line-height:1;margin:0 0 4px;}
-  .pay-amount small{font-size:.8rem;color:var(--ink-faint);font-family:var(--sans);}
-  .timer{display:inline-flex;align-items:center;gap:8px;background:#FFF1EC;color:var(--orange-dark);font-weight:700;font-size:.88rem;padding:8px 14px;border-radius:999px;margin:10px 0;}
-  .timer.expired{background:#F0F0F0;color:var(--ink-faint);}
+  .modal-overlay{position:fixed;inset:0;background:rgba(8,18,32,.7);display:none;align-items:flex-start;justify-content:center;z-index:100;padding:20px;overflow-y:auto;}
+  .modal-overlay.open{display:flex;}
+  .modal-box{background:#fff;border-radius:12px;padding:28px;width:100%;max-width:520px;margin:auto;position:relative;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);}
+  .modal-close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--ink-faint);cursor:pointer;font-size:1.4rem;line-height:1;padding:4px 8px;border-radius:6px;}
+  .modal-close:hover{background:var(--bg);color:var(--ink);}
+  .modal-box h3{font-size:1.3rem;margin-bottom:6px;}
+  .modal-box p{font-size:.92rem;}
+  .modal-box .modal-subtitle{color:var(--teal);font-weight:600;font-size:.85rem;margin-bottom:16px;}
+
+  .pay-block{background:var(--bg);border-radius:10px;padding:18px;margin-bottom:18px;}
+  .upi-line{font-family:var(--serif);font-size:1rem;color:var(--ink);background:var(--teal-soft);padding:10px 14px;border-radius:6px;display:flex;align-items:center;justify-content:space-between;gap:10px;margin:8px 0;}
+  .upi-line strong{color:var(--navy);font-weight:700;font-size:.95rem;word-break:break-all;}
+  .copy-btn{background:var(--navy);color:#fff;border:none;font-family:var(--sans);font-size:.75rem;font-weight:700;padding:6px 10px;border-radius:5px;cursor:pointer;white-space:nowrap;}
+  .copy-btn:hover{background:var(--navy-soft);}
+  .copy-btn.copied{background:var(--teal);}
+  .qr-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
+  .qr-row img{width:130px;height:130px;border-radius:8px;border:1px solid var(--border);background:#fff;padding:6px;}
+  .timer{display:inline-flex;align-items:center;gap:8px;background:#FFF1EC;color:var(--orange-dark);font-weight:700;font-size:.88rem;padding:8px 14px;border-radius:999px;margin:8px 0;}
 
   .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-  @media (max-width:600px){.form-grid{grid-template-columns:1fr;}}
+  @media (max-width:520px){.form-grid{grid-template-columns:1fr;}}
   .field{margin-bottom:0;}
-  .field.full{grid-column:1/-1;}
   .field label{display:block;font-size:.82rem;color:var(--ink-dim);margin-bottom:6px;font-weight:600;}
   .field input,.field select,.field textarea{width:100%;background:#fff;border:1px solid var(--border);color:var(--ink);padding:11px 12px;border-radius:6px;font-family:var(--sans);font-size:.92rem;}
   .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--teal);}
+  .field textarea{min-height:100px;resize:vertical;}
   .submit-row{margin-top:18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
   .form-msg{font-size:.85rem;min-height:1.2em;}
   .form-msg.err{color:var(--orange-dark);}
   .form-msg.ok{color:var(--teal);}
+
   .verified-banner{background:var(--teal-soft);color:var(--teal);font-weight:700;font-size:.9rem;padding:12px 16px;border-radius:8px;margin-top:14px;}
   .pending-note{background:#FFF8E8;border:1px solid #F0DCB0;color:#7A5B0E;font-size:.85rem;padding:12px 16px;border-radius:8px;margin-top:14px;}
+  .solution-link{display:inline-flex;align-items:center;gap:8px;background:var(--teal-soft);color:var(--teal);font-weight:700;font-size:.85rem;text-decoration:none;padding:10px 16px;border-radius:6px;margin-top:12px;}
+  .solution-link:hover{background:var(--teal);color:#fff;}
 
   .doubt-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;}
   @media (max-width:760px){.doubt-layout{grid-template-columns:1fr;}}
@@ -179,11 +184,9 @@
   </div>
 </header>
 
-<!-- ============ TEACHER ============ -->
 <section class="section">
   <div class="wrap">
     <div class="teacher-card">
-      <div class="teacher-avatar">KS</div>
       <div class="teacher-info">
         <span class="teacher-role">Brought to you by</span>
         <h3>Kuldip Sir</h3>
@@ -193,7 +196,6 @@
   </div>
 </section>
 
-<!-- ============ SELECTORS ============ -->
 <section class="section alt" id="grades">
   <div class="wrap">
     <div class="section-head">
@@ -203,17 +205,11 @@
       </div>
       <p>The mock tests below will match your choice.</p>
     </div>
-
-    <div class="selector-row" id="gradeRow">
-      <span class="selector-label">Grade</span>
-    </div>
-    <div class="selector-row" id="subjectRow">
-      <span class="selector-label">Subject</span>
-    </div>
+    <div class="selector-row" id="gradeRow"><span class="selector-label">Grade</span></div>
+    <div class="selector-row" id="subjectRow"><span class="selector-label">Subject</span></div>
   </div>
 </section>
 
-<!-- ============ FREE MOCK ============ -->
 <section class="section" id="free-mock">
   <div class="wrap">
     <div class="section-head">
@@ -221,14 +217,14 @@
         <span class="eyebrow-mark">Free</span>
         <h2>Free mock test</h2>
       </div>
-      <p>A short, timed set of ADRE-style questions for your grade and subject. Start instantly — no sign-up needed.</p>
+      <p>A short set of ADRE-style questions for your grade and subject. Start instantly — no sign-up needed.</p>
     </div>
     <button class="btn btn-primary" id="startFreeMock">Start free mock test</button>
     <div class="quiz-box" id="mockQuizBox" style="display:none;"></div>
+    <div id="freeSolutionsSlot"></div>
   </div>
 </section>
 
-<!-- ============ PAID MOCK ============ -->
 <section class="section alt" id="paid-mock">
   <div class="wrap">
     <div class="section-head">
@@ -236,7 +232,7 @@
         <span class="eyebrow-mark">Paid</span>
         <h2>Full mock test series — ₹9 per subject</h2>
       </div>
-      <p>Full-length, exam-pattern ADRE papers with detailed solutions. Pay ₹9 on UPI, fill the short form, and unlock instantly.</p>
+      <p>Full-length, exam-pattern ADRE papers with detailed solutions. Pay ₹9 on UPI, fill a quick form, unlock instantly.</p>
     </div>
 
     <div class="mock-grid">
@@ -248,75 +244,11 @@
       <div class="mock-card">
         <span class="kicker">Pay ₹9 on UPI</span>
         <h3>Simple, direct payment</h3>
-        <p style="margin:0;font-size:.9rem;">Click below to view the QR code and UPI ID. Pay ₹9, then fill the form to unlock.</p>
-        <button class="btn btn-primary" id="openPayPanel" style="align-self:flex-start;margin-top:6px;">Pay ₹9 & unlock</button>
+        <p style="margin:0;font-size:.9rem;">Pay ₹9, then fill a 3-field form to unlock instantly.</p>
+        <button class="btn btn-primary" id="openPayPanel" style="align-self:flex-start;margin-top:6px;">Pay ₹9 &amp; unlock</button>
       </div>
     </div>
 
-    <!-- Payment panel -->
-    <div class="pay-panel" id="payPanel">
-      <div class="pay-grid">
-        <div>
-          <div class="qr-wrap">
-            <img id="upiQr" alt="UPI QR code">
-          </div>
-        </div>
-        <div>
-          <p class="pay-amount">₹9 <small>per subject</small></p>
-          <p style="margin:4px 0 2px;font-size:.9rem;">Pay to this UPI ID:</p>
-          <div class="upi-line">UPI: <strong id="upiDisplay"></strong></div>
-          <p style="font-size:.85rem;margin:0;">Then fill the form below with your payment details.</p>
-          <div class="timer" id="payTimer">⏱ Time left: 05:00</div>
-        </div>
-      </div>
-
-      <hr style="border:none;border-top:1px solid var(--border);margin:22px 0;">
-
-      <form id="payForm">
-        <div class="form-grid">
-          <div class="field">
-            <label for="pName">Your name *</label>
-            <input id="pName" type="text" required>
-          </div>
-          <div class="field">
-            <label for="pWhatsapp">WhatsApp number *</label>
-            <input id="pWhatsapp" type="tel" required placeholder="10-digit mobile">
-          </div>
-          <div class="field">
-            <label for="pGrade">Grade *</label>
-            <select id="pGrade" required></select>
-          </div>
-          <div class="field">
-            <label for="pSubject">Subject *</label>
-            <select id="pSubject" required>
-              <option>Maths</option>
-              <option>GK</option>
-              <option>Both (₹18)</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="pUtr">UTR / Transaction ID *</label>
-            <input id="pUtr" type="text" required placeholder="12-digit UTR from your UPI app">
-          </div>
-          <div class="field">
-            <label for="pApp">Paid via *</label>
-            <select id="pApp" required>
-              <option value="">Select</option>
-              <option>Google Pay</option>
-              <option>PhonePe</option>
-              <option>Paytm</option>
-              <option>Other UPI</option>
-            </select>
-          </div>
-        </div>
-        <div class="submit-row">
-          <button type="submit" class="btn btn-primary" id="paySubmitBtn">Submit &amp; unlock</button>
-          <span class="form-msg" id="payFormMsg"></span>
-        </div>
-      </form>
-    </div>
-
-    <!-- Unlocked content -->
     <div id="paidContentWrap" style="display:none;margin-top:26px;">
       <div class="verified-banner" id="paidBanner"></div>
       <p class="pending-note">We'll verify your payment against our records. If anything doesn't match, Kuldip Sir will message you on WhatsApp.</p>
@@ -325,7 +257,6 @@
   </div>
 </section>
 
-<!-- ============ DOUBTS ============ -->
 <section class="section" id="doubts">
   <div class="wrap">
     <div class="section-head">
@@ -335,7 +266,6 @@
       </div>
       <p>Stuck on a specific problem? Send it across — a photo of your working helps a lot.</p>
     </div>
-
     <div class="doubt-layout">
       <form id="doubtForm">
         <div class="field" style="margin-bottom:16px;">
@@ -353,17 +283,12 @@
           </select>
         </div>
         <div class="field" style="margin-bottom:16px;">
-          <label for="dTopic">Topic (optional)</label>
-          <input id="dTopic" type="text" placeholder="e.g. percentages, reasoning, Assam GK">
-        </div>
-        <div class="field" style="margin-bottom:16px;">
           <label for="dQuestion">Your doubt *</label>
-          <textarea id="dQuestion" required placeholder="Describe where you're stuck. If it's from a mock test, mention which one." style="min-height:100px;resize:vertical;"></textarea>
+          <textarea id="dQuestion" required placeholder="Describe where you're stuck."></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Send on WhatsApp</button>
         <button type="button" class="btn btn-outline" id="sendEmailBtn" style="margin-left:10px;">Send by email instead</button>
       </form>
-
       <aside class="doubt-side">
         <h3>Before you send</h3>
         <ul>
@@ -383,16 +308,59 @@
   </div>
 </footer>
 
+<div class="modal-overlay" id="payModal">
+  <div class="modal-box">
+    <button class="modal-close" id="payModalClose">✕</button>
+    <h3 id="payModalTitle">Pay ₹9 to unlock</h3>
+    <p class="modal-subtitle" id="payModalSubtitle">Grade · Subject</p>
+
+    <div class="pay-block">
+      <div class="qr-row">
+        <img id="upiQr" alt="UPI QR code">
+        <div style="flex:1;min-width:200px;">
+          <a class="btn btn-gold" id="openUpiApp" style="width:100%;margin-bottom:8px;">Open UPI app (₹9 pre-filled)</a>
+          <div class="upi-line">
+            <strong id="upiDisplay"></strong>
+            <button class="copy-btn" id="copyUpiBtn" type="button">Copy</button>
+          </div>
+          <p style="font-size:.82rem;margin:6px 0 0;">Scan the QR or copy the UPI ID and pay ₹9.</p>
+        </div>
+      </div>
+      <div class="timer" id="payTimer">⏱ Time left: 10:00</div>
+    </div>
+
+    <form id="payForm">
+      <div class="form-grid">
+        <div class="field">
+          <label for="pName">Your name *</label>
+          <input id="pName" type="text" required>
+        </div>
+        <div class="field">
+          <label for="pWhatsapp">WhatsApp number *</label>
+          <input id="pWhatsapp" type="tel" required placeholder="10-digit">
+        </div>
+        <div class="field" style="grid-column:1/-1;">
+          <label for="pUtr">UTR / Transaction ID *</label>
+          <input id="pUtr" type="text" required placeholder="From your UPI app's payment confirmation">
+        </div>
+      </div>
+      <div class="submit-row">
+        <button type="submit" class="btn btn-primary" id="paySubmitBtn">Submit &amp; unlock</button>
+        <span class="form-msg" id="payFormMsg"></span>
+      </div>
+      <p style="font-size:.78rem;color:var(--ink-faint);margin-top:12px;">We'll verify your payment. If anything's wrong, Kuldip Sir will message you on WhatsApp.</p>
+    </form>
+  </div>
+</div>
+
 <script>
 /* ===================================================================
-   CONFIG — edit these
+   CONFIG
    =================================================================== */
 const WHATSAPP_NUMBER = "916002807252";
 const CONTACT_EMAIL = "kuldipsarma62@gmail.com";
 const UPI_ID = "kuldipsarma049@okhdfcbank";
 const PRICE_PER_SUBJECT = 9;
-
-// Paste your Google Apps Script Web App URL here:
 const SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwre530hMTmPrHgEYmAvZNDItGN6WqIGII5mdGryQrgmP35ojWHmLdHcVFuHskW-ISc/exec";
 
 /* ===================================================================
@@ -400,63 +368,46 @@ const SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwre530hMTmPr
    =================================================================== */
 const GRADES = ["4th Grade", "3rd Grade (HS Pass)", "3rd Grade (Graduate)"];
 const SUBJECTS = ["Maths", "GK"];
-
 let activeGrade = GRADES[0];
 let activeSubject = SUBJECTS[0];
 
 /* ===================================================================
-   FREE MOCK QUESTIONS — per grade + subject
-   Replace placeholders with real ADRE questions.
+   FREE MOCK QUESTIONS — replace placeholders with real questions
    =================================================================== */
 const FREE_MOCK = {
   "4th Grade": {
-    "Maths": [
-      { q: "Placeholder — ADRE 4th Grade Maths question.",
-        options: ["A", "B", "C", "D"], correct: 0 },
-    ],
-    "GK": [
-      { q: "Placeholder — ADRE 4th Grade GK question.",
-        options: ["A", "B", "C", "D"], correct: 0 },
-    ],
+    "Maths": [{ q: "Placeholder — ADRE 4th Grade Maths question.", options: ["A","B","C","D"], correct: 0 }],
+    "GK":    [{ q: "Placeholder — ADRE 4th Grade GK question.",    options: ["A","B","C","D"], correct: 0 }],
   },
   "3rd Grade (HS Pass)": {
-    "Maths": [
-      { q: "Placeholder — ADRE 3rd Grade (HS Pass) Maths question.",
-        options: ["A", "B", "C", "D"], correct: 0 },
-    ],
-    "GK": [
-      { q: "Placeholder — ADRE 3rd Grade (HS Pass) GK question.",
-        options: ["A", "B", "C", "D"], correct: 0 },
-    ],
+    "Maths": [{ q: "Placeholder — ADRE 3rd Grade (HS Pass) Maths question.", options: ["A","B","C","D"], correct: 0 }],
+    "GK":    [{ q: "Placeholder — ADRE 3rd Grade (HS Pass) GK question.",    options: ["A","B","C","D"], correct: 0 }],
   },
   "3rd Grade (Graduate)": {
-    "Maths": [
-      { q: "Placeholder — ADRE 3rd Grade (Graduate) Maths question.",
-        options: ["A", "B", "C", "D"], correct: 0 },
-    ],
-    "GK": [
-      { q: "Placeholder — ADRE 3rd Grade (Graduate) GK question.",
-        options: ["A", "B", "C", "D"], correct: 0 },
-    ],
+    "Maths": [{ q: "Placeholder — ADRE 3rd Grade (Graduate) Maths question.", options: ["A","B","C","D"], correct: 0 }],
+    "GK":    [{ q: "Placeholder — ADRE 3rd Grade (Graduate) GK question.",    options: ["A","B","C","D"], correct: 0 }],
   },
 };
 
 /* ===================================================================
-   PAID MOCK QUESTIONS — per grade + subject
+   FREE MOCK — DETAILED SOLUTION PDF LINKS (optional)
+   Upload PDFs to a /pdfs folder in your repo, then paste their path here.
+   Example: "4th Grade": { "Maths": "pdfs/solution-4th-maths.pdf" }
+   Leave empty ("") if you don't have one yet.
+   =================================================================== */
+const SOLUTIONS = {
+  "4th Grade":            { "Maths": "", "GK": "" },
+  "3rd Grade (HS Pass)":  { "Maths": "", "GK": "" },
+  "3rd Grade (Graduate)": { "Maths": "", "GK": "" },
+};
+
+/* ===================================================================
+   PAID MOCK QUESTIONS — replace with real questions
    =================================================================== */
 const PAID_QUESTIONS = {
-  "4th Grade": {
-    "Maths": [],
-    "GK": [],
-  },
-  "3rd Grade (HS Pass)": {
-    "Maths": [],
-    "GK": [],
-  },
-  "3rd Grade (Graduate)": {
-    "Maths": [],
-    "GK": [],
-  },
+  "4th Grade":            { "Maths": [], "GK": [] },
+  "3rd Grade (HS Pass)":  { "Maths": [], "GK": [] },
+  "3rd Grade (Graduate)": { "Maths": [], "GK": [] },
 };
 
 const PAID_MOCK_DETAILS = [
@@ -470,13 +421,13 @@ const PAID_MOCK_DETAILS = [
    STATE
    =================================================================== */
 let timerInterval = null;
+let currentPaySubject = "Maths";
 
 /* ===================================================================
    BUILD SELECTORS
    =================================================================== */
 function buildGradeRow(){
   const row = document.getElementById("gradeRow");
-  row.querySelectorAll(".grade-tab").forEach(el => el.remove());
   GRADES.forEach((g, i) => {
     const b = document.createElement("button");
     b.className = "grade-tab" + (i === 0 ? " active" : "");
@@ -492,7 +443,6 @@ function buildGradeRow(){
 }
 function buildSubjectRow(){
   const row = document.getElementById("subjectRow");
-  row.querySelectorAll(".subject-tab").forEach(el => el.remove());
   SUBJECTS.forEach((s, i) => {
     const b = document.createElement("button");
     b.className = "subject-tab" + (i === 0 ? " active" : "");
@@ -509,13 +459,9 @@ function buildSubjectRow(){
 
 function refreshView(){
   document.getElementById("mockQuizBox").style.display = "none";
+  document.getElementById("freeSolutionsSlot").innerHTML = "";
   document.getElementById("paidTitle").textContent = `${activeSubject} — full series`;
-  document.getElementById("paidMockDetails").innerHTML =
-    PAID_MOCK_DETAILS.map(d => `<li>${d}</li>`).join("");
-  document.getElementById("payGrade").innerHTML =
-    GRADES.map(g => `<option>${g}</option>`).join("");
-  document.getElementById("payGrade").value = activeGrade;
-  document.getElementById("paySubject").value = "Maths";
+  document.getElementById("paidMockDetails").innerHTML = PAID_MOCK_DETAILS.map(d => `<li>${d}</li>`).join("");
   refreshPaidAccess();
 }
 
@@ -541,8 +487,7 @@ function runQuiz(container, questions){
     container.innerHTML = `
       <div class="qnum">Question ${qIndex + 1} of ${questions.length}</div>
       <div class="qtext">${item.q}</div>
-      <div class="qoptions">${item.options.map((o,i) =>
-        `<button class="qoption" data-i="${i}">${o}</button>`).join("")}</div>
+      <div class="qoptions">${item.options.map((o,i) => `<button class="qoption" data-i="${i}">${o}</button>`).join("")}</div>
       <div class="qfeedback"></div>
       <div class="qfooter">
         <span class="qscore">Score: ${score}/${qIndex}</span>
@@ -578,10 +523,18 @@ document.getElementById("startFreeMock").addEventListener("click", () => {
   const questions = (FREE_MOCK[activeGrade] && FREE_MOCK[activeGrade][activeSubject]) || [];
   runQuiz(box, questions);
   box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+  const slot = document.getElementById("freeSolutionsSlot");
+  const url = (SOLUTIONS[activeGrade] && SOLUTIONS[activeGrade][activeSubject]) || "";
+  if (url){
+    slot.innerHTML = `<a class="solution-link" href="${url}" target="_blank" rel="noopener">📄 Download detailed solutions (PDF)</a>`;
+  } else {
+    slot.innerHTML = "";
+  }
 });
 
 /* ===================================================================
-   PAID ACCESS — stored in localStorage after form submit
+   PAID ACCESS
    =================================================================== */
 function getUnlockedList(){
   try { return JSON.parse(localStorage.getItem("bishleshon_unlocked")) || []; }
@@ -594,18 +547,16 @@ function isUnlocked(grade, subject){
   const list = getUnlockedList();
   return list.some(u => u.grade === grade && (u.subject === subject || u.subject === "Both"));
 }
-
 function refreshPaidAccess(){
   const wrap = document.getElementById("paidContentWrap");
   const banner = document.getElementById("paidBanner");
   const box = document.getElementById("paidQuizBox");
-
   if (isUnlocked(activeGrade, activeSubject)){
     wrap.style.display = "block";
     banner.textContent = `Access unlocked — ${activeGrade} · ${activeSubject}`;
     const qs = (PAID_QUESTIONS[activeGrade] && PAID_QUESTIONS[activeGrade][activeSubject]) || [];
     if (!qs.length){
-      box.innerHTML = `<p class="empty-note">No paid papers uploaded for ${activeGrade} · ${activeSubject} yet — they'll appear here as they're added.</p>`;
+      box.innerHTML = `<p class="empty-note">No paid papers uploaded for ${activeGrade} · ${activeSubject} yet.</p>`;
     } else {
       runQuiz(box, qs);
     }
@@ -615,20 +566,53 @@ function refreshPaidAccess(){
 }
 
 /* ===================================================================
-   PAYMENT PANEL + TIMER
+   PAYMENT MODAL
    =================================================================== */
+const payModal = document.getElementById("payModal");
+
 document.getElementById("openPayPanel").addEventListener("click", () => {
-  const panel = document.getElementById("payPanel");
-  panel.classList.add("open");
+  currentPaySubject = activeSubject;
+  document.getElementById("payModalTitle").textContent = `Pay ₹${PRICE_PER_SUBJECT} to unlock`;
+  document.getElementById("payModalSubtitle").textContent = `${activeGrade} · ${activeSubject}`;
+  const upiUrl = `upi://pay?pa=${UPI_ID}&pn=Kuldip%20Sir&am=${PRICE_PER_SUBJECT}&cu=INR&tn=ADRE%20${encodeURIComponent(activeGrade)}%20${encodeURIComponent(activeSubject)}`;
+  document.getElementById("openUpiApp").href = upiUrl;
+  document.getElementById("upiQr").src = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${encodeURIComponent(upiUrl)}`;
+  payModal.classList.add("open");
   startTimer();
-  panel.scrollIntoView({ behavior: "smooth", block: "start" });
+});
+document.getElementById("payModalClose").addEventListener("click", () => {
+  payModal.classList.remove("open");
+  if (timerInterval) clearInterval(timerInterval);
+});
+payModal.addEventListener("click", e => {
+  if (e.target === payModal){
+    payModal.classList.remove("open");
+    if (timerInterval) clearInterval(timerInterval);
+  }
+});
+
+document.getElementById("copyUpiBtn").addEventListener("click", async () => {
+  const btn = document.getElementById("copyUpiBtn");
+  try {
+    await navigator.clipboard.writeText(UPI_ID);
+    btn.textContent = "Copied!";
+    btn.classList.add("copied");
+    setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("copied"); }, 1800);
+  } catch (e){
+    const range = document.createRange();
+    range.selectNodeContents(document.getElementById("upiDisplay"));
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    btn.textContent = "Press Ctrl+C";
+    setTimeout(() => { btn.textContent = "Copy"; }, 2500);
+  }
 });
 
 function startTimer(){
   if (timerInterval) clearInterval(timerInterval);
   const timerEl = document.getElementById("payTimer");
-  timerEl.classList.remove("expired");
-  let seconds = 5 * 60;
+  let seconds = 10 * 60;
   function tick(){
     const m = String(Math.floor(seconds / 60)).padStart(2, "0");
     const s = String(seconds % 60).padStart(2, "0");
@@ -636,7 +620,6 @@ function startTimer(){
     if (seconds <= 0){
       clearInterval(timerInterval);
       timerEl.textContent = "⏱ Time's up — but you can still submit below.";
-      timerEl.classList.add("expired");
       return;
     }
     seconds--;
@@ -646,7 +629,7 @@ function startTimer(){
 }
 
 /* ===================================================================
-   PAYMENT FORM → Google Sheet
+   PAY FORM → Google Sheet
    =================================================================== */
 document.getElementById("payForm").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -655,13 +638,10 @@ document.getElementById("payForm").addEventListener("submit", async (e) => {
 
   const name = document.getElementById("pName").value.trim();
   const whatsapp = document.getElementById("pWhatsapp").value.trim();
-  const grade = document.getElementById("pGrade").value;
-  const subject = document.getElementById("pSubject").value;
   const utr = document.getElementById("pUtr").value.trim();
-  const app = document.getElementById("pApp").value;
 
-  if (!name || !whatsapp || !utr || !app){
-    msg.textContent = "Please fill all fields.";
+  if (!name || !whatsapp || !utr){
+    msg.textContent = "Please fill all 3 fields.";
     msg.className = "form-msg err";
     return;
   }
@@ -675,34 +655,40 @@ document.getElementById("payForm").addEventListener("submit", async (e) => {
   msg.textContent = "Saving…";
   msg.className = "form-msg";
 
-  const amount = subject === "Both" ? PRICE_PER_SUBJECT * 2 : PRICE_PER_SUBJECT;
-  const payload = { name, whatsapp, grade, subject, utr, app, amount };
+  const payload = {
+    name, whatsapp,
+    grade: activeGrade,
+    subject: currentPaySubject,
+    utr,
+    app: "",
+    amount: PRICE_PER_SUBJECT,
+  };
 
   try {
-    // Use no-cors fire-and-forget; Apps Script will still save the row.
     await fetch(SHEET_WEBHOOK_URL, {
       method: "POST",
       mode: "no-cors",
       headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify(payload),
     });
-  } catch (err){
-    // Silent — Apps Script writes anyway; we don't block the unlock.
-  }
+  } catch (err){ /* silent — Apps Script writes anyway */ }
 
-  // Unlock locally
   const list = getUnlockedList();
-  list.push({ grade, subject, utr, ts: Date.now() });
+  list.push({ grade: activeGrade, subject: currentPaySubject, utr, ts: Date.now() });
   saveUnlockedList(list);
 
-  msg.textContent = "Unlocked! Loading your mock tests…";
+  msg.textContent = "Unlocked! Loading…";
   msg.className = "form-msg ok";
 
-  document.getElementById("payPanel").classList.remove("open");
-  refreshPaidAccess();
-  document.getElementById("paidContentWrap").scrollIntoView({ behavior: "smooth", block: "start" });
-
-  btn.disabled = false;
+  setTimeout(() => {
+    payModal.classList.remove("open");
+    if (timerInterval) clearInterval(timerInterval);
+    document.getElementById("payForm").reset();
+    msg.textContent = "";
+    refreshPaidAccess();
+    document.getElementById("paidContentWrap").scrollIntoView({ behavior: "smooth", block: "start" });
+    btn.disabled = false;
+  }, 700);
 });
 
 /* ===================================================================
@@ -714,12 +700,8 @@ document.getElementById("payForm").addEventListener("submit", async (e) => {
   function buildMessage(){
     const name = document.getElementById("dName").value.trim();
     const grade = document.getElementById("dGrade").value;
-    const topic = document.getElementById("dTopic").value.trim();
     const question = document.getElementById("dQuestion").value.trim();
-    let msg = `Hi, I have a doubt.\nName: ${name}\nGrade: ${grade}`;
-    if (topic) msg += `\nTopic: ${topic}`;
-    msg += `\nQuestion: ${question}`;
-    return msg;
+    return `Hi, I have a doubt.\nName: ${name}\nGrade: ${grade}\nQuestion: ${question}`;
   }
   form.addEventListener("submit", e => {
     e.preventDefault();
@@ -736,8 +718,6 @@ document.getElementById("payForm").addEventListener("submit", async (e) => {
    INIT
    =================================================================== */
 document.getElementById("upiDisplay").textContent = UPI_ID;
-document.getElementById("upiQr").src =
-  `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent("upi://pay?pa=" + UPI_ID + "&pn=Kuldip%20Sir&am=9&cu=INR")}`;
 buildGradeRow();
 buildSubjectRow();
 refreshView();
