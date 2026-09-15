@@ -482,7 +482,7 @@
   </div>
 </div>
 
-<div class="modal-overlay" id="submitDialog">
+<div class="modal-overlay" id="submitDialog" style="z-index:300;">
   <div class="submit-dialog">
     <h3>Submit your test?</h3>
     <p>Once submitted, you cannot change your answers.</p>
@@ -843,7 +843,8 @@ document.getElementById("payForm").addEventListener("submit", async (e) => {
   }
 
   btn.disabled = true;
-  msg.textContent = "Saving…";
+  btn.textContent = "Verifying…";
+  msg.textContent = "Please wait — verifying your payment…";
   msg.className = "form-msg";
 
   const payload = { name, whatsapp, grade: activeGrade, subject: activeSubject, utr, app: "", amount: PRICE_PER_SUBJECT };
@@ -867,10 +868,11 @@ document.getElementById("payForm").addEventListener("submit", async (e) => {
     payModal.classList.remove("open");
     document.getElementById("payForm").reset();
     msg.textContent = "";
+    btn.disabled = false;
+    btn.textContent = "Submit & unlock";
     refreshPaidAccess();
     document.getElementById("paidContentWrap").scrollIntoView({ behavior: "smooth", block: "start" });
-    btn.disabled = false;
-  }, 700);
+  }, 900);
 });
 
 /* ===================================================================
@@ -944,7 +946,7 @@ function renderQuestion(){
       </div>
       <div class="q-nav">
         <button class="prev" id="prevBtn" ${i === 0 ? "disabled" : ""}>◀ Previous</button>
-        <button class="next" id="nextBtn">${i === examState.questions.length - 1 ? "Review last ▶" : "Next ▶"}</button>
+        <button class="next" id="nextBtn">${i === examState.questions.length - 1 ? "Go to Submit ▶" : "Next ▶"}</button>
       </div>
     </div>
   `;
