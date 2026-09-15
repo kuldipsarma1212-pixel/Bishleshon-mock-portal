@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ADRE Mock Tests — Bishleshon Education</title>
-<meta name="description" content="Exam-realistic ADRE mock tests for Maths and GK — 4th Grade, 3rd Grade (HS Pass), 3rd Grade (Graduate). Free test to start. Full series ₹9.">
+<meta name="description" content="Exam-realistic ADRE mock tests with bilingual questions, timer, negative marking and detailed solutions.">
 <meta name="theme-color" content="#0B1F35">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230B1F35'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='600' fill='%23E8AC3D' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --navy:#0B1F35; --navy-soft:#12314F; --navy-line:#20415F;
@@ -18,8 +18,10 @@
     --orange:#FF6A3D; --orange-dark:#E1552A;
     --gold:#E8AC3D; --gold-dark:#C68C22;
     --teal:#0F8E82; --teal-soft:#E4F5F2;
+    --green:#16A34A; --red:#DC2626;
     --serif:'Source Serif 4', Georgia, serif;
     --sans:'Inter', system-ui, sans-serif;
+    --as:'Noto Sans Bengali', 'Nirmala UI', sans-serif;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -29,23 +31,23 @@
   h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0 0 .4em;color:var(--ink);}
   h2{font-size:clamp(1.5rem,3vw,2rem);} h3{font-size:1.05rem;font-weight:600;}
   p{color:var(--ink-dim);margin:0 0 1em;}
+  .as{font-family:var(--as);}
   .eyebrow-mark{font-family:var(--serif);font-style:italic;color:var(--teal);font-size:.92rem;display:block;margin-bottom:.5em;}
 
   .topbar{position:sticky;top:0;z-index:40;background:var(--navy);border-bottom:1px solid var(--navy-line);}
-  .topbar-inner{max-width:1100px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
-  .brand{text-decoration:none;color:#fff;font-family:var(--serif);font-weight:600;font-size:1.15rem;letter-spacing:.01em;}
+  .topbar-inner{max-width:1100px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .brand{text-decoration:none;color:#fff;font-family:var(--serif);font-weight:600;font-size:1.1rem;}
   .brand span{color:var(--gold);font-style:italic;font-weight:500;}
-  .toplinks{display:flex;gap:20px;flex-wrap:wrap;font-size:.9rem;align-items:center;}
-  .toplinks a{text-decoration:none;color:#C7D2E0;border-bottom:1px solid transparent;padding-bottom:2px;transition:color .15s,border-color .15s;}
+  .toplinks{display:flex;gap:18px;flex-wrap:wrap;font-size:.88rem;align-items:center;}
+  .toplinks a{text-decoration:none;color:#C7D2E0;border-bottom:1px solid transparent;padding-bottom:2px;}
   .toplinks a:hover{color:#fff;border-color:var(--gold);}
 
-  .hero{padding:64px 0 44px;background:linear-gradient(180deg,var(--navy) 0%,var(--navy) 62%,var(--bg) 62%);position:relative;}
-  .hero-inner{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:44px 40px;box-shadow:0 20px 50px -25px rgba(11,31,53,.35);}
-  .hero-eq{position:absolute;font-family:var(--serif);font-style:italic;color:rgba(255,255,255,.14);font-size:2.2rem;pointer-events:none;user-select:none;}
-  .kicker-pill{display:inline-flex;align-items:center;gap:7px;background:var(--teal-soft);color:var(--teal);font-size:.78rem;font-weight:700;padding:6px 13px;border-radius:999px;margin-bottom:18px;}
-  .hero h1{font-size:clamp(1.9rem,4vw,2.6rem);max-width:22ch;}
-  .hero p.lead{max-width:56ch;font-size:1.05rem;}
-  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0 26px;}
+  .hero{padding:56px 0 40px;background:linear-gradient(180deg,var(--navy) 0%,var(--navy) 62%,var(--bg) 62%);position:relative;}
+  .hero-inner{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:40px 36px;box-shadow:0 20px 50px -25px rgba(11,31,53,.35);}
+  .kicker-pill{display:inline-flex;align-items:center;gap:7px;background:var(--teal-soft);color:var(--teal);font-size:.78rem;font-weight:700;padding:6px 13px;border-radius:999px;margin-bottom:16px;}
+  .hero h1{font-size:clamp(1.7rem,3.6vw,2.4rem);max-width:24ch;}
+  .hero p.lead{max-width:60ch;font-size:1rem;}
+  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0 24px;}
   .btn{font-family:var(--sans);font-size:.9rem;font-weight:700;border:none;padding:12px 22px;border-radius:6px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;justify-content:center;}
   .btn-primary{background:var(--orange);color:#fff;}
   .btn-primary:hover{background:var(--orange-dark);}
@@ -53,13 +55,17 @@
   .btn-outline:hover{border-color:var(--navy);}
   .btn-gold{background:var(--gold);color:#3A2600;}
   .btn-gold:hover{background:var(--gold-dark);color:#fff;}
-  .trust-row{display:flex;gap:26px;flex-wrap:wrap;border-top:1px solid var(--border);padding-top:20px;}
+  .btn-teal{background:var(--teal);color:#fff;}
+  .btn-teal:hover{background:#0B6E64;}
+  .btn-ghost{background:#fff;color:var(--ink-dim);border:1px solid var(--border);}
+  .btn-ghost:hover{border-color:var(--ink-faint);color:var(--ink);}
+  .trust-row{display:flex;gap:26px;flex-wrap:wrap;border-top:1px solid var(--border);padding-top:18px;}
   .trust-item{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--ink-dim);}
   .trust-item svg{color:var(--teal);flex-shrink:0;}
 
-  .section{padding:52px 0;}
+  .section{padding:48px 0;}
   .section.alt{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:26px;}
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:24px;}
   .section-head p{margin:0;max-width:48ch;}
 
   .teacher-card{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;}
@@ -68,7 +74,7 @@
   .teacher-role{color:var(--orange);font-size:.85rem;font-weight:600;margin-bottom:8px;display:block;}
   .teacher-bio{font-size:.92rem;max-width:65ch;margin-bottom:0;}
 
-  .selector-row{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 20px;align-items:center;}
+  .selector-row{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px;align-items:center;}
   .selector-label{font-size:.75rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint);margin-right:4px;}
   .grade-tab, .subject-tab{background:#fff;border:1px solid var(--border);color:var(--ink-dim);font-family:var(--sans);font-size:.88rem;font-weight:600;padding:10px 18px;border-radius:8px;cursor:pointer;transition:.15s;}
   .grade-tab:hover, .subject-tab:hover{border-color:var(--ink-faint);color:var(--ink);}
@@ -84,23 +90,7 @@
   .mock-card li{margin-bottom:4px;}
   .mock-card h3{margin-bottom:2px;}
 
-  .quiz-box{background:#fff;border:1px solid var(--border);border-radius:10px;padding:24px;margin-top:20px;}
-  .qnum{font-family:var(--serif);font-style:italic;color:var(--teal);font-size:.9rem;margin-bottom:8px;}
-  .qtext{font-size:1.05rem;color:var(--ink);margin-bottom:18px;}
-  .qoptions{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
-  .qoption{text-align:left;background:#fff;border:1px solid var(--border);color:var(--ink-dim);padding:11px 14px;border-radius:6px;cursor:pointer;font-family:var(--sans);font-size:.92rem;transition:.15s;}
-  .qoption:hover{border-color:var(--ink-faint);color:var(--ink);}
-  .qoption.correct{border-color:var(--teal);color:var(--teal);background:var(--teal-soft);}
-  .qoption.wrong{border-color:var(--orange);color:var(--orange-dark);background:#FFF1EC;}
-  .qfeedback{font-size:.88rem;color:var(--ink-dim);min-height:1.4em;margin-bottom:16px;}
-  .qfooter{display:flex;justify-content:space-between;align-items:center;}
-  .qscore{font-size:.85rem;color:var(--ink-dim);}
-  .btn-small{font-family:var(--sans);font-size:.85rem;font-weight:700;background:var(--navy);color:#fff;border:none;padding:9px 18px;border-radius:6px;cursor:pointer;}
-  .btn-small:hover{background:var(--navy-soft);}
-  .btn-small:disabled{opacity:.4;cursor:default;}
-  .empty-note{color:var(--ink-dim);font-size:.92rem;border:1px dashed var(--border);border-radius:8px;padding:26px;text-align:center;background:var(--surface);margin:0;}
-
-  .modal-overlay{position:fixed;inset:0;background:rgba(8,18,32,.7);display:none;align-items:flex-start;justify-content:center;z-index:100;padding:20px;overflow-y:auto;}
+  .modal-overlay{position:fixed;inset:0;background:rgba(8,18,32,.75);display:none;align-items:flex-start;justify-content:center;z-index:100;padding:20px;overflow-y:auto;}
   .modal-overlay.open{display:flex;}
   .modal-box{background:#fff;border-radius:12px;padding:28px;width:100%;max-width:520px;margin:auto;position:relative;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);}
   .modal-close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--ink-faint);cursor:pointer;font-size:1.4rem;line-height:1;padding:4px 8px;border-radius:6px;}
@@ -109,15 +99,25 @@
   .modal-box p{font-size:.92rem;}
   .modal-box .modal-subtitle{color:var(--teal);font-weight:600;font-size:.85rem;margin-bottom:16px;}
 
-  .pay-block{background:var(--bg);border-radius:10px;padding:18px;margin-bottom:18px;}
-  .upi-line{font-family:var(--serif);font-size:1rem;color:var(--ink);background:var(--teal-soft);padding:10px 14px;border-radius:6px;display:flex;align-items:center;justify-content:space-between;gap:10px;margin:8px 0;}
-  .upi-line strong{color:var(--navy);font-weight:700;font-size:.95rem;word-break:break-all;}
-  .copy-btn{background:var(--navy);color:#fff;border:none;font-family:var(--sans);font-size:.75rem;font-weight:700;padding:6px 10px;border-radius:5px;cursor:pointer;white-space:nowrap;}
+  .pay-primary{background:linear-gradient(135deg,#E8AC3D 0%,#C68C22 100%);border-radius:12px;padding:20px;margin-bottom:16px;text-align:center;}
+  .pay-primary .pay-headline{color:#3A2600;font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;}
+  .pay-primary .pay-amount{font-family:var(--serif);font-size:2.2rem;font-weight:700;color:#3A2600;line-height:1;margin-bottom:14px;}
+  .pay-primary a.btn-upi-app{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--navy);color:#fff;text-decoration:none;padding:16px 24px;border-radius:8px;font-weight:700;font-size:1rem;box-shadow:0 6px 16px -6px rgba(0,0,0,.4);}
+  .pay-primary a.btn-upi-app:hover{background:#000;}
+  .pay-primary a.btn-upi-app svg{flex-shrink:0;}
+
+  .pay-other{margin-top:4px;}
+  .pay-other summary{cursor:pointer;font-size:.85rem;color:var(--ink-dim);font-weight:600;padding:8px 0;list-style:none;}
+  .pay-other summary::-webkit-details-marker{display:none;}
+  .pay-other summary::before{content:"▸ ";color:var(--teal);}
+  .pay-other[open] summary::before{content:"▾ ";}
+  .qr-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:12px 0;}
+  .qr-row img{width:120px;height:120px;border-radius:8px;border:1px solid var(--border);background:#fff;padding:6px;}
+  .upi-line{font-family:var(--sans);font-size:.9rem;background:var(--teal-soft);padding:10px 12px;border-radius:6px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex:1;min-width:200px;}
+  .upi-line strong{color:var(--navy);font-weight:700;font-size:.85rem;word-break:break-all;}
+  .copy-btn{background:var(--navy);color:#fff;border:none;font-size:.72rem;font-weight:700;padding:6px 10px;border-radius:5px;cursor:pointer;white-space:nowrap;font-family:var(--sans);}
   .copy-btn:hover{background:var(--navy-soft);}
   .copy-btn.copied{background:var(--teal);}
-  .qr-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
-  .qr-row img{width:130px;height:130px;border-radius:8px;border:1px solid var(--border);background:#fff;padding:6px;}
-  .timer{display:inline-flex;align-items:center;gap:8px;background:#FFF1EC;color:var(--orange-dark);font-weight:700;font-size:.88rem;padding:8px 14px;border-radius:999px;margin:8px 0;}
 
   .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
   @media (max-width:520px){.form-grid{grid-template-columns:1fr;}}
@@ -133,8 +133,6 @@
 
   .verified-banner{background:var(--teal-soft);color:var(--teal);font-weight:700;font-size:.9rem;padding:12px 16px;border-radius:8px;margin-top:14px;}
   .pending-note{background:#FFF8E8;border:1px solid #F0DCB0;color:#7A5B0E;font-size:.85rem;padding:12px 16px;border-radius:8px;margin-top:14px;}
-  .solution-link{display:inline-flex;align-items:center;gap:8px;background:var(--teal-soft);color:var(--teal);font-weight:700;font-size:.85rem;text-decoration:none;padding:10px 16px;border-radius:6px;margin-top:12px;}
-  .solution-link:hover{background:var(--teal);color:#fff;}
 
   .doubt-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;}
   @media (max-width:760px){.doubt-layout{grid-template-columns:1fr;}}
@@ -143,10 +141,139 @@
   .doubt-side ul{padding-left:18px;margin:0;color:var(--ink-dim);font-size:.9rem;}
   .doubt-side li{margin-bottom:8px;}
 
-  footer{padding:36px 0;text-align:center;background:var(--navy);}
+  footer{padding:32px 0;text-align:center;background:var(--navy);}
   footer p{font-size:.85rem;color:#8FA0B6;margin:0 0 6px;}
   footer a{text-decoration:none;color:#C7D2E0;margin:0 8px;}
   footer a:hover{color:var(--gold);}
+
+  /* EXAM MODE */
+  .exam-shell{position:fixed;inset:0;background:#0B1F35;z-index:200;display:none;flex-direction:column;color:#fff;}
+  .exam-shell.open{display:flex;}
+  .exam-header{background:#0B1F35;border-bottom:1px solid #20415F;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .exam-title{font-family:var(--serif);font-size:1rem;color:#fff;}
+  .exam-title small{color:#8FA0B6;font-family:var(--sans);font-size:.78rem;display:block;font-weight:400;}
+  .exam-timer{font-family:'Source Serif 4', serif;font-size:1.5rem;font-weight:600;color:var(--gold);letter-spacing:.02em;}
+  .exam-timer.warning{color:#FF6A3D;}
+  .exam-timer.danger{color:#DC2626;animation:pulse 1.2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.5;}}
+  .exam-submit{background:var(--orange);color:#fff;border:none;padding:10px 20px;border-radius:6px;font-weight:700;font-size:.88rem;cursor:pointer;}
+  .exam-submit:hover{background:var(--orange-dark);}
+
+  .exam-body{flex:1;overflow-y:auto;padding:24px 20px 100px;}
+  @media (min-width:900px){.exam-body{padding:32px 40px 40px;}}
+
+  .exam-grid{display:grid;grid-template-columns:1fr;gap:24px;max-width:1300px;margin:0 auto;}
+  @media (min-width:1000px){.exam-grid{grid-template-columns:1fr 280px;}}
+
+  .q-card{background:#fff;color:var(--ink);border-radius:12px;padding:28px;}
+  .q-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px;}
+  .q-index{font-family:var(--serif);font-style:italic;font-size:.9rem;color:var(--teal);}
+  .q-flag{background:transparent;border:1px solid var(--border);color:var(--ink-dim);font-size:.78rem;font-weight:700;padding:6px 12px;border-radius:999px;cursor:pointer;font-family:var(--sans);}
+  .q-flag.flagged{background:#FEF3C7;border-color:#F0DCB0;color:#92400E;}
+  .q-en{font-size:1.05rem;line-height:1.55;color:var(--ink);margin-bottom:8px;}
+  .q-as{font-size:1.02rem;line-height:1.75;color:var(--ink-dim);margin-bottom:22px;font-family:var(--as);}
+  .q-options{display:flex;flex-direction:column;gap:10px;margin-bottom:22px;}
+  .q-option{display:flex;align-items:flex-start;gap:12px;background:#fff;border:1.5px solid var(--border);color:var(--ink);padding:14px 16px;border-radius:8px;cursor:pointer;font-family:var(--sans);font-size:.95rem;text-align:left;transition:.12s;}
+  .q-option:hover{border-color:var(--ink-faint);background:#FAFBFD;}
+  .q-option.selected{border-color:var(--teal);background:var(--teal-soft);}
+  .q-option .letter{width:24px;height:24px;border-radius:50%;background:var(--bg);color:var(--ink-dim);font-size:.8rem;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .q-option.selected .letter{background:var(--teal);color:#fff;}
+  .q-option .opt-text{flex:1;line-height:1.4;}
+  .q-option .opt-as{display:block;font-size:.88rem;color:var(--ink-faint);font-family:var(--as);margin-top:2px;}
+  .q-option.selected .opt-as{color:var(--teal);}
+  .q-nav{display:flex;justify-content:space-between;gap:12px;}
+  .q-nav button{padding:12px 22px;border-radius:6px;font-weight:700;font-size:.9rem;cursor:pointer;border:none;font-family:var(--sans);}
+  .q-nav .prev{background:#fff;color:var(--ink-dim);border:1px solid var(--border);}
+  .q-nav .prev:hover{border-color:var(--ink-faint);color:var(--ink);}
+  .q-nav .next{background:var(--teal);color:#fff;}
+  .q-nav .next:hover{background:#0B6E64;}
+  .q-nav .prev:disabled,.q-nav .next:disabled{opacity:.4;cursor:default;}
+
+  .palette{background:#fff;color:var(--ink);border-radius:12px;padding:20px;height:fit-content;position:sticky;top:20px;}
+  .palette h4{font-family:var(--sans);font-size:.75rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 12px;}
+  .palette-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px;}
+  .p-btn{aspect-ratio:1;border:1.5px solid var(--border);background:#fff;color:var(--ink-dim);font-weight:700;font-size:.85rem;border-radius:6px;cursor:pointer;font-family:var(--sans);position:relative;}
+  .p-btn:hover{border-color:var(--ink-faint);}
+  .p-btn.answered{background:var(--teal);border-color:var(--teal);color:#fff;}
+  .p-btn.flagged{background:#FEF3C7;border-color:#F0DCB0;color:#92400E;}
+  .p-btn.answered.flagged{background:var(--teal);border-color:#F0DCB0;box-shadow:inset 0 0 0 2px #F0DCB0;}
+  .p-btn.current{outline:2px solid var(--orange);outline-offset:2px;}
+  .palette-legend{font-size:.75rem;color:var(--ink-dim);line-height:1.9;}
+  .palette-legend span.sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:middle;border:1px solid var(--border);}
+  .palette-legend .sw.answered{background:var(--teal);border-color:var(--teal);}
+  .palette-legend .sw.flagged{background:#FEF3C7;border-color:#F0DCB0;}
+  .palette-legend .sw.unanswered{background:#fff;}
+
+  .submit-dialog{background:#fff;color:var(--ink);border-radius:12px;padding:28px;max-width:440px;width:100%;}
+  .submit-dialog h3{font-size:1.2rem;margin-bottom:8px;}
+  .submit-dialog .stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:16px 0;font-size:.85rem;}
+  .submit-dialog .stat{background:var(--bg);padding:12px;border-radius:8px;text-align:center;}
+  .submit-dialog .stat strong{display:block;font-family:var(--serif);font-size:1.5rem;color:var(--ink);}
+  .submit-dialog .stat small{color:var(--ink-dim);}
+  .submit-dialog .actions{display:flex;gap:10px;margin-top:16px;}
+  .submit-dialog .actions button{flex:1;padding:12px;border-radius:6px;font-weight:700;font-size:.9rem;cursor:pointer;border:none;font-family:var(--sans);}
+
+  .results-shell{position:fixed;inset:0;background:var(--bg);z-index:210;display:none;overflow-y:auto;}
+  .results-shell.open{display:block;}
+  .results-header{background:var(--navy);color:#fff;padding:24px 20px;text-align:center;}
+  .results-header h2{color:#fff;margin-bottom:6px;font-size:1.5rem;}
+  .results-header p{color:#C7D2E0;margin:0;}
+  .results-score{font-family:var(--serif);font-size:3rem;font-weight:700;color:var(--gold);line-height:1;margin:16px 0 4px;}
+  .results-body{max-width:900px;margin:0 auto;padding:28px 20px 60px;}
+  .stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:24px;}
+  @media (min-width:600px){.stat-grid{grid-template-columns:repeat(4,1fr);}}
+  .stat-box{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;}
+  .stat-box strong{display:block;font-family:var(--serif);font-size:1.8rem;margin-bottom:2px;}
+  .stat-box small{font-size:.78rem;color:var(--ink-dim);}
+  .stat-box.correct strong{color:var(--green);}
+  .stat-box.wrong strong{color:var(--red);}
+  .stat-box.skipped strong{color:var(--ink-faint);}
+  .stat-box.negative strong{color:var(--orange-dark);}
+
+  .analysis-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:22px;margin-bottom:20px;}
+  .analysis-card h3{margin-bottom:14px;}
+  .topic-row{margin-bottom:14px;}
+  .topic-row .topic-name{display:flex;justify-content:space-between;font-size:.88rem;margin-bottom:5px;gap:8px;flex-wrap:wrap;}
+  .topic-row .topic-name strong{color:var(--ink);font-weight:600;}
+  .topic-row .topic-name span{color:var(--ink-dim);}
+  .topic-bar{height:8px;background:var(--bg);border-radius:99px;overflow:hidden;}
+  .topic-bar .fill{height:100%;background:var(--teal);border-radius:99px;transition:width .6s;}
+  .topic-bar.weak .fill{background:var(--red);}
+  .topic-bar.mid .fill{background:var(--gold);}
+  .topic-tag{font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:99px;letter-spacing:.03em;text-transform:uppercase;margin-left:8px;}
+  .topic-tag.weak{background:#FEE2E2;color:var(--red);}
+  .topic-tag.strong{background:#D1FAE5;color:var(--green);}
+  .topic-tag.mid{background:#FEF3C7;color:#92400E;}
+
+  .review-intro{font-size:.9rem;color:var(--ink-dim);margin-bottom:16px;}
+  .review-q{background:#fff;border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:14px;}
+  .review-q .rq-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px;flex-wrap:wrap;}
+  .review-q .rq-num{font-family:var(--serif);font-style:italic;color:var(--teal);font-size:.9rem;}
+  .review-q .rq-badge{font-size:.72rem;font-weight:800;padding:4px 10px;border-radius:99px;}
+  .review-q .rq-badge.correct{background:#D1FAE5;color:var(--green);}
+  .review-q .rq-badge.wrong{background:#FEE2E2;color:var(--red);}
+  .review-q .rq-badge.skipped{background:#F3F4F6;color:var(--ink-faint);}
+  .review-q .rq-en{font-size:.95rem;color:var(--ink);margin-bottom:4px;}
+  .review-q .rq-as{font-size:.92rem;color:var(--ink-dim);font-family:var(--as);margin-bottom:14px;}
+  .review-q .rq-opts{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;font-size:.9rem;}
+  .review-q .rq-opt{padding:8px 12px;border-radius:6px;background:var(--bg);color:var(--ink-dim);display:flex;gap:10px;align-items:flex-start;}
+  .review-q .rq-opt.correct{background:#D1FAE5;color:#065F46;font-weight:600;}
+  .review-q .rq-opt.wrong{background:#FEE2E2;color:#991B1B;}
+  .review-q .rq-opt .ltr{font-weight:700;flex-shrink:0;}
+  .review-q .rq-opt .opt-as{font-family:var(--as);font-size:.85rem;color:inherit;opacity:.85;display:block;}
+  .review-q .rq-expl{background:var(--bg);border-radius:8px;padding:14px;font-size:.88rem;color:var(--ink-dim);line-height:1.6;}
+  .review-q .rq-expl strong{color:var(--ink);font-weight:700;display:block;margin-bottom:4px;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;}
+  .review-q .rq-expl .as{font-family:var(--as);margin-top:10px;}
+  .back-btn{background:var(--navy);color:#fff;border:none;padding:12px 24px;border-radius:6px;font-weight:700;font-size:.9rem;cursor:pointer;font-family:var(--sans);}
+  .back-btn:hover{background:var(--navy-soft);}
+
+  @media (max-width:700px){
+    .exam-header{padding:10px 14px;}
+    .exam-timer{font-size:1.2rem;}
+    .q-card{padding:20px;}
+    .palette{position:static;margin-top:20px;}
+    .palette-grid{grid-template-columns:repeat(6,1fr);}
+  }
 </style>
 </head>
 <body>
@@ -156,7 +283,6 @@
     <a href="./" class="brand">Bishleshon <span>Education</span></a>
     <nav class="toplinks">
       <a href="#grades">Grades</a>
-      <a href="#free-mock">Free mock</a>
       <a href="#paid-mock">Paid series</a>
       <a href="#doubts">Ask a doubt</a>
     </nav>
@@ -164,21 +290,19 @@
 </div>
 
 <header class="hero">
-  <span class="hero-eq" style="top:16%;left:6%;">∮ f dx</span>
-  <span class="hero-eq" style="top:20%;right:8%;font-size:1.5rem;">n(n+1)/2</span>
   <div class="wrap">
     <div class="hero-inner">
       <span class="kicker-pill">ADRE Mock Tests · Brought to you by Kuldip Sir</span>
       <h1>ADRE mock tests, built for the real exam.</h1>
-      <p class="lead">Exam-realistic mock tests for ADRE Maths and GK — 4th Grade, 3rd Grade (HS Pass) and 3rd Grade (Graduate). Start with a free test. Full series at ₹9 per subject.</p>
+      <p class="lead">Exam-realistic mock tests with bilingual questions (English + অসমীয়া), 30-minute timer, negative marking, detailed solutions and topic-wise analysis.</p>
       <div class="hero-ctas">
-        <a href="#free-mock" class="btn btn-primary">Try a free mock test</a>
-        <a href="#paid-mock" class="btn btn-gold">Unlock paid series — ₹9</a>
+        <a href="#paid-mock" class="btn btn-gold">Unlock the full series — ₹9</a>
       </div>
       <div class="trust-row">
-        <span class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Free mock test, no sign-up</span>
-        <span class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Instant scoring</span>
-        <span class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Doubt support on WhatsApp</span>
+        <span class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Bilingual questions</span>
+        <span class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Real exam timer</span>
+        <span class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Detailed solutions</span>
+        <span class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Topic-wise analysis</span>
       </div>
     </div>
   </div>
@@ -190,7 +314,7 @@
       <div class="teacher-info">
         <span class="teacher-role">Brought to you by</span>
         <h3>Kuldip Sir</h3>
-        <p class="teacher-bio">These ADRE mock tests are written and maintained personally. Every question, answer key and solution is prepared with the actual exam pattern in mind — nothing generic, nothing outsourced.</p>
+        <p class="teacher-bio">Every question, answer key and solution is prepared personally with the actual ADRE exam pattern in mind — nothing generic, nothing outsourced.</p>
       </div>
     </div>
   </div>
@@ -210,29 +334,14 @@
   </div>
 </section>
 
-<section class="section" id="free-mock">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <span class="eyebrow-mark">Free</span>
-        <h2>Free mock test</h2>
-      </div>
-      <p>A short set of ADRE-style questions for your grade and subject. Start instantly — no sign-up needed.</p>
-    </div>
-    <button class="btn btn-primary" id="startFreeMock">Start free mock test</button>
-    <div class="quiz-box" id="mockQuizBox" style="display:none;"></div>
-    <div id="freeSolutionsSlot"></div>
-  </div>
-</section>
-
-<section class="section alt" id="paid-mock">
+<section class="section" id="paid-mock">
   <div class="wrap">
     <div class="section-head">
       <div>
         <span class="eyebrow-mark">Paid</span>
         <h2>Full mock test series — ₹9 per subject</h2>
       </div>
-      <p>Full-length, exam-pattern ADRE papers with detailed solutions. Pay ₹9 on UPI, fill a quick form, unlock instantly.</p>
+      <p>Full-length exam-pattern mock with timer, negative marking, detailed solutions and analysis.</p>
     </div>
 
     <div class="mock-grid">
@@ -244,7 +353,7 @@
       <div class="mock-card">
         <span class="kicker">Pay ₹9 on UPI</span>
         <h3>Simple, direct payment</h3>
-        <p style="margin:0;font-size:.9rem;">Pay ₹9, then fill a 3-field form to unlock instantly.</p>
+        <p style="margin:0;font-size:.9rem;">Pay ₹9, fill a 3-field form, unlock instantly.</p>
         <button class="btn btn-primary" id="openPayPanel" style="align-self:flex-start;margin-top:6px;">Pay ₹9 &amp; unlock</button>
       </div>
     </div>
@@ -252,12 +361,14 @@
     <div id="paidContentWrap" style="display:none;margin-top:26px;">
       <div class="verified-banner" id="paidBanner"></div>
       <p class="pending-note">We'll verify your payment against our records. If anything doesn't match, Kuldip Sir will message you on WhatsApp.</p>
-      <div class="quiz-box" id="paidQuizBox"></div>
+      <div style="margin-top:20px;">
+        <button class="btn btn-gold" id="startExamBtn" style="font-size:1rem;padding:14px 28px;">▶ Start exam — 20 questions · 30 minutes</button>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="doubts">
+<section class="section alt" id="doubts">
   <div class="wrap">
     <div class="section-head">
       <div>
@@ -303,7 +414,7 @@
 
 <footer>
   <div class="wrap">
-    <p><a href="#grades">Grades</a> · <a href="#free-mock">Free mock test</a> · <a href="#paid-mock">Paid series</a> · <a href="#doubts">Ask a doubt</a></p>
+    <p><a href="#grades">Grades</a> · <a href="#paid-mock">Paid series</a> · <a href="#doubts">Ask a doubt</a></p>
     <p>© 2026 Bishleshon Education · ADRE Mock Tests · Brought to you by Kuldip Sir</p>
   </div>
 </footer>
@@ -311,25 +422,30 @@
 <div class="modal-overlay" id="payModal">
   <div class="modal-box">
     <button class="modal-close" id="payModalClose">✕</button>
-    <h3 id="payModalTitle">Pay ₹9 to unlock</h3>
+    <h3>Unlock full mock — ₹9</h3>
     <p class="modal-subtitle" id="payModalSubtitle">Grade · Subject</p>
 
-    <div class="pay-block">
-      <div class="qr-row">
-        <img id="upiQr" alt="UPI QR code">
-        <div style="flex:1;min-width:200px;">
-          <a class="btn btn-gold" id="openUpiApp" style="width:100%;margin-bottom:8px;">Open UPI app (₹9 pre-filled)</a>
-          <div class="upi-line">
-            <strong id="upiDisplay"></strong>
-            <button class="copy-btn" id="copyUpiBtn" type="button">Copy</button>
-          </div>
-          <p style="font-size:.82rem;margin:6px 0 0;">Scan the QR or copy the UPI ID and pay ₹9.</p>
-        </div>
-      </div>
-      <div class="timer" id="payTimer">⏱ Time left: 10:00</div>
+    <div class="pay-primary">
+      <div class="pay-headline">Fastest way — one tap</div>
+      <div class="pay-amount">₹9</div>
+      <a class="btn-upi-app" id="openUpiApp" href="#">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Pay now with UPI
+      </a>
     </div>
 
-    <form id="payForm">
+    <details class="pay-other">
+      <summary>Other ways to pay (QR / UPI ID)</summary>
+      <div class="qr-row">
+        <img id="upiQr" alt="UPI QR code">
+        <div class="upi-line">
+          <strong id="upiDisplay"></strong>
+          <button class="copy-btn" id="copyUpiBtn" type="button">Copy</button>
+        </div>
+      </div>
+    </details>
+
+    <form id="payForm" style="margin-top:18px;">
       <div class="form-grid">
         <div class="field">
           <label for="pName">Your name *</label>
@@ -348,10 +464,41 @@
         <button type="submit" class="btn btn-primary" id="paySubmitBtn">Submit &amp; unlock</button>
         <span class="form-msg" id="payFormMsg"></span>
       </div>
-      <p style="font-size:.78rem;color:var(--ink-faint);margin-top:12px;">We'll verify your payment. If anything's wrong, Kuldip Sir will message you on WhatsApp.</p>
     </form>
   </div>
 </div>
+
+<div class="exam-shell" id="examShell">
+  <div class="exam-header">
+    <div class="exam-title">ADRE Maths Mock <small id="examSubtitle">4th Grade · 20 questions · 30 minutes</small></div>
+    <div class="exam-timer" id="examTimer">30:00</div>
+    <button class="exam-submit" id="examSubmitBtn">Submit Test</button>
+  </div>
+  <div class="exam-body">
+    <div class="exam-grid">
+      <div id="examQCard"></div>
+      <div class="palette" id="examPalette"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="submitDialog">
+  <div class="submit-dialog">
+    <h3>Submit your test?</h3>
+    <p>Once submitted, you cannot change your answers.</p>
+    <div class="stats">
+      <div class="stat"><strong id="sdAnswered">0</strong><small>Answered</small></div>
+      <div class="stat"><strong id="sdUnanswered">0</strong><small>Not answered</small></div>
+      <div class="stat"><strong id="sdFlagged">0</strong><small>Marked</small></div>
+    </div>
+    <div class="actions">
+      <button class="btn-ghost" id="sdCancel">Keep solving</button>
+      <button class="btn-primary" id="sdConfirm" style="background:var(--orange);color:#fff;">Submit now</button>
+    </div>
+  </div>
+</div>
+
+<div class="results-shell" id="resultsShell"></div>
 
 <script>
 /* ===================================================================
@@ -363,68 +510,237 @@ const UPI_ID = "kuldipsarma049@okhdfcbank";
 const PRICE_PER_SUBJECT = 9;
 const SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwre530hMTmPrHgEYmAvZNDItGN6WqIGII5mdGryQrgmP35ojWHmLdHcVFuHskW-ISc/exec";
 
-/* ===================================================================
-   GRADES & SUBJECTS
-   =================================================================== */
 const GRADES = ["4th Grade", "3rd Grade (HS Pass)", "3rd Grade (Graduate)"];
-const SUBJECTS = ["Maths", "GK"];
+const SUBJECTS = ["Maths"];
+const NEGATIVE_MARK = 0.25;
+const EXAM_SECONDS = 30 * 60;
+
 let activeGrade = GRADES[0];
 let activeSubject = SUBJECTS[0];
 
 /* ===================================================================
-   FREE MOCK QUESTIONS — replace placeholders with real questions
+   QUESTION BANK — 20 ADRE Maths questions (bilingual)
    =================================================================== */
-const FREE_MOCK = {
-  "4th Grade": {
-    "Maths": [{ q: "Placeholder — ADRE 4th Grade Maths question.", options: ["A","B","C","D"], correct: 0 }],
-    "GK":    [{ q: "Placeholder — ADRE 4th Grade GK question.",    options: ["A","B","C","D"], correct: 0 }],
+const MATHS_QUESTIONS = [
+  {
+    q_en: "A sum of money amounts to ₹4,840 in 2 years and to ₹5,324 in 3 years at compound interest, compounded annually. What is the rate of interest per annum?",
+    q_as: "কোনো মূলধন চক্ৰবৃদ্ধি সুদেৰে ২ বছৰত ₹৪,৮৪০ আৰু ৩ বছৰত ₹৫,৩২৪ হয়। বাৰ্ষিক সুদৰ হাৰ কিমান?",
+    options_en: ["8%", "10%", "12%", "15%"],
+    options_as: ["৮%", "১০%", "১২%", "১৫%"],
+    correct: 1,
+    topic: "Compound Interest",
+    exp_en: "Interest earned in the 3rd year = ₹5,324 − ₹4,840 = ₹484. Rate = (484 ÷ 4,840) × 100 = 10%.",
+    exp_as: "৩য় বছৰৰ সুদ = ₹৫,৩২৪ − ₹৪,৮৪০ = ₹৪৮৪। হাৰ = (৪৮৪ ÷ ৪,৮৪০) × ১০০ = ১০%।"
   },
-  "3rd Grade (HS Pass)": {
-    "Maths": [{ q: "Placeholder — ADRE 3rd Grade (HS Pass) Maths question.", options: ["A","B","C","D"], correct: 0 }],
-    "GK":    [{ q: "Placeholder — ADRE 3rd Grade (HS Pass) GK question.",    options: ["A","B","C","D"], correct: 0 }],
+  {
+    q_en: "The average age of 8 persons increases by 2.5 years when two women aged 21 and 23 are replaced by two men. What is the average age of the two new men?",
+    q_as: "৮ জনীয়া এটা দলৰ ২১ আৰু ২৩ বছৰীয়া দুগৰাকী মহিলাক দুজন পুৰুষেৰে সলনি কৰাত গড় বয়স ২.৫ বছৰ বৃদ্ধি পালে। নতুন পুৰুষ দুজনৰ গড় বয়স কিমান?",
+    options_en: ["32 years", "31 years", "30 years", "28 years"],
+    options_as: ["৩২ বছৰ", "৩১ বছৰ", "৩০ বছৰ", "২৮ বছৰ"],
+    correct: 0,
+    topic: "Averages",
+    exp_en: "Total age increase = 8 × 2.5 = 20. Sum of women's ages = 21 + 23 = 44. Total of new men = 44 + 20 = 64. Average = 64 ÷ 2 = 32.",
+    exp_as: "মুঠ বয়স বৃদ্ধি = ৮ × ২.৫ = ২০। মহিলা দুগৰাকীৰ বয়স = ২১ + ২৩ = ৪৪। নতুন পুৰুষৰ মুঠ = ৪৪ + ২০ = ৬৪। গড় = ৬৪ ÷ ২ = ৩২।"
   },
-  "3rd Grade (Graduate)": {
-    "Maths": [{ q: "Placeholder — ADRE 3rd Grade (Graduate) Maths question.", options: ["A","B","C","D"], correct: 0 }],
-    "GK":    [{ q: "Placeholder — ADRE 3rd Grade (Graduate) GK question.",    options: ["A","B","C","D"], correct: 0 }],
+  {
+    q_en: "A tap can fill a cistern in 8 hours and another can empty it in 12 hours. If both are opened together, how long will it take to fill the empty cistern?",
+    q_as: "এটা পাইপে ৮ ঘণ্টাত চৌবাচ্চা ভৰাব আৰু আন এটা ১২ ঘণ্টাত খালি কৰিব। দুয়োটা একেলগে খুলিলে কিমান সময় লাগিব?",
+    options_en: ["16 hours", "20 hours", "24 hours", "30 hours"],
+    options_as: ["১৬ ঘণ্টা", "২০ ঘণ্টা", "২৪ ঘণ্টা", "৩০ ঘণ্টা"],
+    correct: 2,
+    topic: "Pipes & Cisterns",
+    exp_en: "Net rate = 1/8 − 1/12 = (3 − 2)/24 = 1/24. Time = 24 hours.",
+    exp_as: "নেট হাৰ = ১/৮ − ১/১২ = (৩ − ২)/২৪ = ১/২৪। সময় = ২৪ ঘণ্টা।"
   },
-};
-
-/* ===================================================================
-   FREE MOCK — DETAILED SOLUTION PDF LINKS (optional)
-   Upload PDFs to a /pdfs folder in your repo, then paste their path here.
-   Example: "4th Grade": { "Maths": "pdfs/solution-4th-maths.pdf" }
-   Leave empty ("") if you don't have one yet.
-   =================================================================== */
-const SOLUTIONS = {
-  "4th Grade":            { "Maths": "", "GK": "" },
-  "3rd Grade (HS Pass)":  { "Maths": "", "GK": "" },
-  "3rd Grade (Graduate)": { "Maths": "", "GK": "" },
-};
-
-/* ===================================================================
-   PAID MOCK QUESTIONS — replace with real questions
-   =================================================================== */
-const PAID_QUESTIONS = {
-  "4th Grade":            { "Maths": [], "GK": [] },
-  "3rd Grade (HS Pass)":  { "Maths": [], "GK": [] },
-  "3rd Grade (Graduate)": { "Maths": [], "GK": [] },
-};
-
-const PAID_MOCK_DETAILS = [
-  "Full-length, exam-pattern papers",
-  "New tests released regularly",
-  "Detailed solutions with explanations",
-  "Instant unlock after payment",
+  {
+    q_en: "A shopkeeper sold an item at 12% loss. Had he sold it for ₹108 more, he would have gained 6%. Find the cost price.",
+    q_as: "এজন দোকানদাৰে সামগ্ৰী ১২% লোকচানত বিক্ৰী কৰিলে। ₹১০৮ অধিকত বিক্ৰী কৰিলে ৬% লাভ হ'লহেঁতেন। ক্ৰয় মূল্য কিমান?",
+    options_en: ["₹540", "₹600", "₹640", "₹720"],
+    options_as: ["₹৫৪০", "₹৬০০", "₹৬৪০", "₹৭২০"],
+    correct: 1,
+    topic: "Profit & Loss",
+    exp_en: "Difference = 6% − (−12%) = 18%. 18% of CP = ₹108 → CP = (108 ÷ 18) × 100 = ₹600.",
+    exp_as: "পাৰ্থক্য = ৬% − (−১২%) = ১৮%। ১৮% = ₹১০৮ → ক্ৰয় মূল্য = (১০৮ ÷ ১৮) × ১০০ = ₹৬০০।"
+  },
+  {
+    q_en: "If A's income is 25% more than B's, by what percent is B's income less than A's?",
+    q_as: "A-ৰ আয় B-তকৈ ২৫% বেছি হ'লে B-ৰ আয় A-তকৈ শতকৰা কিমান কম?",
+    options_en: ["20%", "25%", "16.66%", "30%"],
+    options_as: ["২০%", "২৫%", "১৬.৬৬%", "৩০%"],
+    correct: 0,
+    topic: "Percentage",
+    exp_en: "Let B = 100, A = 125. Decrease = (125 − 100) / 125 × 100 = 20%.",
+    exp_as: "B = ১০০, A = ১২৫ ধৰি। হ্ৰাস = (১২৫ − ১০০) / ১২৫ × ১০০ = ২০%।"
+  },
+  {
+    q_en: "In a 1000 m race, A beats B by 100 m or 10 seconds. Find A's speed.",
+    q_as: "১০০০ মিটাৰ দৌৰত A-য়ে B-ক ১০০ মিটাৰ বা ১০ ছেকেণ্ডত পৰাজিত কৰে। A-ৰ বেগ কিমান?",
+    options_en: ["10 m/s", "11.11 m/s", "12 m/s", "9 m/s"],
+    options_as: ["১০ মি/ছে", "১১.১১ মি/ছে", "১২ মি/ছে", "৯ মি/ছে"],
+    correct: 1,
+    topic: "Time, Speed & Distance",
+    exp_en: "B covers 100 m in 10 s → speed 10 m/s. B takes 1000/10 = 100 s for the race. A takes 90 s. A's speed = 1000/90 = 11.11 m/s.",
+    exp_as: "B-য়ে ১০০ মিটাৰ ১০ ছেকেণ্ডত → বেগ ১০ মি/ছে। B ১০০০ মিটাৰ লয় ১০০ ছে। A লয় ৯০ ছে। A-ৰ বেগ = ১০০০/৯০ = ১১.১১ মি/ছে।"
+  },
+  {
+    q_en: "A and B enter partnership with capitals in ratio 3:5. After 4 months, C joins with capital equal to B's. Find profit ratio at year end.",
+    q_as: "A আৰু B-য়ে ৩:৫ অনুপাতত ব্যৱসায় আৰম্ভ কৰিলে। ৪ মাহৰ পিছত B-ৰ সমান মূলধনেৰে C যোগ দিলে। বছৰৰ শেষত লাভৰ অনুপাত কিমান?",
+    options_en: ["9 : 15 : 10", "3 : 5 : 5", "9 : 12 : 10", "9 : 15 : 8"],
+    options_as: ["৯ : ১৫ : ১০", "৩ : ৫ : ৫", "৯ : ১২ : ১০", "৯ : ১৫ : ৮"],
+    correct: 0,
+    topic: "Partnership",
+    exp_en: "A = 3×12 = 36. B = 5×12 = 60. C = 5×8 = 40. Ratio 36:60:40 = 9:15:10.",
+    exp_as: "A = ৩×১২ = ৩৬। B = ৫×১২ = ৬০। C = ৫×৮ = ৪০। অনুপাত ৩৬:৬০:৪০ = ৯:১৫:১০।"
+  },
+  {
+    q_en: "Find the greatest 4-digit number which when divided by 12, 15, 20 and 35 leaves 3 as remainder in each case.",
+    q_as: "১২, ১৫, ২০ আৰু ৩৫ ৰে ভাগ কৰিলে প্ৰতিটো ক্ষেত্ৰতে ৩ অৱশিষ্ট থকা আটাইতকৈ ডাঙৰ ৪-অংকৰ সংখ্যা কিমান?",
+    options_en: ["9663", "9873", "9660", "9867"],
+    options_as: ["৯৬৬৩", "৯৮৭৩", "৯৬৬০", "৯৮৬৭"],
+    correct: 0,
+    topic: "Number System",
+    exp_en: "LCM(12,15,20,35) = 420. 9999 ÷ 420 leaves 339. Largest multiple = 9660. Required number = 9660 + 3 = 9663.",
+    exp_as: "ল.সা.গু.(১২,১৫,২০,৩৫) = ৪২০। ৯৯৯৯ ÷ ৪২০ → অৱশিষ্ট ৩৩৯। ডাঙৰ গুণিতক = ৯৬৬০। সংখ্যা = ৯৬৬০ + ৩ = ৯৬৬৩।"
+  },
+  {
+    q_en: "In what ratio must tea worth ₹180/kg be mixed with tea worth ₹230/kg so the mixture costs ₹200/kg?",
+    q_as: "₹১৮০/কেজি আৰু ₹২৩০/কেজি চাহ কি অনুপাতত মিহলালে মিশ্ৰণ ₹২০০/কেজি হ'ব?",
+    options_en: ["2 : 3", "3 : 2", "4 : 3", "1 : 2"],
+    options_as: ["২ : ৩", "৩ : ২", "৪ : ৩", "১ : ২"],
+    correct: 1,
+    topic: "Mixtures & Alligation",
+    exp_en: "Alligation: (230 − 200) : (200 − 180) = 30 : 20 = 3 : 2.",
+    exp_as: "মিশ্ৰণ নিয়ম: (২৩০ − ২০০) : (২০০ − ১৮০) = ৩০ : ২০ = ৩ : ২।"
+  },
+  {
+    q_en: "The diagonal of a square field is 20√2 metres. What is the perimeter?",
+    q_as: "এখন বৰ্গাকাৰ পথাৰৰ কৰ্ণ ২০√২ মিটাৰ। পৰিসীমা কিমান?",
+    options_en: ["40 m", "60 m", "80 m", "100 m"],
+    options_as: ["৪০ মি", "৬০ মি", "৮০ মি", "১০০ মি"],
+    correct: 2,
+    topic: "Mensuration",
+    exp_en: "a√2 = 20√2 → side a = 20 m. Perimeter = 4 × 20 = 80 m.",
+    exp_as: "a√2 = ২০√২ → বাহু a = ২০ মি। পৰিসীমা = ৪ × ২০ = ৮০ মি।"
+  },
+  {
+    q_en: "A train 150 m long passes a telegraph post in 9 seconds. How long to cross a 250 m bridge?",
+    q_as: "১৫০ মিটাৰ দীঘল ৰেলগাড়ীয়ে ৯ ছেকেণ্ডত টেলিগ্ৰাফ স্তম্ভ অতিক্ৰম কৰে। ২৫০ মিটাৰ দলং অতিক্ৰম কৰিবলৈ কিমান সময় লাগিব?",
+    options_en: ["15 s", "20 s", "24 s", "30 s"],
+    options_as: ["১৫ ছে", "২০ ছে", "২৪ ছে", "৩০ ছে"],
+    correct: 2,
+    topic: "Time, Speed & Distance",
+    exp_en: "Speed = 150/9 = 50/3 m/s. Distance = 150 + 250 = 400 m. Time = 400 ÷ (50/3) = 24 s.",
+    exp_as: "বেগ = ১৫০/৯ = ৫০/৩ মি/ছে। দূৰত্ব = ১৫০ + ২৫০ = ৪০০ মি। সময় = ৪০০ ÷ (৫০/৩) = ২৪ ছে।"
+  },
+  {
+    q_en: "Two numbers are in ratio 3 : 4. If their HCF is 15, find their LCM.",
+    q_as: "দুটা সংখ্যা ৩ : ৪ অনুপাতত আছে। গ.সা.গু. ১৫ হ'লে ল.সা.গু. কিমান?",
+    options_en: ["120", "180", "240", "300"],
+    options_as: ["১২০", "১৮০", "২৪০", "৩০০"],
+    correct: 1,
+    topic: "Number System",
+    exp_en: "Numbers = 45 and 60. LCM = 3 × 4 × 15 = 180.",
+    exp_as: "সংখ্যা = ৪৫ আৰু ৬০। ল.সা.গু. = ৩ × ৪ × ১৫ = ১৮০।"
+  },
+  {
+    q_en: "A man can row 6 km/h in still water. Current speed = 2 km/h. It takes 3 hours to go to a place and return. Find the distance.",
+    q_as: "স্থিৰ পানীত মানুহে ৬ কিমি/ঘণ্টাত নাও চলাব। সোঁতৰ বেগ ২ কিমি/ঘণ্টা। যোৱা-অহা ৩ ঘণ্টা লাগে। দূৰত্ব কিমান?",
+    options_en: ["8 km", "10 km", "12 km", "16 km"],
+    options_as: ["৮ কিমি", "১০ কিমি", "১২ কিমি", "১৬ কিমি"],
+    correct: 0,
+    topic: "Boats & Streams",
+    exp_en: "Down = 8, Up = 4. D/8 + D/4 = 3 → 3D/8 = 3 → D = 8 km.",
+    exp_as: "অনুকূল = ৮, প্ৰতিকূল = ৪। D/৮ + D/৪ = ৩ → ৩D/৮ = ৩ → D = ৮ কিমি।"
+  },
+  {
+    q_en: "If 12 men or 18 women can do a work in 14 days, how long will 8 men and 16 women take?",
+    q_as: "১২ জন পুৰুষ বা ১৮ গৰাকী মহিলাই ১৪ দিনত কাম শেষ কৰিব। ৮ জন পুৰুষ আৰু ১৬ গৰাকী মহিলাই কিমান দিন ল'ব?",
+    options_en: ["7 days", "9 days", "10 days", "12 days"],
+    options_as: ["৭ দিন", "৯ দিন", "১০ দিন", "১২ দিন"],
+    correct: 1,
+    topic: "Time & Work",
+    exp_en: "2 men = 3 women. 8 men + 16 women = 12 + 16 = 28 women. Days = (18 × 14) / 28 = 9.",
+    exp_as: "২ পুৰুষ = ৩ মহিলা। ৮ পুৰুষ + ১৬ মহিলা = ১২ + ১৬ = ২৮ মহিলা। দিন = (১৮ × ১৪) / ২৮ = ৯।"
+  },
+  {
+    q_en: "Find the single discount equivalent to successive discounts of 20%, 10% and 5%.",
+    q_as: "২০%, ১০% আৰু ৫% ক্ৰমিক ৰেহাইৰ সমতুল্য একক ৰেহাই কিমান?",
+    options_en: ["35%", "31.6%", "32.5%", "33%"],
+    options_as: ["৩৫%", "৩১.৬%", "৩২.৫%", "৩৩%"],
+    correct: 1,
+    topic: "Discounts",
+    exp_en: "Final price = 0.80 × 0.90 × 0.95 = 0.684. Equivalent discount = 1 − 0.684 = 31.6%.",
+    exp_as: "চূড়ান্ত মূল্য = ০.৮০ × ০.৯০ × ০.৯৫ = ০.৬৮৪। ৰেহাই = ১ − ০.৬৮৪ = ৩১.৬%।"
+  },
+  {
+    q_en: "Simplify: (1 − 1/3)(1 − 1/4)(1 − 1/5) ··· (1 − 1/n)",
+    q_as: "সৰল কৰা: (১ − ১/৩)(১ − ১/৪)(১ − ১/৫) ··· (১ − ১/n)",
+    options_en: ["1/n", "2/n", "2(n−1)/n", "2/(n(n+1))"],
+    options_as: ["১/n", "২/n", "২(n−১)/n", "২/(n(n+১))"],
+    correct: 1,
+    topic: "Simplification",
+    exp_en: "Terms telescope: (2/3)(3/4)(4/5)···((n−1)/n) = 2/n.",
+    exp_as: "টেলিস্কোপিং: (২/৩)(৩/৪)(৪/৫)···((n−১)/n) = ২/n।"
+  },
+  {
+    q_en: "A 110 m × 60 m rectangular field has two 2 m wide cross paths at the centre parallel to its sides. Find total area of the paths.",
+    q_as: "১১০ মি × ৬০ মি আয়তাকাৰ পথাৰৰ কেন্দ্ৰত ২ মি বহল দুটা পাৰাপাৰ পথ আছে। পথ দুটাৰ মুঠ কালি কিমান?",
+    options_en: ["336 m²", "340 m²", "338 m²", "344 m²"],
+    options_as: ["৩৩৬ বৰ্গ মি", "৩৪০ বৰ্গ মি", "৩৩৮ বৰ্গ মি", "৩৪৪ বৰ্গ মি"],
+    correct: 0,
+    topic: "Mensuration",
+    exp_en: "Area = (110×2) + (60×2) − (2×2) = 220 + 120 − 4 = 336 m².",
+    exp_as: "কালি = (১১০×২) + (৬০×২) − (২×২) = ২২০ + ১২০ − ৪ = ৩৩৬ বৰ্গ মি।"
+  },
+  {
+    q_en: "The average of 50 students in an exam was 64. A mark of 43 was wrongly entered as 83. Find the correct average.",
+    q_as: "পৰীক্ষাত ৫০ জন ছাত্ৰৰ গড় ৬৪ আছিল। ৪৩ নম্বৰ ভুলত ৮৩ বুলি লিখা হৈছিল। শুদ্ধ গড় কিমান?",
+    options_en: ["63.2", "62.8", "63.8", "64.8"],
+    options_as: ["৬৩.২", "৬২.৮", "৬৩.৮", "৬৪.৮"],
+    correct: 0,
+    topic: "Averages",
+    exp_en: "Excess = 83 − 43 = 40. Reduction per student = 40/50 = 0.8. Correct average = 64 − 0.8 = 63.2.",
+    exp_as: "অতিৰিক্ত = ৮৩ − ৪৩ = ৪০। প্ৰতি ছাত্ৰ হ্ৰাস = ৪০/৫০ = ০.৮। শুদ্ধ গড় = ৬৪ − ০.৮ = ৬৩.২।"
+  },
+  {
+    q_en: "SI on a sum for 2 years at 10% p.a. is ₹400. Find CI on same sum for same period at same rate.",
+    q_as: "বাৰ্ষিক ১০% হাৰত ২ বছৰৰ সৰল সুদ ₹৪০০। একে সময়, একে হাৰত চক্ৰবৃদ্ধি সুদ কিমান?",
+    options_en: ["₹420", "₹440", "₹460", "₹480"],
+    options_as: ["₹৪২০", "₹৪৪০", "₹৪৬০", "₹৪৮০"],
+    correct: 0,
+    topic: "Compound Interest",
+    exp_en: "20% of P = 400 → P = 2000. CI factor for 2 yr at 10% = 21%. CI = 0.21 × 2000 = ₹420.",
+    exp_as: "২০% = ৪০০ → P = ২০০০। ২ বছৰত ১০% ৰ চক্ৰবৃদ্ধি = ২১%। CI = ০.২১ × ২০০০ = ₹৪২০।"
+  },
+  {
+    q_en: "A car covers a distance at 60 km/h and returns at 40 km/h. What is the average speed for the whole journey?",
+    q_as: "এখন গাড়ীয়ে ৬০ কিমি/ঘণ্টাত এটা দূৰত্ব যায় আৰু ৪০ কিমি/ঘণ্টাত উভতি আহে। সমগ্ৰ যাত্ৰাৰ গড় বেগ কিমান?",
+    options_en: ["48 km/h", "50 km/h", "52 km/h", "54 km/h"],
+    options_as: ["৪৮ কিমি/ঘণ্টা", "৫০ কিমি/ঘণ্টা", "৫২ কিমি/ঘণ্টা", "৫৪ কিমি/ঘণ্টা"],
+    correct: 0,
+    topic: "Time, Speed & Distance",
+    exp_en: "Average speed = 2xy/(x+y) = (2 × 60 × 40) / 100 = 48 km/h.",
+    exp_as: "গড় বেগ = 2xy/(x+y) = (২ × ৬০ × ৪০) / ১০০ = ৪৮ কিমি/ঘণ্টা।"
+  }
 ];
 
 /* ===================================================================
-   STATE
+   PAID ACCESS (localStorage)
    =================================================================== */
-let timerInterval = null;
-let currentPaySubject = "Maths";
+function getUnlockedList(){
+  try { return JSON.parse(localStorage.getItem("bishleshon_unlocked")) || []; }
+  catch(e){ return []; }
+}
+function saveUnlockedList(list){
+  try { localStorage.setItem("bishleshon_unlocked", JSON.stringify(list)); } catch(e){}
+}
+function isUnlocked(grade, subject){
+  const list = getUnlockedList();
+  return list.some(u => u.grade === grade && (u.subject === subject || u.subject === "Both"));
+}
 
 /* ===================================================================
-   BUILD SELECTORS
+   SELECTORS
    =================================================================== */
 function buildGradeRow(){
   const row = document.getElementById("gradeRow");
@@ -458,108 +774,24 @@ function buildSubjectRow(){
 }
 
 function refreshView(){
-  document.getElementById("mockQuizBox").style.display = "none";
-  document.getElementById("freeSolutionsSlot").innerHTML = "";
   document.getElementById("paidTitle").textContent = `${activeSubject} — full series`;
-  document.getElementById("paidMockDetails").innerHTML = PAID_MOCK_DETAILS.map(d => `<li>${d}</li>`).join("");
+  document.getElementById("paidMockDetails").innerHTML = [
+    "20 exam-pattern questions",
+    "Bilingual — English + অসমীয়া",
+    "30-minute timer",
+    "Negative marking (−0.25)",
+    "Detailed solutions",
+    "Topic-wise analysis"
+  ].map(d => `<li>${d}</li>`).join("");
   refreshPaidAccess();
 }
 
-/* ===================================================================
-   QUIZ ENGINE
-   =================================================================== */
-function runQuiz(container, questions){
-  let qIndex = 0, score = 0;
-  function renderQuestion(){
-    if (!questions.length){
-      container.innerHTML = `<p class="empty-note">No questions here yet.</p>`;
-      return;
-    }
-    if (qIndex >= questions.length){
-      container.innerHTML = `<p class="qtext">Done — you scored ${score} out of ${questions.length}.</p>
-        <button class="btn-small" id="restart-${container.id}">Try again</button>`;
-      document.getElementById(`restart-${container.id}`).addEventListener("click", () => {
-        qIndex = 0; score = 0; renderQuestion();
-      });
-      return;
-    }
-    const item = questions[qIndex];
-    container.innerHTML = `
-      <div class="qnum">Question ${qIndex + 1} of ${questions.length}</div>
-      <div class="qtext">${item.q}</div>
-      <div class="qoptions">${item.options.map((o,i) => `<button class="qoption" data-i="${i}">${o}</button>`).join("")}</div>
-      <div class="qfeedback"></div>
-      <div class="qfooter">
-        <span class="qscore">Score: ${score}/${qIndex}</span>
-        <button class="btn-small" disabled>Next</button>
-      </div>`;
-    const optionButtons = container.querySelectorAll(".qoption");
-    const nextBtn = container.querySelector(".qfooter .btn-small");
-    const feedback = container.querySelector(".qfeedback");
-    let answered = false;
-    optionButtons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        if (answered) return;
-        answered = true;
-        const chosen = Number(btn.dataset.i);
-        optionButtons.forEach(b => {
-          const i = Number(b.dataset.i);
-          if (i === item.correct) b.classList.add("correct");
-          else if (i === chosen) b.classList.add("wrong");
-        });
-        if (chosen === item.correct){ score++; feedback.textContent = "Correct."; }
-        else feedback.textContent = `Not quite — the correct answer is "${item.options[item.correct]}".`;
-        nextBtn.disabled = false;
-      });
-    });
-    nextBtn.addEventListener("click", () => { qIndex++; renderQuestion(); });
-  }
-  renderQuestion();
-}
-
-document.getElementById("startFreeMock").addEventListener("click", () => {
-  const box = document.getElementById("mockQuizBox");
-  box.style.display = "block";
-  const questions = (FREE_MOCK[activeGrade] && FREE_MOCK[activeGrade][activeSubject]) || [];
-  runQuiz(box, questions);
-  box.scrollIntoView({ behavior: "smooth", block: "nearest" });
-
-  const slot = document.getElementById("freeSolutionsSlot");
-  const url = (SOLUTIONS[activeGrade] && SOLUTIONS[activeGrade][activeSubject]) || "";
-  if (url){
-    slot.innerHTML = `<a class="solution-link" href="${url}" target="_blank" rel="noopener">📄 Download detailed solutions (PDF)</a>`;
-  } else {
-    slot.innerHTML = "";
-  }
-});
-
-/* ===================================================================
-   PAID ACCESS
-   =================================================================== */
-function getUnlockedList(){
-  try { return JSON.parse(localStorage.getItem("bishleshon_unlocked")) || []; }
-  catch(e){ return []; }
-}
-function saveUnlockedList(list){
-  try { localStorage.setItem("bishleshon_unlocked", JSON.stringify(list)); } catch(e){}
-}
-function isUnlocked(grade, subject){
-  const list = getUnlockedList();
-  return list.some(u => u.grade === grade && (u.subject === subject || u.subject === "Both"));
-}
 function refreshPaidAccess(){
   const wrap = document.getElementById("paidContentWrap");
   const banner = document.getElementById("paidBanner");
-  const box = document.getElementById("paidQuizBox");
   if (isUnlocked(activeGrade, activeSubject)){
     wrap.style.display = "block";
     banner.textContent = `Access unlocked — ${activeGrade} · ${activeSubject}`;
-    const qs = (PAID_QUESTIONS[activeGrade] && PAID_QUESTIONS[activeGrade][activeSubject]) || [];
-    if (!qs.length){
-      box.innerHTML = `<p class="empty-note">No paid papers uploaded for ${activeGrade} · ${activeSubject} yet.</p>`;
-    } else {
-      runQuiz(box, qs);
-    }
   } else {
     wrap.style.display = "none";
   }
@@ -569,27 +801,17 @@ function refreshPaidAccess(){
    PAYMENT MODAL
    =================================================================== */
 const payModal = document.getElementById("payModal");
+const submitDialog = document.getElementById("submitDialog");
 
 document.getElementById("openPayPanel").addEventListener("click", () => {
-  currentPaySubject = activeSubject;
-  document.getElementById("payModalTitle").textContent = `Pay ₹${PRICE_PER_SUBJECT} to unlock`;
   document.getElementById("payModalSubtitle").textContent = `${activeGrade} · ${activeSubject}`;
   const upiUrl = `upi://pay?pa=${UPI_ID}&pn=Kuldip%20Sir&am=${PRICE_PER_SUBJECT}&cu=INR&tn=ADRE%20${encodeURIComponent(activeGrade)}%20${encodeURIComponent(activeSubject)}`;
   document.getElementById("openUpiApp").href = upiUrl;
   document.getElementById("upiQr").src = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${encodeURIComponent(upiUrl)}`;
   payModal.classList.add("open");
-  startTimer();
 });
-document.getElementById("payModalClose").addEventListener("click", () => {
-  payModal.classList.remove("open");
-  if (timerInterval) clearInterval(timerInterval);
-});
-payModal.addEventListener("click", e => {
-  if (e.target === payModal){
-    payModal.classList.remove("open");
-    if (timerInterval) clearInterval(timerInterval);
-  }
-});
+document.getElementById("payModalClose").addEventListener("click", () => payModal.classList.remove("open"));
+payModal.addEventListener("click", e => { if (e.target === payModal) payModal.classList.remove("open"); });
 
 document.getElementById("copyUpiBtn").addEventListener("click", async () => {
   const btn = document.getElementById("copyUpiBtn");
@@ -598,44 +820,13 @@ document.getElementById("copyUpiBtn").addEventListener("click", async () => {
     btn.textContent = "Copied!";
     btn.classList.add("copied");
     setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("copied"); }, 1800);
-  } catch (e){
-    const range = document.createRange();
-    range.selectNodeContents(document.getElementById("upiDisplay"));
-    const sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
-    btn.textContent = "Press Ctrl+C";
-    setTimeout(() => { btn.textContent = "Copy"; }, 2500);
-  }
+  } catch (e){}
 });
 
-function startTimer(){
-  if (timerInterval) clearInterval(timerInterval);
-  const timerEl = document.getElementById("payTimer");
-  let seconds = 10 * 60;
-  function tick(){
-    const m = String(Math.floor(seconds / 60)).padStart(2, "0");
-    const s = String(seconds % 60).padStart(2, "0");
-    timerEl.textContent = `⏱ Time left: ${m}:${s}`;
-    if (seconds <= 0){
-      clearInterval(timerInterval);
-      timerEl.textContent = "⏱ Time's up — but you can still submit below.";
-      return;
-    }
-    seconds--;
-  }
-  tick();
-  timerInterval = setInterval(tick, 1000);
-}
-
-/* ===================================================================
-   PAY FORM → Google Sheet
-   =================================================================== */
 document.getElementById("payForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const msg = document.getElementById("payFormMsg");
   const btn = document.getElementById("paySubmitBtn");
-
   const name = document.getElementById("pName").value.trim();
   const whatsapp = document.getElementById("pWhatsapp").value.trim();
   const utr = document.getElementById("pUtr").value.trim();
@@ -655,15 +846,7 @@ document.getElementById("payForm").addEventListener("submit", async (e) => {
   msg.textContent = "Saving…";
   msg.className = "form-msg";
 
-  const payload = {
-    name, whatsapp,
-    grade: activeGrade,
-    subject: currentPaySubject,
-    utr,
-    app: "",
-    amount: PRICE_PER_SUBJECT,
-  };
-
+  const payload = { name, whatsapp, grade: activeGrade, subject: activeSubject, utr, app: "", amount: PRICE_PER_SUBJECT };
   try {
     await fetch(SHEET_WEBHOOK_URL, {
       method: "POST",
@@ -671,10 +854,10 @@ document.getElementById("payForm").addEventListener("submit", async (e) => {
       headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify(payload),
     });
-  } catch (err){ /* silent — Apps Script writes anyway */ }
+  } catch (err){}
 
   const list = getUnlockedList();
-  list.push({ grade: activeGrade, subject: currentPaySubject, utr, ts: Date.now() });
+  list.push({ grade: activeGrade, subject: activeSubject, utr, ts: Date.now() });
   saveUnlockedList(list);
 
   msg.textContent = "Unlocked! Loading…";
@@ -682,7 +865,6 @@ document.getElementById("payForm").addEventListener("submit", async (e) => {
 
   setTimeout(() => {
     payModal.classList.remove("open");
-    if (timerInterval) clearInterval(timerInterval);
     document.getElementById("payForm").reset();
     msg.textContent = "";
     refreshPaidAccess();
@@ -690,6 +872,295 @@ document.getElementById("payForm").addEventListener("submit", async (e) => {
     btn.disabled = false;
   }, 700);
 });
+
+/* ===================================================================
+   EXAM STATE
+   =================================================================== */
+let examState = null;
+let examTimerInterval = null;
+
+document.getElementById("startExamBtn").addEventListener("click", () => {
+  examState = {
+    questions: MATHS_QUESTIONS,
+    answers: new Array(MATHS_QUESTIONS.length).fill(null),
+    flagged: new Array(MATHS_QUESTIONS.length).fill(false),
+    current: 0,
+    secondsLeft: EXAM_SECONDS,
+    startTime: Date.now()
+  };
+  document.getElementById("examSubtitle").textContent = `${activeGrade} · ${activeSubject} · 20 questions · 30 minutes`;
+  document.getElementById("examShell").classList.add("open");
+  document.body.style.overflow = "hidden";
+  renderQuestion();
+  renderPalette();
+  startExamTimer();
+});
+
+function startExamTimer(){
+  if (examTimerInterval) clearInterval(examTimerInterval);
+  updateTimerDisplay();
+  examTimerInterval = setInterval(() => {
+    examState.secondsLeft--;
+    updateTimerDisplay();
+    if (examState.secondsLeft <= 0){
+      clearInterval(examTimerInterval);
+      confirmSubmit(true);
+    }
+  }, 1000);
+}
+function updateTimerDisplay(){
+  const el = document.getElementById("examTimer");
+  const s = examState.secondsLeft;
+  const m = String(Math.floor(s / 60)).padStart(2, "0");
+  const sec = String(s % 60).padStart(2, "0");
+  el.textContent = `${m}:${sec}`;
+  el.classList.remove("warning", "danger");
+  if (s <= 60) el.classList.add("danger");
+  else if (s <= 300) el.classList.add("warning");
+}
+
+function renderQuestion(){
+  const i = examState.current;
+  const q = examState.questions[i];
+  const selected = examState.answers[i];
+  const isFlagged = examState.flagged[i];
+  const card = document.getElementById("examQCard");
+
+  card.innerHTML = `
+    <div class="q-card">
+      <div class="q-meta">
+        <div class="q-index">Question ${i + 1} of ${examState.questions.length}</div>
+        <button class="q-flag ${isFlagged ? "flagged" : ""}" id="flagBtn">⚑ ${isFlagged ? "Marked for review" : "Mark for review"}</button>
+      </div>
+      <div class="q-en">${q.q_en}</div>
+      <div class="q-as">${q.q_as}</div>
+      <div class="q-options">
+        ${q.options_en.map((opt, idx) => `
+          <button class="q-option ${selected === idx ? "selected" : ""}" data-i="${idx}">
+            <span class="letter">${String.fromCharCode(65 + idx)}</span>
+            <span class="opt-text">${opt}<span class="opt-as">${q.options_as[idx]}</span></span>
+          </button>
+        `).join("")}
+      </div>
+      <div class="q-nav">
+        <button class="prev" id="prevBtn" ${i === 0 ? "disabled" : ""}>◀ Previous</button>
+        <button class="next" id="nextBtn">${i === examState.questions.length - 1 ? "Review last ▶" : "Next ▶"}</button>
+      </div>
+    </div>
+  `;
+
+  card.querySelectorAll(".q-option").forEach(btn => {
+    btn.addEventListener("click", () => {
+      examState.answers[i] = Number(btn.dataset.i);
+      renderQuestion();
+      renderPalette();
+    });
+  });
+  document.getElementById("flagBtn").addEventListener("click", () => {
+    examState.flagged[i] = !examState.flagged[i];
+    renderQuestion();
+    renderPalette();
+  });
+  const prev = document.getElementById("prevBtn");
+  const next = document.getElementById("nextBtn");
+  prev && prev.addEventListener("click", () => { if (examState.current > 0){ examState.current--; renderQuestion(); renderPalette(); } });
+  next && next.addEventListener("click", () => {
+    if (examState.current < examState.questions.length - 1){
+      examState.current++;
+      renderQuestion();
+      renderPalette();
+    } else {
+      confirmSubmit(false);
+    }
+  });
+}
+
+function renderPalette(){
+  const p = document.getElementById("examPalette");
+  const total = examState.questions.length;
+  const answeredCount = examState.answers.filter(a => a !== null).length;
+  const flaggedCount = examState.flagged.filter(Boolean).length;
+
+  p.innerHTML = `
+    <h4>Question palette</h4>
+    <div class="palette-grid">
+      ${examState.questions.map((_, idx) => {
+        const isAnswered = examState.answers[idx] !== null;
+        const isFlagged = examState.flagged[idx];
+        const isCurrent = idx === examState.current;
+        let cls = "p-btn";
+        if (isAnswered) cls += " answered";
+        if (isFlagged) cls += " flagged";
+        if (isCurrent) cls += " current";
+        return `<button class="${cls}" data-idx="${idx}">${idx + 1}</button>`;
+      }).join("")}
+    </div>
+    <div class="palette-legend">
+      <div><span class="sw answered"></span> Answered — ${answeredCount}</div>
+      <div><span class="sw unanswered"></span> Not answered — ${total - answeredCount}</div>
+      <div><span class="sw flagged"></span> Marked — ${flaggedCount}</div>
+    </div>
+  `;
+  p.querySelectorAll(".p-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      examState.current = Number(btn.dataset.idx);
+      renderQuestion();
+      renderPalette();
+      document.querySelector(".exam-body").scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
+}
+
+/* ===================================================================
+   SUBMIT
+   =================================================================== */
+document.getElementById("examSubmitBtn").addEventListener("click", () => confirmSubmit(false));
+
+function confirmSubmit(autoSubmit){
+  if (autoSubmit){
+    submitExam();
+    return;
+  }
+  const answered = examState.answers.filter(a => a !== null).length;
+  const total = examState.questions.length;
+  document.getElementById("sdAnswered").textContent = answered;
+  document.getElementById("sdUnanswered").textContent = total - answered;
+  document.getElementById("sdFlagged").textContent = examState.flagged.filter(Boolean).length;
+  submitDialog.classList.add("open");
+}
+document.getElementById("sdCancel").addEventListener("click", () => submitDialog.classList.remove("open"));
+document.getElementById("sdConfirm").addEventListener("click", () => {
+  submitDialog.classList.remove("open");
+  submitExam();
+});
+
+function submitExam(){
+  if (examTimerInterval) clearInterval(examTimerInterval);
+  const elapsed = Math.round((Date.now() - examState.startTime) / 1000);
+  const timeUsed = Math.min(elapsed, EXAM_SECONDS);
+
+  let correctCount = 0, wrongCount = 0, skippedCount = 0;
+  const details = examState.questions.map((q, idx) => {
+    const chosen = examState.answers[idx];
+    if (chosen === null) { skippedCount++; return { chosen: null, correct: q.correct, status: "skipped" }; }
+    if (chosen === q.correct) { correctCount++; return { chosen, correct: q.correct, status: "correct" }; }
+    wrongCount++;
+    return { chosen, correct: q.correct, status: "wrong" };
+  });
+
+  const rawScore = correctCount - (wrongCount * NEGATIVE_MARK);
+  const maxScore = examState.questions.length;
+
+  renderResults({ correctCount, wrongCount, skippedCount, rawScore, maxScore, timeUsed, details });
+
+  document.getElementById("examShell").classList.remove("open");
+  document.body.style.overflow = "";
+  document.getElementById("resultsShell").classList.add("open");
+  document.getElementById("resultsShell").scrollTop = 0;
+}
+
+function renderResults({ correctCount, wrongCount, skippedCount, rawScore, maxScore, timeUsed, details }){
+  const pct = Math.max(0, (rawScore / maxScore) * 100).toFixed(1);
+  const mins = Math.floor(timeUsed / 60);
+  const secs = timeUsed % 60;
+
+  const topicStats = {};
+  examState.questions.forEach((q, i) => {
+    const t = q.topic || "Other";
+    if (!topicStats[t]) topicStats[t] = { correct: 0, total: 0 };
+    topicStats[t].total++;
+    if (details[i].status === "correct") topicStats[t].correct++;
+  });
+  const topicRows = Object.entries(topicStats).sort((a, b) => (b[1].total - a[1].total)).map(([topic, s]) => {
+    const p = (s.correct / s.total) * 100;
+    let cls = "", tag = "";
+    if (p < 50){ cls = "weak"; tag = `<span class="topic-tag weak">Focus here</span>`; }
+    else if (p >= 80){ cls = ""; tag = `<span class="topic-tag strong">Strong</span>`; }
+    else { cls = "mid"; tag = `<span class="topic-tag mid">Needs practice</span>`; }
+    return `
+      <div class="topic-row">
+        <div class="topic-name"><strong>${topic} ${tag}</strong><span>${s.correct}/${s.total} · ${p.toFixed(0)}%</span></div>
+        <div class="topic-bar ${cls}"><div class="fill" style="width:${p}%"></div></div>
+      </div>
+    `;
+  }).join("");
+
+  const weakTopics = Object.entries(topicStats).filter(([, s]) => (s.correct / s.total) < 0.5).map(([t]) => t);
+  const weakNote = weakTopics.length
+    ? `<p style="margin-top:14px;"><strong>Priority to revise:</strong> ${weakTopics.join(", ")}.</p>`
+    : `<p style="margin-top:14px;">Good coverage across all topics — keep practising to sharpen speed.</p>`;
+
+  const reviewHTML = examState.questions.map((q, i) => {
+    const d = details[i];
+    const badge = d.status === "correct" ? `<span class="rq-badge correct">Correct</span>`
+                : d.status === "wrong"   ? `<span class="rq-badge wrong">Wrong</span>`
+                :                          `<span class="rq-badge skipped">Skipped</span>`;
+    return `
+      <div class="review-q">
+        <div class="rq-head">
+          <div class="rq-num">Question ${i + 1} · ${q.topic}</div>
+          ${badge}
+        </div>
+        <div class="rq-en">${q.q_en}</div>
+        <div class="rq-as">${q.q_as}</div>
+        <div class="rq-opts">
+          ${q.options_en.map((opt, idx) => {
+            let cls = "rq-opt";
+            if (idx === q.correct) cls += " correct";
+            else if (idx === d.chosen) cls += " wrong";
+            const marker = idx === q.correct ? "✓" : (idx === d.chosen ? "✗" : "");
+            return `<div class="${cls}"><span class="ltr">${String.fromCharCode(65 + idx)}. ${marker}</span><span>${opt}<span class="opt-as">${q.options_as[idx]}</span></span></div>`;
+          }).join("")}
+        </div>
+        <div class="rq-expl">
+          <strong>Explanation (English)</strong>
+          ${q.exp_en}
+          <div class="as"><strong>ব্যাখ্যা (অসমীয়া)</strong> ${q.exp_as}</div>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  const scoreColor = rawScore >= maxScore * 0.7 ? "#E8AC3D" : rawScore >= maxScore * 0.4 ? "#E8AC3D" : "#FF6A3D";
+
+  document.getElementById("resultsShell").innerHTML = `
+    <div class="results-header">
+      <h2>Test complete</h2>
+      <p>${activeGrade} · ${activeSubject}</p>
+      <div class="results-score" style="color:${scoreColor};">${rawScore.toFixed(2)} <span style="font-size:1.2rem;color:#8FA0B6;">/ ${maxScore}</span></div>
+      <p>${pct}% · Time used: ${mins}m ${secs}s</p>
+    </div>
+    <div class="results-body">
+      <div class="stat-grid">
+        <div class="stat-box correct"><strong>${correctCount}</strong><small>Correct</small></div>
+        <div class="stat-box wrong"><strong>${wrongCount}</strong><small>Wrong</small></div>
+        <div class="stat-box skipped"><strong>${skippedCount}</strong><small>Skipped</small></div>
+        <div class="stat-box negative"><strong>−${(wrongCount * NEGATIVE_MARK).toFixed(2)}</strong><small>Negative marks</small></div>
+      </div>
+
+      <div class="analysis-card">
+        <h3>Topic-wise analysis</h3>
+        ${topicRows}
+        ${weakNote}
+      </div>
+
+      <div class="analysis-card">
+        <h3>Answer key &amp; explanations</h3>
+        <p class="review-intro">Every question is shown below with your answer, the correct answer, and a full explanation in English and Assamese.</p>
+        ${reviewHTML}
+      </div>
+
+      <div style="text-align:center;margin-top:24px;">
+        <button class="back-btn" id="backFromResults">← Back to portal</button>
+      </div>
+    </div>
+  `;
+
+  document.getElementById("backFromResults").addEventListener("click", () => {
+    document.getElementById("resultsShell").classList.remove("open");
+    document.body.style.overflow = "";
+  });
+}
 
 /* ===================================================================
    DOUBTS FORM
