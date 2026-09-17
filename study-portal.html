@@ -75,13 +75,6 @@
   .teacher-role{color:var(--orange);font-size:.85rem;font-weight:600;margin-bottom:8px;display:block;}
   .teacher-bio{font-size:.92rem;max-width:65ch;margin-bottom:0;}
 
-  .selector-row{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px;align-items:center;}
-  .selector-label{font-size:.75rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint);margin-right:4px;}
-  .grade-tab, .subject-tab{background:#fff;border:1px solid var(--border);color:var(--ink-dim);font-family:var(--sans);font-size:.88rem;font-weight:600;padding:10px 18px;border-radius:8px;cursor:pointer;transition:.15s;}
-  .grade-tab:hover, .subject-tab:hover{border-color:var(--ink-faint);color:var(--ink);}
-  .grade-tab.active{background:var(--navy);border-color:var(--navy);color:#fff;}
-  .subject-tab.active{background:var(--teal);border-color:var(--teal);color:#fff;}
-
   .mock-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
   @media (max-width:700px){.mock-grid{grid-template-columns:1fr;}}
   .mock-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:10px;}
@@ -146,10 +139,6 @@
   .status-box{background:#FFF8E8;border:1px solid #F0DCB0;color:#7A5B0E;font-size:.9rem;padding:16px;border-radius:10px;margin-top:16px;}
   .status-box h4{color:#5A4000;margin:0 0 6px;font-family:var(--sans);font-size:.95rem;}
   .status-box .ref-code{font-family:'Courier New', monospace;background:#fff;padding:6px 10px;border-radius:5px;display:inline-block;margin:6px 0;font-weight:700;letter-spacing:.05em;}
-  .status-box.ok{background:#D1FAE5;border-color:#A7F3D0;color:#065F46;}
-  .status-box.ok h4{color:#065F46;}
-  .status-box.rejected{background:#FEE2E2;border-color:#FECACA;color:#991B1B;}
-  .status-box.rejected h4{color:#991B1B;}
 
   .check-status-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center;}
   .check-status-row input{flex:1;min-width:200px;background:#fff;border:1px solid var(--border);color:var(--ink);padding:11px 12px;border-radius:6px;font-family:var(--sans);font-size:.92rem;}
@@ -562,6 +551,8 @@ const WHATSAPP_NUMBER = "916002807252";
 const CONTACT_EMAIL = "kuldipsarma62@gmail.com";
 const UPI_ID = "kuldipsarma049@okhdfcbank";
 const PRICE = 9;
+const NEGATIVE_MARK = 0.25;
+const EXAM_SECONDS = 25 * 60;
 const SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbxdBrU2VW2d2GyxYMF3TQ3xk4vPqIgEN3DttgRYvwua9XIe6UM5qwhEtWCiE5Tv4J1V/exec";
 const PENDING_KEY = "bishleshon_pending";
 const UNLOCK_KEY = "bishleshon_unlocked_series";
@@ -593,7 +584,7 @@ const SET1 = [
   { q_en:"A car covers a distance at 60 km/h and returns at 40 km/h. What is the average speed for the whole journey?", q_as:"এখন গাড়ীয়ে ৬০ কিমি/ঘণ্টাত এটা দূৰত্ব যায় আৰু ৪০ কিমি/ঘণ্টাত উভতি আহে। সমগ্ৰ যাত্ৰাৰ গড় বেগ কিমান?", options_en:["48 km/h","50 km/h","52 km/h","54 km/h"], options_as:["৪৮ কিমি/ঘণ্টা","৫০ কিমি/ঘণ্টা","৫২ কিমি/ঘণ্টা","৫৪ কিমি/ঘণ্টা"], correct:0, topic:"Time, Speed & Distance", exp_en:"Average speed = 2xy/(x+y) = (2 × 60 × 40) / 100 = 48 km/h.", exp_as:"গড় বেগ = 2xy/(x+y) = (২ × ৬০ × ৪০) / ১০০ = ৪৮ কিমি/ঘণ্টা।" }
 ];
 
-// SET 2 — 20 questions (from "Set of 10" + "Set 2" provided)
+// SET 2 — 20 questions
 const SET2 = [
   { q_en:"A pipe can fill a tank in 10 hours, while another pipe can empty it in 15 hours. If both pipes are opened together, in how many hours will the tank be completely filled?", q_as:"এটা পাইপে এটা টেংক ১০ ঘণ্টাত সম্পূৰ্ণ কৰিব পাৰে আৰু আন এটা পাইপে ১৫ ঘণ্টাত টেংকটো খালি কৰিব পাৰে। যদি দুয়োটা পাইপ একেলগে খুলি দিয়া হয়, তেন্তে কিমান ঘণ্টাত টেংকটো সম্পূৰ্ণৰূপে ভৰিব?", options_en:["20 hours","25 hours","30 hours","35 hours"], options_as:["২০ ঘণ্টা","২৫ ঘণ্টা","৩০ ঘণ্টা","৩৫ ঘণ্টা"], correct:2, topic:"Pipes & Cisterns", exp_en:"Work done per hour = 1/10 − 1/15 = (3 − 2)/30 = 1/30. Time = 30 hours.", exp_as:"প্ৰতি ঘণ্টাৰ কাম = ১/১০ − ১/১৫ = (৩ − ২)/৩০ = ১/৩০। সময় = ৩০ ঘণ্টা।" },
   { q_en:"The sum of the ages of a mother and her daughter is 50 years. Five years ago, the mother's age was 7 times the age of the daughter. What is the present age of the mother?", q_as:"এগৰাকী মাতৃ আৰু তেওঁৰ জীয়েকৰ বৰ্তমান বয়সৰ সমষ্টি ৫০ বছৰ। ৫ বছৰ পূৰ্বে মাতৃৰ বয়স জীয়েকৰ বয়সৰ ৭ গুণ আছিল। মাতৃগৰাকীৰ বৰ্তমান বয়স কিমান?", options_en:["35 years","40 years","42 years","45 years"], options_as:["৩৫ বছৰ","৪০ বছৰ","৪২ বছৰ","৪৫ বছৰ"], correct:1, topic:"Ages", exp_en:"m + d = 50. 5 years ago: (m − 5) = 7(d − 5). Solving: d = 10, m = 40.", exp_as:"m + d = ৫০। ৫ বছৰ পূৰ্বে: (m − ৫) = ৭(d − ৫)। d = ১০, m = ৪০।" },
@@ -790,7 +781,6 @@ document.getElementById("checkStatusBtn").addEventListener("click", async () => 
   const input = document.getElementById("statusMobileInput");
   const p = getPending();
 
-  // Prefer typed number, fall back to saved pending
   let mobile = input.value.trim();
   if (!mobile && p) mobile = p.mobile;
 
@@ -1011,7 +1001,7 @@ document.getElementById("sdConfirm").addEventListener("click", () => {
 function submitExam(){
   if (examTimerInterval) clearInterval(examTimerInterval);
   const elapsed = Math.round((Date.now() - examState.startTime) / 1000);
-  const timeUsed = Math.min(elapsed, examState.secondsLeft === 0 ? activeSet.seconds : elapsed);
+  const timeUsed = Math.min(elapsed, activeSet.seconds);
 
   let correctCount = 0, wrongCount = 0, skippedCount = 0;
   const details = examState.questions.map((q, idx) => {
