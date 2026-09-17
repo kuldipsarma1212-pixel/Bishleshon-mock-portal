@@ -42,7 +42,7 @@
   .toplinks a{text-decoration:none;color:#C7D2E0;border-bottom:1px solid transparent;padding-bottom:2px;}
   .toplinks a:hover{color:#fff;border-color:var(--gold);}
 
-  .hero{padding:56px 0 40px;background:linear-gradient(180deg,var(--navy) 0%,var(--navy) 62%,var(--bg) 62%);position:relative;}
+  .hero{padding:56px 0 40px;background:linear-gradient(180deg,var(--navy) 0%,var(--navy) 62%,var(--bg) 62%);}
   .hero-inner{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:40px 36px;box-shadow:0 20px 50px -25px rgba(11,31,53,.35);}
   .kicker-pill{display:inline-flex;align-items:center;gap:7px;background:var(--teal-soft);color:var(--teal);font-size:.78rem;font-weight:700;padding:6px 13px;border-radius:999px;margin-bottom:16px;}
   .hero h1{font-size:clamp(1.7rem,3.6vw,2.4rem);max-width:24ch;}
@@ -59,6 +59,7 @@
   .btn-teal:hover{background:#0B6E64;}
   .btn-ghost{background:#fff;color:var(--ink-dim);border:1px solid var(--border);}
   .btn-ghost:hover{border-color:var(--ink-faint);color:var(--ink);}
+  .btn:disabled{opacity:.55;cursor:not-allowed;}
   .trust-row{display:flex;gap:26px;flex-wrap:wrap;border-top:1px solid var(--border);padding-top:18px;}
   .trust-item{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--ink-dim);}
   .trust-item svg{color:var(--teal);flex-shrink:0;}
@@ -89,6 +90,17 @@
   .mock-card ul{margin:0;padding-left:18px;font-size:.87rem;color:var(--ink-dim);}
   .mock-card li{margin-bottom:4px;}
   .mock-card h3{margin-bottom:2px;}
+
+  .set-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px;}
+  @media (max-width:600px){.set-grid{grid-template-columns:1fr;}}
+  .set-card{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:8px;}
+  .set-card h4{font-family:var(--serif);font-size:1.05rem;margin:0;}
+  .set-card .set-meta{font-size:.82rem;color:var(--ink-dim);}
+  .set-card .set-status{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:3px 9px;border-radius:99px;align-self:flex-start;}
+  .set-card .set-status.free{background:#D1FAE5;color:var(--green);}
+  .set-card .set-status.locked{background:#FEE2E2;color:var(--red);}
+  .set-card .set-status.unlocked{background:var(--teal-soft);color:var(--teal);}
+  .set-card button{margin-top:6px;align-self:flex-start;}
 
   .modal-overlay{position:fixed;inset:0;background:rgba(8,18,32,.75);display:none;align-items:flex-start;justify-content:center;z-index:100;padding:20px;overflow-y:auto;}
   .modal-overlay.open{display:flex;}
@@ -131,8 +143,16 @@
   .form-msg.err{color:var(--orange-dark);}
   .form-msg.ok{color:var(--teal);}
 
-  .verified-banner{background:var(--teal-soft);color:var(--teal);font-weight:700;font-size:.9rem;padding:12px 16px;border-radius:8px;margin-top:14px;}
-  .pending-note{background:#FFF8E8;border:1px solid #F0DCB0;color:#7A5B0E;font-size:.85rem;padding:12px 16px;border-radius:8px;margin-top:14px;}
+  .status-box{background:#FFF8E8;border:1px solid #F0DCB0;color:#7A5B0E;font-size:.9rem;padding:16px;border-radius:10px;margin-top:16px;}
+  .status-box h4{color:#5A4000;margin:0 0 6px;font-family:var(--sans);font-size:.95rem;}
+  .status-box .ref-code{font-family:'Courier New', monospace;background:#fff;padding:6px 10px;border-radius:5px;display:inline-block;margin:6px 0;font-weight:700;letter-spacing:.05em;}
+  .status-box.ok{background:#D1FAE5;border-color:#A7F3D0;color:#065F46;}
+  .status-box.ok h4{color:#065F46;}
+  .status-box.rejected{background:#FEE2E2;border-color:#FECACA;color:#991B1B;}
+  .status-box.rejected h4{color:#991B1B;}
+
+  .check-status-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center;}
+  .check-status-row input{flex:1;min-width:200px;background:#fff;border:1px solid var(--border);color:var(--ink);padding:11px 12px;border-radius:6px;font-family:var(--sans);font-size:.92rem;}
 
   .doubt-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;}
   @media (max-width:760px){.doubt-layout{grid-template-columns:1fr;}}
@@ -282,7 +302,7 @@
   <div class="topbar-inner">
     <a href="./" class="brand">Bishleshon <span>Education</span></a>
     <nav class="toplinks">
-      <a href="#grades">Grades</a>
+      <a href="#sets">Sets</a>
       <a href="#paid-mock">Paid series</a>
       <a href="#doubts">Ask a doubt</a>
     </nav>
@@ -294,7 +314,7 @@
     <div class="hero-inner">
       <span class="kicker-pill">ADRE Mock Tests · Brought to you by Kuldip Sir</span>
       <h1>ADRE mock tests, built for the real exam.</h1>
-      <p class="lead">Exam-realistic mock tests with bilingual questions (English + অসমীয়া), 30-minute timer, negative marking, detailed solutions and topic-wise analysis.</p>
+      <p class="lead">Bilingual questions (English + অসমীয়া), real exam timer, negative marking, detailed solutions and topic-wise analysis. Try 6 questions free — unlock the full series for ₹9.</p>
       <div class="hero-ctas">
         <a href="#paid-mock" class="btn btn-gold">Unlock the full series — ₹9</a>
       </div>
@@ -302,7 +322,7 @@
         <span class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Bilingual questions</span>
         <span class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Real exam timer</span>
         <span class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Detailed solutions</span>
-        <span class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Topic-wise analysis</span>
+        <span class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Lifetime access</span>
       </div>
     </div>
   </div>
@@ -320,17 +340,36 @@
   </div>
 </section>
 
-<section class="section alt" id="grades">
+<section class="section alt" id="sets">
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="eyebrow-mark">Choose your track</span>
-        <h2>Pick your grade and subject</h2>
+        <span class="eyebrow-mark">Practice sets</span>
+        <h2>Try 6 questions free — unlock the full series</h2>
       </div>
-      <p>The mock tests below will match your choice.</p>
+      <p>Attempt 6 free questions instantly. Unlock 2 full sets (40 questions) for ₹9.</p>
     </div>
-    <div class="selector-row" id="gradeRow"><span class="selector-label">Grade</span></div>
-    <div class="selector-row" id="subjectRow"><span class="selector-label">Subject</span></div>
+
+    <div class="set-grid">
+      <div class="set-card">
+        <span class="set-status free">Free</span>
+        <h4>Free trial — 6 questions</h4>
+        <div class="set-meta">No sign-up · No payment · Instant access</div>
+        <button class="btn btn-teal" id="startFreeBtn">Start free trial</button>
+      </div>
+      <div class="set-card">
+        <span class="set-status locked" id="unlockStatus1">Locked</span>
+        <h4>Set 1 — 20 questions</h4>
+        <div class="set-meta">25 minutes · Bilingual · Full solutions</div>
+        <button class="btn btn-primary" id="startSet1Btn" disabled>Locked</button>
+      </div>
+      <div class="set-card">
+        <span class="set-status locked" id="unlockStatus2">Locked</span>
+        <h4>Set 2 — 20 questions</h4>
+        <div class="set-meta">25 minutes · Bilingual · Full solutions</div>
+        <button class="btn btn-primary" id="startSet2Btn" disabled>Locked</button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -339,30 +378,44 @@
     <div class="section-head">
       <div>
         <span class="eyebrow-mark">Paid</span>
-        <h2>Full mock test series — ₹9 per subject</h2>
+        <h2>Full mock test series — ₹9 lifetime</h2>
       </div>
-      <p>Full-length exam-pattern mock with timer, negative marking, detailed solutions and analysis.</p>
+      <p>Pay ₹9 → fill form → verify → unlock both sets. One-time payment, lifetime access.</p>
     </div>
 
     <div class="mock-grid">
       <div class="mock-card paid">
         <span class="kicker">What you get</span>
-        <h3 id="paidTitle">Full series</h3>
-        <ul id="paidMockDetails"></ul>
+        <h3>Full series</h3>
+        <ul>
+          <li>2 full sets — 40 questions total</li>
+          <li>Bilingual — English + অসমীয়া</li>
+          <li>25-minute timer per set</li>
+          <li>Negative marking (−0.25)</li>
+          <li>Detailed solutions + explanations</li>
+          <li>Topic-wise analysis</li>
+          <li>Lifetime access</li>
+        </ul>
       </div>
       <div class="mock-card">
         <span class="kicker">Pay ₹9 on UPI</span>
         <h3>Simple, direct payment</h3>
-        <p style="margin:0;font-size:.9rem;">Pay ₹9, fill a 3-field form, unlock instantly.</p>
+        <p style="margin:0;font-size:.9rem;">Pay ₹9, fill a 3-field form, we verify and unlock within a few hours.</p>
         <button class="btn btn-primary" id="openPayPanel" style="align-self:flex-start;margin-top:6px;">Pay ₹9 &amp; unlock</button>
       </div>
     </div>
 
-    <div id="paidContentWrap" style="display:none;margin-top:26px;">
-      <div class="verified-banner" id="paidBanner"></div>
-      <p class="pending-note">We'll verify your payment against our records. If anything doesn't match, Kuldip Sir will message you on WhatsApp.</p>
-      <div style="margin-top:20px;">
-        <button class="btn btn-gold" id="startExamBtn" style="font-size:1rem;padding:14px 28px;">▶ Start exam — 20 questions · 30 minutes</button>
+    <div id="pendingStatusArea" style="margin-top:22px;"></div>
+
+    <div id="checkStatusArea" style="margin-top:22px;">
+      <div class="status-box" id="checkBox">
+        <h4>Already paid? Check your status</h4>
+        <p style="margin:6px 0 0;">Enter the WhatsApp number you used while paying.</p>
+        <div class="check-status-row">
+          <input id="statusMobileInput" type="tel" placeholder="10-digit WhatsApp number">
+          <button class="btn btn-teal" id="checkStatusBtn">Check status</button>
+        </div>
+        <div class="form-msg" id="checkStatusMsg" style="margin-top:10px;"></div>
       </div>
     </div>
   </div>
@@ -414,7 +467,7 @@
 
 <footer>
   <div class="wrap">
-    <p><a href="#grades">Grades</a> · <a href="#paid-mock">Paid series</a> · <a href="#doubts">Ask a doubt</a></p>
+    <p><a href="#sets">Sets</a> · <a href="#paid-mock">Paid series</a> · <a href="#doubts">Ask a doubt</a></p>
     <p>© 2026 Bishleshon Education · ADRE Mock Tests · Brought to you by Kuldip Sir</p>
   </div>
 </footer>
@@ -422,8 +475,8 @@
 <div class="modal-overlay" id="payModal">
   <div class="modal-box">
     <button class="modal-close" id="payModalClose">✕</button>
-    <h3>Unlock full mock — ₹9</h3>
-    <p class="modal-subtitle" id="payModalSubtitle">Grade · Subject</p>
+    <h3>Unlock full series — ₹9</h3>
+    <p class="modal-subtitle">2 sets · 40 questions · lifetime access</p>
 
     <div class="pay-primary">
       <div class="pay-headline">Fastest way — one tap</div>
@@ -464,14 +517,15 @@
         <button type="submit" class="btn btn-primary" id="paySubmitBtn">Submit &amp; unlock</button>
         <span class="form-msg" id="payFormMsg"></span>
       </div>
+      <p style="font-size:.78rem;color:var(--ink-faint);margin-top:12px;">We'll verify your UTR against our bank records. Usually within 2 hours. You'll unlock automatically once verified.</p>
     </form>
   </div>
 </div>
 
 <div class="exam-shell" id="examShell">
   <div class="exam-header">
-    <div class="exam-title">ADRE Maths Mock <small id="examSubtitle">4th Grade · 20 questions · 30 minutes</small></div>
-    <div class="exam-timer" id="examTimer">30:00</div>
+    <div class="exam-title"><span id="examTitle">ADRE Maths Mock</span> <small id="examSubtitle">4th Grade · 20 questions · 25 minutes</small></div>
+    <div class="exam-timer" id="examTimer">25:00</div>
     <button class="exam-submit" id="examSubmitBtn">Submit Test</button>
   </div>
   <div class="exam-body">
@@ -507,294 +561,140 @@
 const WHATSAPP_NUMBER = "916002807252";
 const CONTACT_EMAIL = "kuldipsarma62@gmail.com";
 const UPI_ID = "kuldipsarma049@okhdfcbank";
-const PRICE_PER_SUBJECT = 9;
+const PRICE = 9;
 const SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwre530hMTmPrHgEYmAvZNDItGN6WqIGII5mdGryQrgmP35ojWHmLdHcVFuHskW-ISc/exec";
-
-const GRADES = ["4th Grade", "3rd Grade (HS Pass)", "3rd Grade (Graduate)"];
-const SUBJECTS = ["Maths"];
 const NEGATIVE_MARK = 0.25;
-const EXAM_SECONDS = 30 * 60;
-
-let activeGrade = GRADES[0];
-let activeSubject = SUBJECTS[0];
+const EXAM_SECONDS = 25 * 60;
+const PENDING_KEY = "bishleshon_pending";
+const UNLOCK_KEY = "bishleshon_unlocked_series";
 
 /* ===================================================================
-   QUESTION BANK — 20 ADRE Maths questions (bilingual)
+   QUESTION BANK
    =================================================================== */
-const MATHS_QUESTIONS = [
-  {
-    q_en: "A sum of money amounts to ₹4,840 in 2 years and to ₹5,324 in 3 years at compound interest, compounded annually. What is the rate of interest per annum?",
-    q_as: "কোনো মূলধন চক্ৰবৃদ্ধি সুদেৰে ২ বছৰত ₹৪,৮৪০ আৰু ৩ বছৰত ₹৫,৩২৪ হয়। বাৰ্ষিক সুদৰ হাৰ কিমান?",
-    options_en: ["8%", "10%", "12%", "15%"],
-    options_as: ["৮%", "১০%", "১২%", "১৫%"],
-    correct: 1,
-    topic: "Compound Interest",
-    exp_en: "Interest earned in the 3rd year = ₹5,324 − ₹4,840 = ₹484. Rate = (484 ÷ 4,840) × 100 = 10%.",
-    exp_as: "৩য় বছৰৰ সুদ = ₹৫,৩২৪ − ₹৪,৮৪০ = ₹৪৮৪। হাৰ = (৪৮৪ ÷ ৪,৮৪০) × ১০০ = ১০%।"
-  },
-  {
-    q_en: "The average age of 8 persons increases by 2.5 years when two women aged 21 and 23 are replaced by two men. What is the average age of the two new men?",
-    q_as: "৮ জনীয়া এটা দলৰ ২১ আৰু ২৩ বছৰীয়া দুগৰাকী মহিলাক দুজন পুৰুষেৰে সলনি কৰাত গড় বয়স ২.৫ বছৰ বৃদ্ধি পালে। নতুন পুৰুষ দুজনৰ গড় বয়স কিমান?",
-    options_en: ["32 years", "31 years", "30 years", "28 years"],
-    options_as: ["৩২ বছৰ", "৩১ বছৰ", "৩০ বছৰ", "২৮ বছৰ"],
-    correct: 0,
-    topic: "Averages",
-    exp_en: "Total age increase = 8 × 2.5 = 20. Sum of women's ages = 21 + 23 = 44. Total of new men = 44 + 20 = 64. Average = 64 ÷ 2 = 32.",
-    exp_as: "মুঠ বয়স বৃদ্ধি = ৮ × ২.৫ = ২০। মহিলা দুগৰাকীৰ বয়স = ২১ + ২৩ = ৪৪। নতুন পুৰুষৰ মুঠ = ৪৪ + ২০ = ৬৪। গড় = ৬৪ ÷ ২ = ৩২।"
-  },
-  {
-    q_en: "A tap can fill a cistern in 8 hours and another can empty it in 12 hours. If both are opened together, how long will it take to fill the empty cistern?",
-    q_as: "এটা পাইপে ৮ ঘণ্টাত চৌবাচ্চা ভৰাব আৰু আন এটা ১২ ঘণ্টাত খালি কৰিব। দুয়োটা একেলগে খুলিলে কিমান সময় লাগিব?",
-    options_en: ["16 hours", "20 hours", "24 hours", "30 hours"],
-    options_as: ["১৬ ঘণ্টা", "২০ ঘণ্টা", "২৪ ঘণ্টা", "৩০ ঘণ্টা"],
-    correct: 2,
-    topic: "Pipes & Cisterns",
-    exp_en: "Net rate = 1/8 − 1/12 = (3 − 2)/24 = 1/24. Time = 24 hours.",
-    exp_as: "নেট হাৰ = ১/৮ − ১/১২ = (৩ − ২)/২৪ = ১/২৪। সময় = ২৪ ঘণ্টা।"
-  },
-  {
-    q_en: "A shopkeeper sold an item at 12% loss. Had he sold it for ₹108 more, he would have gained 6%. Find the cost price.",
-    q_as: "এজন দোকানদাৰে সামগ্ৰী ১২% লোকচানত বিক্ৰী কৰিলে। ₹১০৮ অধিকত বিক্ৰী কৰিলে ৬% লাভ হ'লহেঁতেন। ক্ৰয় মূল্য কিমান?",
-    options_en: ["₹540", "₹600", "₹640", "₹720"],
-    options_as: ["₹৫৪০", "₹৬০০", "₹৬৪০", "₹৭২০"],
-    correct: 1,
-    topic: "Profit & Loss",
-    exp_en: "Difference = 6% − (−12%) = 18%. 18% of CP = ₹108 → CP = (108 ÷ 18) × 100 = ₹600.",
-    exp_as: "পাৰ্থক্য = ৬% − (−১২%) = ১৮%। ১৮% = ₹১০৮ → ক্ৰয় মূল্য = (১০৮ ÷ ১৮) × ১০০ = ₹৬০০।"
-  },
-  {
-    q_en: "If A's income is 25% more than B's, by what percent is B's income less than A's?",
-    q_as: "A-ৰ আয় B-তকৈ ২৫% বেছি হ'লে B-ৰ আয় A-তকৈ শতকৰা কিমান কম?",
-    options_en: ["20%", "25%", "16.66%", "30%"],
-    options_as: ["২০%", "২৫%", "১৬.৬৬%", "৩০%"],
-    correct: 0,
-    topic: "Percentage",
-    exp_en: "Let B = 100, A = 125. Decrease = (125 − 100) / 125 × 100 = 20%.",
-    exp_as: "B = ১০০, A = ১২৫ ধৰি। হ্ৰাস = (১২৫ − ১০০) / ১২৫ × ১০০ = ২০%।"
-  },
-  {
-    q_en: "In a 1000 m race, A beats B by 100 m or 10 seconds. Find A's speed.",
-    q_as: "১০০০ মিটাৰ দৌৰত A-য়ে B-ক ১০০ মিটাৰ বা ১০ ছেকেণ্ডত পৰাজিত কৰে। A-ৰ বেগ কিমান?",
-    options_en: ["10 m/s", "11.11 m/s", "12 m/s", "9 m/s"],
-    options_as: ["১০ মি/ছে", "১১.১১ মি/ছে", "১২ মি/ছে", "৯ মি/ছে"],
-    correct: 1,
-    topic: "Time, Speed & Distance",
-    exp_en: "B covers 100 m in 10 s → speed 10 m/s. B takes 1000/10 = 100 s for the race. A takes 90 s. A's speed = 1000/90 = 11.11 m/s.",
-    exp_as: "B-য়ে ১০০ মিটাৰ ১০ ছেকেণ্ডত → বেগ ১০ মি/ছে। B ১০০০ মিটাৰ লয় ১০০ ছে। A লয় ৯০ ছে। A-ৰ বেগ = ১০০০/৯০ = ১১.১১ মি/ছে।"
-  },
-  {
-    q_en: "A and B enter partnership with capitals in ratio 3:5. After 4 months, C joins with capital equal to B's. Find profit ratio at year end.",
-    q_as: "A আৰু B-য়ে ৩:৫ অনুপাতত ব্যৱসায় আৰম্ভ কৰিলে। ৪ মাহৰ পিছত B-ৰ সমান মূলধনেৰে C যোগ দিলে। বছৰৰ শেষত লাভৰ অনুপাত কিমান?",
-    options_en: ["9 : 15 : 10", "3 : 5 : 5", "9 : 12 : 10", "9 : 15 : 8"],
-    options_as: ["৯ : ১৫ : ১০", "৩ : ৫ : ৫", "৯ : ১২ : ১০", "৯ : ১৫ : ৮"],
-    correct: 0,
-    topic: "Partnership",
-    exp_en: "A = 3×12 = 36. B = 5×12 = 60. C = 5×8 = 40. Ratio 36:60:40 = 9:15:10.",
-    exp_as: "A = ৩×১২ = ৩৬। B = ৫×১২ = ৬০। C = ৫×৮ = ৪০। অনুপাত ৩৬:৬০:৪০ = ৯:১৫:১০।"
-  },
-  {
-    q_en: "Find the greatest 4-digit number which when divided by 12, 15, 20 and 35 leaves 3 as remainder in each case.",
-    q_as: "১২, ১৫, ২০ আৰু ৩৫ ৰে ভাগ কৰিলে প্ৰতিটো ক্ষেত্ৰতে ৩ অৱশিষ্ট থকা আটাইতকৈ ডাঙৰ ৪-অংকৰ সংখ্যা কিমান?",
-    options_en: ["9663", "9873", "9660", "9867"],
-    options_as: ["৯৬৬৩", "৯৮৭৩", "৯৬৬০", "৯৮৬৭"],
-    correct: 0,
-    topic: "Number System",
-    exp_en: "LCM(12,15,20,35) = 420. 9999 ÷ 420 leaves 339. Largest multiple = 9660. Required number = 9660 + 3 = 9663.",
-    exp_as: "ল.সা.গু.(১২,১৫,২০,৩৫) = ৪২০। ৯৯৯৯ ÷ ৪২০ → অৱশিষ্ট ৩৩৯। ডাঙৰ গুণিতক = ৯৬৬০। সংখ্যা = ৯৬৬০ + ৩ = ৯৬৬৩।"
-  },
-  {
-    q_en: "In what ratio must tea worth ₹180/kg be mixed with tea worth ₹230/kg so the mixture costs ₹200/kg?",
-    q_as: "₹১৮০/কেজি আৰু ₹২৩০/কেজি চাহ কি অনুপাতত মিহলালে মিশ্ৰণ ₹২০০/কেজি হ'ব?",
-    options_en: ["2 : 3", "3 : 2", "4 : 3", "1 : 2"],
-    options_as: ["২ : ৩", "৩ : ২", "৪ : ৩", "১ : ২"],
-    correct: 1,
-    topic: "Mixtures & Alligation",
-    exp_en: "Alligation: (230 − 200) : (200 − 180) = 30 : 20 = 3 : 2.",
-    exp_as: "মিশ্ৰণ নিয়ম: (২৩০ − ২০০) : (২০০ − ১৮০) = ৩০ : ২০ = ৩ : ২।"
-  },
-  {
-    q_en: "The diagonal of a square field is 20√2 metres. What is the perimeter?",
-    q_as: "এখন বৰ্গাকাৰ পথাৰৰ কৰ্ণ ২০√২ মিটাৰ। পৰিসীমা কিমান?",
-    options_en: ["40 m", "60 m", "80 m", "100 m"],
-    options_as: ["৪০ মি", "৬০ মি", "৮০ মি", "১০০ মি"],
-    correct: 2,
-    topic: "Mensuration",
-    exp_en: "a√2 = 20√2 → side a = 20 m. Perimeter = 4 × 20 = 80 m.",
-    exp_as: "a√2 = ২০√২ → বাহু a = ২০ মি। পৰিসীমা = ৪ × ২০ = ৮০ মি।"
-  },
-  {
-    q_en: "A train 150 m long passes a telegraph post in 9 seconds. How long to cross a 250 m bridge?",
-    q_as: "১৫০ মিটাৰ দীঘল ৰেলগাড়ীয়ে ৯ ছেকেণ্ডত টেলিগ্ৰাফ স্তম্ভ অতিক্ৰম কৰে। ২৫০ মিটাৰ দলং অতিক্ৰম কৰিবলৈ কিমান সময় লাগিব?",
-    options_en: ["15 s", "20 s", "24 s", "30 s"],
-    options_as: ["১৫ ছে", "২০ ছে", "২৪ ছে", "৩০ ছে"],
-    correct: 2,
-    topic: "Time, Speed & Distance",
-    exp_en: "Speed = 150/9 = 50/3 m/s. Distance = 150 + 250 = 400 m. Time = 400 ÷ (50/3) = 24 s.",
-    exp_as: "বেগ = ১৫০/৯ = ৫০/৩ মি/ছে। দূৰত্ব = ১৫০ + ২৫০ = ৪০০ মি। সময় = ৪০০ ÷ (৫০/৩) = ২৪ ছে।"
-  },
-  {
-    q_en: "Two numbers are in ratio 3 : 4. If their HCF is 15, find their LCM.",
-    q_as: "দুটা সংখ্যা ৩ : ৪ অনুপাতত আছে। গ.সা.গু. ১৫ হ'লে ল.সা.গু. কিমান?",
-    options_en: ["120", "180", "240", "300"],
-    options_as: ["১২০", "১৮০", "২৪০", "৩০০"],
-    correct: 1,
-    topic: "Number System",
-    exp_en: "Numbers = 45 and 60. LCM = 3 × 4 × 15 = 180.",
-    exp_as: "সংখ্যা = ৪৫ আৰু ৬০। ল.সা.গু. = ৩ × ৪ × ১৫ = ১৮০।"
-  },
-  {
-    q_en: "A man can row 6 km/h in still water. Current speed = 2 km/h. It takes 3 hours to go to a place and return. Find the distance.",
-    q_as: "স্থিৰ পানীত মানুহে ৬ কিমি/ঘণ্টাত নাও চলাব। সোঁতৰ বেগ ২ কিমি/ঘণ্টা। যোৱা-অহা ৩ ঘণ্টা লাগে। দূৰত্ব কিমান?",
-    options_en: ["8 km", "10 km", "12 km", "16 km"],
-    options_as: ["৮ কিমি", "১০ কিমি", "১২ কিমি", "১৬ কিমি"],
-    correct: 0,
-    topic: "Boats & Streams",
-    exp_en: "Down = 8, Up = 4. D/8 + D/4 = 3 → 3D/8 = 3 → D = 8 km.",
-    exp_as: "অনুকূল = ৮, প্ৰতিকূল = ৪। D/৮ + D/৪ = ৩ → ৩D/৮ = ৩ → D = ৮ কিমি।"
-  },
-  {
-    q_en: "If 12 men or 18 women can do a work in 14 days, how long will 8 men and 16 women take?",
-    q_as: "১২ জন পুৰুষ বা ১৮ গৰাকী মহিলাই ১৪ দিনত কাম শেষ কৰিব। ৮ জন পুৰুষ আৰু ১৬ গৰাকী মহিলাই কিমান দিন ল'ব?",
-    options_en: ["7 days", "9 days", "10 days", "12 days"],
-    options_as: ["৭ দিন", "৯ দিন", "১০ দিন", "১২ দিন"],
-    correct: 1,
-    topic: "Time & Work",
-    exp_en: "2 men = 3 women. 8 men + 16 women = 12 + 16 = 28 women. Days = (18 × 14) / 28 = 9.",
-    exp_as: "২ পুৰুষ = ৩ মহিলা। ৮ পুৰুষ + ১৬ মহিলা = ১২ + ১৬ = ২৮ মহিলা। দিন = (১৮ × ১৪) / ২৮ = ৯।"
-  },
-  {
-    q_en: "Find the single discount equivalent to successive discounts of 20%, 10% and 5%.",
-    q_as: "২০%, ১০% আৰু ৫% ক্ৰমিক ৰেহাইৰ সমতুল্য একক ৰেহাই কিমান?",
-    options_en: ["35%", "31.6%", "32.5%", "33%"],
-    options_as: ["৩৫%", "৩১.৬%", "৩২.৫%", "৩৩%"],
-    correct: 1,
-    topic: "Discounts",
-    exp_en: "Final price = 0.80 × 0.90 × 0.95 = 0.684. Equivalent discount = 1 − 0.684 = 31.6%.",
-    exp_as: "চূড়ান্ত মূল্য = ০.৮০ × ০.৯০ × ০.৯৫ = ০.৬৮৪। ৰেহাই = ১ − ০.৬৮৪ = ৩১.৬%।"
-  },
-  {
-    q_en: "Simplify: (1 − 1/3)(1 − 1/4)(1 − 1/5) ··· (1 − 1/n)",
-    q_as: "সৰল কৰা: (১ − ১/৩)(১ − ১/৪)(১ − ১/৫) ··· (১ − ১/n)",
-    options_en: ["1/n", "2/n", "2(n−1)/n", "2/(n(n+1))"],
-    options_as: ["১/n", "২/n", "২(n−১)/n", "২/(n(n+১))"],
-    correct: 1,
-    topic: "Simplification",
-    exp_en: "Terms telescope: (2/3)(3/4)(4/5)···((n−1)/n) = 2/n.",
-    exp_as: "টেলিস্কোপিং: (২/৩)(৩/৪)(৪/৫)···((n−১)/n) = ২/n।"
-  },
-  {
-    q_en: "A 110 m × 60 m rectangular field has two 2 m wide cross paths at the centre parallel to its sides. Find total area of the paths.",
-    q_as: "১১০ মি × ৬০ মি আয়তাকাৰ পথাৰৰ কেন্দ্ৰত ২ মি বহল দুটা পাৰাপাৰ পথ আছে। পথ দুটাৰ মুঠ কালি কিমান?",
-    options_en: ["336 m²", "340 m²", "338 m²", "344 m²"],
-    options_as: ["৩৩৬ বৰ্গ মি", "৩৪০ বৰ্গ মি", "৩৩৮ বৰ্গ মি", "৩৪৪ বৰ্গ মি"],
-    correct: 0,
-    topic: "Mensuration",
-    exp_en: "Area = (110×2) + (60×2) − (2×2) = 220 + 120 − 4 = 336 m².",
-    exp_as: "কালি = (১১০×২) + (৬০×২) − (২×২) = ২২০ + ১২০ − ৪ = ৩৩৬ বৰ্গ মি।"
-  },
-  {
-    q_en: "The average of 50 students in an exam was 64. A mark of 43 was wrongly entered as 83. Find the correct average.",
-    q_as: "পৰীক্ষাত ৫০ জন ছাত্ৰৰ গড় ৬৪ আছিল। ৪৩ নম্বৰ ভুলত ৮৩ বুলি লিখা হৈছিল। শুদ্ধ গড় কিমান?",
-    options_en: ["63.2", "62.8", "63.8", "64.8"],
-    options_as: ["৬৩.২", "৬২.৮", "৬৩.৮", "৬৪.৮"],
-    correct: 0,
-    topic: "Averages",
-    exp_en: "Excess = 83 − 43 = 40. Reduction per student = 40/50 = 0.8. Correct average = 64 − 0.8 = 63.2.",
-    exp_as: "অতিৰিক্ত = ৮৩ − ৪৩ = ৪০। প্ৰতি ছাত্ৰ হ্ৰাস = ৪০/৫০ = ০.৮। শুদ্ধ গড় = ৬৪ − ০.৮ = ৬৩.২।"
-  },
-  {
-    q_en: "SI on a sum for 2 years at 10% p.a. is ₹400. Find CI on same sum for same period at same rate.",
-    q_as: "বাৰ্ষিক ১০% হাৰত ২ বছৰৰ সৰল সুদ ₹৪০০। একে সময়, একে হাৰত চক্ৰবৃদ্ধি সুদ কিমান?",
-    options_en: ["₹420", "₹440", "₹460", "₹480"],
-    options_as: ["₹৪২০", "₹৪৪০", "₹৪৬০", "₹৪৮০"],
-    correct: 0,
-    topic: "Compound Interest",
-    exp_en: "20% of P = 400 → P = 2000. CI factor for 2 yr at 10% = 21%. CI = 0.21 × 2000 = ₹420.",
-    exp_as: "২০% = ৪০০ → P = ২০০০। ২ বছৰত ১০% ৰ চক্ৰবৃদ্ধি = ২১%। CI = ০.২১ × ২০০০ = ₹৪২০।"
-  },
-  {
-    q_en: "A car covers a distance at 60 km/h and returns at 40 km/h. What is the average speed for the whole journey?",
-    q_as: "এখন গাড়ীয়ে ৬০ কিমি/ঘণ্টাত এটা দূৰত্ব যায় আৰু ৪০ কিমি/ঘণ্টাত উভতি আহে। সমগ্ৰ যাত্ৰাৰ গড় বেগ কিমান?",
-    options_en: ["48 km/h", "50 km/h", "52 km/h", "54 km/h"],
-    options_as: ["৪৮ কিমি/ঘণ্টা", "৫০ কিমি/ঘণ্টা", "৫২ কিমি/ঘণ্টা", "৫৪ কিমি/ঘণ্টা"],
-    correct: 0,
-    topic: "Time, Speed & Distance",
-    exp_en: "Average speed = 2xy/(x+y) = (2 × 60 × 40) / 100 = 48 km/h.",
-    exp_as: "গড় বেগ = 2xy/(x+y) = (২ × ৬০ × ৪০) / ১০০ = ৪৮ কিমি/ঘণ্টা।"
-  }
+// SET 1 — 20 questions (from original set)
+const SET1 = [
+  { q_en:"A sum of money amounts to ₹4,840 in 2 years and to ₹5,324 in 3 years at compound interest, compounded annually. What is the rate of interest per annum?", q_as:"কোনো মূলধন চক্ৰবৃদ্ধি সুদেৰে ২ বছৰত ₹৪,৮৪০ আৰু ৩ বছৰত ₹৫,৩২৪ হয়। বাৰ্ষিক সুদৰ হাৰ কিমান?", options_en:["8%","10%","12%","15%"], options_as:["৮%","১০%","১২%","১৫%"], correct:1, topic:"Compound Interest", exp_en:"Interest earned in the 3rd year = ₹5,324 − ₹4,840 = ₹484. Rate = (484 ÷ 4,840) × 100 = 10%.", exp_as:"৩য় বছৰৰ সুদ = ₹৫,৩২৪ − ₹৪,৮৪০ = ₹৪৮৪। হাৰ = (৪৮৪ ÷ ৪,৮৪০) × ১০০ = ১০%।" },
+  { q_en:"The average age of 8 persons increases by 2.5 years when two women aged 21 and 23 are replaced by two men. What is the average age of the two new men?", q_as:"৮ জনীয়া এটা দলৰ ২১ আৰু ২৩ বছৰীয়া দুগৰাকী মহিলাক দুজন পুৰুষেৰে সলনি কৰাত গড় বয়স ২.৫ বছৰ বৃদ্ধি পালে। নতুন পুৰুষ দুজনৰ গড় বয়স কিমান?", options_en:["32 years","31 years","30 years","28 years"], options_as:["৩২ বছৰ","৩১ বছৰ","৩০ বছৰ","২৮ বছৰ"], correct:0, topic:"Averages", exp_en:"Total age increase = 8 × 2.5 = 20. Sum of women's ages = 21 + 23 = 44. Total of new men = 44 + 20 = 64. Average = 64 ÷ 2 = 32.", exp_as:"মুঠ বয়স বৃদ্ধি = ৮ × ২.৫ = ২০। মহিলা দুগৰাকীৰ বয়স = ২১ + ২৩ = ৪৪। নতুন পুৰুষৰ মুঠ = ৪৪ + ২০ = ৬৪। গড় = ৬৪ ÷ ২ = ৩২।" },
+  { q_en:"A tap can fill a cistern in 8 hours and another can empty it in 12 hours. If both are opened together, how long will it take to fill the empty cistern?", q_as:"এটা পাইপে ৮ ঘণ্টাত চৌবাচ্চা ভৰাব আৰু আন এটা ১২ ঘণ্টাত খালি কৰিব। দুয়োটা একেলগে খুলিলে কিমান সময় লাগিব?", options_en:["16 hours","20 hours","24 hours","30 hours"], options_as:["১৬ ঘণ্টা","২০ ঘণ্টা","২৪ ঘণ্টা","৩০ ঘণ্টা"], correct:2, topic:"Pipes & Cisterns", exp_en:"Net rate = 1/8 − 1/12 = (3 − 2)/24 = 1/24. Time = 24 hours.", exp_as:"নেট হাৰ = ১/৮ − ১/১২ = (৩ − ২)/২৪ = ১/২৪। সময় = ২৪ ঘণ্টা।" },
+  { q_en:"A shopkeeper sold an item at 12% loss. Had he sold it for ₹108 more, he would have gained 6%. Find the cost price.", q_as:"এজন দোকানদাৰে সামগ্ৰী ১২% লোকচানত বিক্ৰী কৰিলে। ₹১০৮ অধিকত বিক্ৰী কৰিলে ৬% লাভ হ'লহেঁতেন। ক্ৰয় মূল্য কিমান?", options_en:["₹540","₹600","₹640","₹720"], options_as:["₹৫৪০","₹৬০০","₹৬৪০","₹৭২০"], correct:1, topic:"Profit & Loss", exp_en:"Difference = 6% − (−12%) = 18%. 18% of CP = ₹108 → CP = (108 ÷ 18) × 100 = ₹600.", exp_as:"পাৰ্থক্য = ৬% − (−১২%) = ১৮%। ১৮% = ₹১০৮ → ক্ৰয় মূল্য = (১০৮ ÷ ১৮) × ১০০ = ₹৬০০।" },
+  { q_en:"If A's income is 25% more than B's, by what percent is B's income less than A's?", q_as:"A-ৰ আয় B-তকৈ ২৫% বেছি হ'লে B-ৰ আয় A-তকৈ শতকৰা কিমান কম?", options_en:["20%","25%","16.66%","30%"], options_as:["২০%","২৫%","১৬.৬৬%","৩০%"], correct:0, topic:"Percentage", exp_en:"Let B = 100, A = 125. Decrease = (125 − 100) / 125 × 100 = 20%.", exp_as:"B = ১০০, A = ১২৫ ধৰি। হ্ৰাস = (১২৫ − ১০০) / ১২৫ × ১০০ = ২০%।" },
+  { q_en:"In a 1000 m race, A beats B by 100 m or 10 seconds. Find A's speed.", q_as:"১০০০ মিটাৰ দৌৰত A-য়ে B-ক ১০০ মিটাৰ বা ১০ ছেকেণ্ডত পৰাজিত কৰে। A-ৰ বেগ কিমান?", options_en:["10 m/s","11.11 m/s","12 m/s","9 m/s"], options_as:["১০ মি/ছে","১১.১১ মি/ছে","১২ মি/ছে","৯ মি/ছে"], correct:1, topic:"Time, Speed & Distance", exp_en:"B covers 100 m in 10 s → speed 10 m/s. B takes 1000/10 = 100 s. A takes 90 s. A's speed = 1000/90 = 11.11 m/s.", exp_as:"B-য়ে ১০০ মিটাৰ ১০ ছেকেণ্ডত → বেগ ১০ মি/ছে। B ১০০০ মিটাৰ লয় ১০০ ছে। A লয় ৯০ ছে। A-ৰ বেগ = ১০০০/৯০ = ১১.১১ মি/ছে।" },
+  { q_en:"A and B enter partnership with capitals in ratio 3:5. After 4 months, C joins with capital equal to B's. Find profit ratio at year end.", q_as:"A আৰু B-য়ে ৩:৫ অনুপাতত ব্যৱসায় আৰম্ভ কৰিলে। ৪ মাহৰ পিছত B-ৰ সমান মূলধনেৰে C যোগ দিলে। বছৰৰ শেষত লাভৰ অনুপাত কিমান?", options_en:["9 : 15 : 10","3 : 5 : 5","9 : 12 : 10","9 : 15 : 8"], options_as:["৯ : ১৫ : ১০","৩ : ৫ : ৫","৯ : ১২ : ১০","৯ : ১৫ : ৮"], correct:0, topic:"Partnership", exp_en:"A = 3×12 = 36. B = 5×12 = 60. C = 5×8 = 40. Ratio 36:60:40 = 9:15:10.", exp_as:"A = ৩×১২ = ৩৬। B = ৫×১২ = ৬০। C = ৫×৮ = ৪০। অনুপাত ৩৬:৬০:৪০ = ৯:১৫:১০।" },
+  { q_en:"Find the greatest 4-digit number which when divided by 12, 15, 20 and 35 leaves 3 as remainder in each case.", q_as:"১২, ১৫, ২০ আৰু ৩৫ ৰে ভাগ কৰিলে প্ৰতিটো ক্ষেত্ৰতে ৩ অৱশিষ্ট থকা আটাইতকৈ ডাঙৰ ৪-অংকৰ সংখ্যা কিমান?", options_en:["9663","9873","9660","9867"], options_as:["৯৬৬৩","৯৮৭৩","৯৬৬০","৯৮৬৭"], correct:0, topic:"Number System", exp_en:"LCM(12,15,20,35) = 420. 9999 ÷ 420 leaves 339. Largest multiple = 9660. Required = 9660 + 3 = 9663.", exp_as:"ল.সা.গু.(১২,১৫,২০,৩৫) = ৪২০। ৯৯৯৯ ÷ ৪২০ → ৩৩৯। গুণিতক = ৯৬৬০। সংখ্যা = ৯৬৬০ + ৩ = ৯৬৬৩।" },
+  { q_en:"In what ratio must tea worth ₹180/kg be mixed with tea worth ₹230/kg so the mixture costs ₹200/kg?", q_as:"₹১৮০/কেজি আৰু ₹২৩০/কেজি চাহ কি অনুপাতত মিহলালে মিশ্ৰণ ₹২০০/কেজি হ'ব?", options_en:["2 : 3","3 : 2","4 : 3","1 : 2"], options_as:["২ : ৩","৩ : ২","৪ : ৩","১ : ২"], correct:1, topic:"Mixtures & Alligation", exp_en:"Alligation: (230 − 200) : (200 − 180) = 30 : 20 = 3 : 2.", exp_as:"মিশ্ৰণ নিয়ম: (২৩০ − ২০০) : (২০০ − ১৮০) = ৩০ : ২০ = ৩ : ২।" },
+  { q_en:"The diagonal of a square field is 20√2 metres. What is the perimeter?", q_as:"এখন বৰ্গাকাৰ পথাৰৰ কৰ্ণ ২০√২ মিটাৰ। পৰিসীমা কিমান?", options_en:["40 m","60 m","80 m","100 m"], options_as:["৪০ মি","৬০ মি","৮০ মি","১০০ মি"], correct:2, topic:"Mensuration", exp_en:"a√2 = 20√2 → side a = 20 m. Perimeter = 4 × 20 = 80 m.", exp_as:"a√2 = ২০√২ → বাহু a = ২০ মি। পৰিসীমা = ৪ × ২০ = ৮০ মি।" },
+  { q_en:"A train 150 m long passes a telegraph post in 9 seconds. How long to cross a 250 m bridge?", q_as:"১৫০ মিটাৰ দীঘল ৰেলগাড়ীয়ে ৯ ছেকেণ্ডত টেলিগ্ৰাফ স্তম্ভ অতিক্ৰম কৰে। ২৫০ মিটাৰ দলং অতিক্ৰম কৰিবলৈ কিমান সময় লাগিব?", options_en:["15 s","20 s","24 s","30 s"], options_as:["১৫ ছে","২০ ছে","২৪ ছে","৩০ ছে"], correct:2, topic:"Time, Speed & Distance", exp_en:"Speed = 150/9 = 50/3 m/s. Distance = 150 + 250 = 400 m. Time = 400 ÷ (50/3) = 24 s.", exp_as:"বেগ = ১৫০/৯ = ৫০/৩ মি/ছে। দূৰত্ব = ১৫০ + ২৫০ = ৪০০ মি। সময় = ৪০০ ÷ (৫০/৩) = ২৪ ছে।" },
+  { q_en:"Two numbers are in ratio 3 : 4. If their HCF is 15, find their LCM.", q_as:"দুটা সংখ্যা ৩ : ৪ অনুপাতত আছে। গ.সা.গু. ১৫ হ'লে ল.সা.গু. কিমান?", options_en:["120","180","240","300"], options_as:["১২০","১৮০","২৪০","৩০০"], correct:1, topic:"Number System", exp_en:"Numbers = 45 and 60. LCM = 3 × 4 × 15 = 180.", exp_as:"সংখ্যা = ৪৫ আৰু ৬০। ল.সা.গু. = ৩ × ৪ × ১৫ = ১৮০।" },
+  { q_en:"A man can row 6 km/h in still water. Current speed = 2 km/h. It takes 3 hours to go to a place and return. Find the distance.", q_as:"স্থিৰ পানীত মানুহে ৬ কিমি/ঘণ্টাত নাও চলাব। সোঁতৰ বেগ ২ কিমি/ঘণ্টা। যোৱা-অহা ৩ ঘণ্টা লাগে। দূৰত্ব কিমান?", options_en:["8 km","10 km","12 km","16 km"], options_as:["৮ কিমি","১০ কিমি","১২ কিমি","১৬ কিমি"], correct:0, topic:"Boats & Streams", exp_en:"Down = 8, Up = 4. D/8 + D/4 = 3 → 3D/8 = 3 → D = 8 km.", exp_as:"অনুকূল = ৮, প্ৰতিকূল = ৪। D/৮ + D/৪ = ৩ → ৩D/৮ = ৩ → D = ৮ কিমি।" },
+  { q_en:"If 12 men or 18 women can do a work in 14 days, how long will 8 men and 16 women take?", q_as:"১২ জন পুৰুষ বা ১৮ গৰাকী মহিলাই ১৪ দিনত কাম শেষ কৰিব। ৮ জন পুৰুষ আৰু ১৬ গৰাকী মহিলাই কিমান দিন ল'ব?", options_en:["7 days","9 days","10 days","12 days"], options_as:["৭ দিন","৯ দিন","১০ দিন","১২ দিন"], correct:1, topic:"Time & Work", exp_en:"2 men = 3 women. 8 men + 16 women = 12 + 16 = 28 women. Days = (18 × 14) / 28 = 9.", exp_as:"২ পুৰুষ = ৩ মহিলা। ৮ পুৰুষ + ১৬ মহিলা = ১২ + ১৬ = ২৮ মহিলা। দিন = (১৮ × ১৪) / ২৮ = ৯।" },
+  { q_en:"Find the single discount equivalent to successive discounts of 20%, 10% and 5%.", q_as:"২০%, ১০% আৰু ৫% ক্ৰমিক ৰেহাইৰ সমতুল্য একক ৰেহাই কিমান?", options_en:["35%","31.6%","32.5%","33%"], options_as:["৩৫%","৩১.৬%","৩২.৫%","৩৩%"], correct:1, topic:"Discounts", exp_en:"Final price = 0.80 × 0.90 × 0.95 = 0.684. Equivalent discount = 1 − 0.684 = 31.6%.", exp_as:"চূড়ান্ত মূল্য = ০.৮০ × ০.৯০ × ০.৯৫ = ০.৬৮৪। ৰেহাই = ১ − ০.৬৮৪ = ৩১.৬%।" },
+  { q_en:"Simplify: (1 − 1/3)(1 − 1/4)(1 − 1/5) ··· (1 − 1/n)", q_as:"সৰল কৰা: (১ − ১/৩)(১ − ১/৪)(১ − ১/৫) ··· (১ − ১/n)", options_en:["1/n","2/n","2(n−1)/n","2/(n(n+1))"], options_as:["১/n","২/n","২(n−১)/n","২/(n(n+১))"], correct:1, topic:"Simplification", exp_en:"Terms telescope: (2/3)(3/4)(4/5)···((n−1)/n) = 2/n.", exp_as:"টেলিস্কোপিং: (২/৩)(৩/৪)(৪/৫)···((n−১)/n) = ২/n।" },
+  { q_en:"A 110 m × 60 m rectangular field has two 2 m wide cross paths at the centre parallel to its sides. Find total area of the paths.", q_as:"১১০ মি × ৬০ মি আয়তাকাৰ পথাৰৰ কেন্দ্ৰত ২ মি বহল দুটা পাৰাপাৰ পথ আছে। পথ দুটাৰ মুঠ কালি কিমান?", options_en:["336 m²","340 m²","338 m²","344 m²"], options_as:["৩৩৬ বৰ্গ মি","৩৪০ বৰ্গ মি","৩৩৮ বৰ্গ মি","৩৪৪ বৰ্গ মি"], correct:0, topic:"Mensuration", exp_en:"Area = (110×2) + (60×2) − (2×2) = 220 + 120 − 4 = 336 m².", exp_as:"কালি = (১১০×২) + (৬০×২) − (২×২) = ২২০ + ১২০ − ৪ = ৩৩৬ বৰ্গ মি।" },
+  { q_en:"The average of 50 students in an exam was 64. A mark of 43 was wrongly entered as 83. Find the correct average.", q_as:"পৰীক্ষাত ৫০ জন ছাত্ৰৰ গড় ৬৪ আছিল। ৪৩ নম্বৰ ভুলত ৮৩ বুলি লিখা হৈছিল। শুদ্ধ গড় কিমান?", options_en:["63.2","62.8","63.8","64.8"], options_as:["৬৩.২","৬২.৮","৬৩.৮","৬৪.৮"], correct:0, topic:"Averages", exp_en:"Excess = 83 − 43 = 40. Reduction per student = 40/50 = 0.8. Correct average = 64 − 0.8 = 63.2.", exp_as:"অতিৰিক্ত = ৮৩ − ৪৩ = ৪০। প্ৰতি ছাত্ৰ হ্ৰাস = ৪০/৫০ = ০.৮। শুদ্ধ গড় = ৬৪ − ০.৮ = ৬৩.২।" },
+  { q_en:"SI on a sum for 2 years at 10% p.a. is ₹400. Find CI on same sum for same period at same rate.", q_as:"বাৰ্ষিক ১০% হাৰত ২ বছৰৰ সৰল সুদ ₹৪০০। একে সময়, একে হাৰত চক্ৰবৃদ্ধি সুদ কিমান?", options_en:["₹420","₹440","₹460","₹480"], options_as:["₹৪২০","₹৪৪০","₹৪৬০","₹৪৮০"], correct:0, topic:"Compound Interest", exp_en:"20% of P = 400 → P = 2000. CI factor for 2 yr at 10% = 21%. CI = 0.21 × 2000 = ₹420.", exp_as:"২০% = ৪০০ → P = ২০০০। ২ বছৰত ১০% ৰ চক্ৰবৃদ্ধি = ২১%। CI = ০.২১ × ২০০০ = ₹৪২০।" },
+  { q_en:"A car covers a distance at 60 km/h and returns at 40 km/h. What is the average speed for the whole journey?", q_as:"এখন গাড়ীয়ে ৬০ কিমি/ঘণ্টাত এটা দূৰত্ব যায় আৰু ৪০ কিমি/ঘণ্টাত উভতি আহে। সমগ্ৰ যাত্ৰাৰ গড় বেগ কিমান?", options_en:["48 km/h","50 km/h","52 km/h","54 km/h"], options_as:["৪৮ কিমি/ঘণ্টা","৫০ কিমি/ঘণ্টা","৫২ কিমি/ঘণ্টা","৫৪ কিমি/ঘণ্টা"], correct:0, topic:"Time, Speed & Distance", exp_en:"Average speed = 2xy/(x+y) = (2 × 60 × 40) / 100 = 48 km/h.", exp_as:"গড় বেগ = 2xy/(x+y) = (২ × ৬০ × ৪০) / ১০০ = ৪৮ কিমি/ঘণ্টা।" }
 ];
 
-/* ===================================================================
-   PAID ACCESS (localStorage)
-   =================================================================== */
-function getUnlockedList(){
-  try { return JSON.parse(localStorage.getItem("bishleshon_unlocked")) || []; }
-  catch(e){ return []; }
-}
-function saveUnlockedList(list){
-  try { localStorage.setItem("bishleshon_unlocked", JSON.stringify(list)); } catch(e){}
-}
-function isUnlocked(grade, subject){
-  const list = getUnlockedList();
-  return list.some(u => u.grade === grade && (u.subject === subject || u.subject === "Both"));
-}
+// SET 2 — 20 questions (from "Set of 10" + "Set 2" provided)
+const SET2 = [
+  { q_en:"A pipe can fill a tank in 10 hours, while another pipe can empty it in 15 hours. If both pipes are opened together, in how many hours will the tank be completely filled?", q_as:"এটা পাইপে এটা টেংক ১০ ঘণ্টাত সম্পূৰ্ণ কৰিব পাৰে আৰু আন এটা পাইপে ১৫ ঘণ্টাত টেংকটো খালি কৰিব পাৰে। যদি দুয়োটা পাইপ একেলগে খুলি দিয়া হয়, তেন্তে কিমান ঘণ্টাত টেংকটো সম্পূৰ্ণৰূপে ভৰিব?", options_en:["20 hours","25 hours","30 hours","35 hours"], options_as:["২০ ঘণ্টা","২৫ ঘণ্টা","৩০ ঘণ্টা","৩৫ ঘণ্টা"], correct:2, topic:"Pipes & Cisterns", exp_en:"Work done per hour = 1/10 − 1/15 = (3 − 2)/30 = 1/30. Time = 30 hours.", exp_as:"প্ৰতি ঘণ্টাৰ কাম = ১/১০ − ১/১৫ = (৩ − ২)/৩০ = ১/৩০। সময় = ৩০ ঘণ্টা।" },
+  { q_en:"The sum of the ages of a mother and her daughter is 50 years. Five years ago, the mother's age was 7 times the age of the daughter. What is the present age of the mother?", q_as:"এগৰাকী মাতৃ আৰু তেওঁৰ জীয়েকৰ বৰ্তমান বয়সৰ সমষ্টি ৫০ বছৰ। ৫ বছৰ পূৰ্বে মাতৃৰ বয়স জীয়েকৰ বয়সৰ ৭ গুণ আছিল। মাতৃগৰাকীৰ বৰ্তমান বয়স কিমান?", options_en:["35 years","40 years","42 years","45 years"], options_as:["৩৫ বছৰ","৪০ বছৰ","৪২ বছৰ","৪৫ বছৰ"], correct:1, topic:"Ages", exp_en:"m + d = 50. 5 years ago: (m − 5) = 7(d − 5). Solving: d = 10, m = 40.", exp_as:"m + d = ৫০। ৫ বছৰ পূৰ্বে: (m − ৫) = ৭(d − ৫)। d = ১০, m = ৪০।" },
+  { q_en:"A loss of 15% is incurred by selling an article for ₹1,530. At what price should it be sold to make a profit of 20%?", q_as:"এটা সামগ্ৰী ১,৫৩০ টকাত বিক্ৰী কৰাত ১৫% লোকচান হয়। ২০% লাভ কৰিবলৈ সামগ্ৰীটো কিমান মূল্যত বিক্ৰী কৰিব লাগিব?", options_en:["₹2,040","₹2,160","₹2,250","₹2,400"], options_as:["₹২,০৪০","₹২,১৬০","₹২,২৫০","₹২,৪০০"], correct:1, topic:"Profit & Loss", exp_en:"CP = (1530 / 85) × 100 = ₹1,800. SP at 20% profit = 1.2 × 1800 = ₹2,160.", exp_as:"ক্ৰয় মূল্য = (১৫৩০ / ৮৫) × ১০০ = ₹১,৮০০। ২০% লাভত বিক্ৰী = ১.২ × ১৮০০ = ₹২,১৬০।" },
+  { q_en:"The average score of 20 students in a test is 75. If the score of one student was incorrectly read as 86 instead of 36, what is the correct average score?", q_as:"এটা পৰীক্ষাত ২০ জন ছাত্ৰ-ছাত্ৰীৰ গড় নম্বৰ ৭৫ আছিল। যদি এজন ছাত্ৰৰ ৩৬ নম্বৰটো ভুলবশত ৮৬ বুলি গণনা কৰা হৈছিল, তেন্তে পৰীক্ষাটোৰ প্ৰকৃত গড় নম্বৰ কিমান?", options_en:["71.5","72.5","73.0","73.5"], options_as:["৭১.৫","৭২.৫","৭৩.০","৭৩.৫"], correct:1, topic:"Averages", exp_en:"Excess = 86 − 36 = 50. Reduction per student = 50/20 = 2.5. Correct average = 75 − 2.5 = 72.5.", exp_as:"অতিৰিক্ত = ৮৬ − ৩৬ = ৫০। প্ৰতি ছাত্ৰ হ্ৰাস = ৫০/২০ = ২.৫। শুদ্ধ গড় = ৭৫ − ২.৫ = ৭২.৫।" },
+  { q_en:"In a mixture of 80 litres, the ratio of milk to water is 3 : 1. How many litres of water must be added to make the ratio of milk to water 2 : 1?", q_as:"৮০ লিটাৰৰ এটা মিশ্ৰণত গাখীৰ আৰু পানীৰ অনুপাত ৩ : ১। মিশ্ৰণটোত গাখীৰ আৰু পানীৰ অনুপাত ২ : ১ কৰিবলৈ কিমান লিটাৰ পানী যোগ কৰিব লাগিব?", options_en:["10 litres","15 litres","20 litres","25 litres"], options_as:["১০ লিটাৰ","১৫ লিটাৰ","২০ লিটাৰ","২৫ লিটাৰ"], correct:0, topic:"Mixtures & Alligation", exp_en:"Milk = 60, Water = 20. Required water = 60/2 = 30. Add = 30 − 20 = 10 litres.", exp_as:"গাখীৰ = ৬০, পানী = ২০। প্ৰয়োজনীয় পানী = ৬০/২ = ৩০। যোগ = ৩০ − ২০ = ১০ লিটাৰ।" },
+  { q_en:"A train 200 metres long is running at a speed of 72 km/h. How much time will it take to cross a platform 300 metres long?", q_as:"২০০ মিটাৰ দীঘল এখন ৰেলগাড়ী ৭২ কিমি/ঘণ্টা বেগেৰে চলি আছে। ৩০০ মিটাৰ দীঘল প্লেটফৰ্ম এখন অতিক্ৰম কৰিবলৈ ৰেলগাড়ীখনক কিমান সময় লাগিব?", options_en:["20 seconds","25 seconds","30 seconds","35 seconds"], options_as:["২০ ছেকেণ্ড","২৫ ছেকেণ্ড","৩০ ছেকেণ্ড","৩৫ ছেকেণ্ড"], correct:1, topic:"Time, Speed & Distance", exp_en:"Total distance = 200 + 300 = 500 m. Speed = 20 m/s. Time = 500/20 = 25 s.", exp_as:"মুঠ দূৰত্ব = ২০০ + ৩০০ = ৫০০ মি। বেগ = ২০ মি/ছে। সময় = ৫০০/২০ = ২৫ ছে।" },
+  { q_en:"The HCF and LCM of two numbers are 12 and 144 respectively. If one of the numbers is 36, find the other number.", q_as:"দুটা সংখ্যাৰ গ.সা.গু. আৰু ল.সা.গু. ক্ৰমে ১২ আৰু ১৪৪। যদি এটা সংখ্যা ৩৬ হয়, তেন্তে আনটো সংখ্যা কিমান?", options_en:["48","54","60","72"], options_as:["৪৮","৫৪","৬০","৭২"], correct:0, topic:"Number System", exp_en:"Product = HCF × LCM. 36 × x = 12 × 144 → x = 48.", exp_as:"গুণফল = HCF × LCM। ৩৬ × x = ১২ × ১৪৪ → x = ৪৮।" },
+  { q_en:"Find the perimeter of a rectangular field whose area is 300 sq. m and length is 20 m.", q_as:"কালি ৩০০ বৰ্গ মিটাৰ আৰু দৈৰ্ঘ্য ২০ মিটাৰ হোৱা এখন আয়তাকাৰ পথাৰৰ পৰিসীমা নিৰ্ণয় কৰা।", options_en:["60 m","70 m","80 m","90 m"], options_as:["৬০ মি","৭০ মি","৮০ মি","৯০ মি"], correct:1, topic:"Mensuration", exp_en:"Width = 300/20 = 15 m. Perimeter = 2(20 + 15) = 70 m.", exp_as:"প্ৰস্থ = ৩০০/২০ = ১৫ মি। পৰিসীমা = ২(২০ + ১৫) = ৭০ মি।" },
+  { q_en:"A sum of money becomes 3 times of itself in 8 years at simple interest. What is the rate of interest per annum?", q_as:"কোনো মূলধন সৰল সুদেৰে ৮ বছৰত নিজৰ ৩ গুণ হয়। বাৰ্ষিক সুদৰ হাৰ কিমান?", options_en:["20%","25%","30%","33.33%"], options_as:["২০%","২৫%","৩০%","৩৩.৩৩%"], correct:1, topic:"Simple Interest", exp_en:"Amount = 3P → I = 2P. 2P = P × R × 8 / 100 → R = 25%.", exp_as:"মুঠ = ৩P → সুদ = ২P। ২P = P × R × ৮ / ১০০ → R = ২৫%।" },
+  { q_en:"P and Q start a business investing ₹20,000 and ₹30,000 respectively. If the total profit at the end of the year is ₹15,000, what is P's share in the profit?", q_as:"P আৰু Q-ৱে ক্ৰমে ২০,০০০ টকা আৰু ৩০,০০০ টকা বিনিয়োগ কৰি এটা ব্যৱসায় আৰম্ভ কৰিলে। যদি বছৰৰ শেষত সৰ্বমুঠ লাভ ১৫,০০০ টকা হয়, তেন্তে লাভৰ অংশত P-ৰ ভাগ কিমান?", options_en:["₹5,000","₹6,000","₹7,500","₹9,000"], options_as:["₹৫,০০০","₹৬,০০০","₹৭,৫০০","₹৯,০০০"], correct:1, topic:"Partnership", exp_en:"Ratio = 2:3. P's share = (2/5) × 15000 = ₹6,000.", exp_as:"অনুপাত = ২:৩। P ৰ ভাগ = (২/৫) × ১৫০০০ = ₹৬,০০০।" },
+  { q_en:"A runner covers a distance of 1.5 km in 5 minutes. What is the speed of the runner in km/h?", q_as:"এজন দৌৰবিদ-এ ৫ মিনিটত ১.৫ কিমি দূৰত্ব অতিক্ৰম কৰে। দৌৰবিদজনৰ বেগ কিমি/ঘণ্টাত কিমান?", options_en:["12 km/h","15 km/h","18 km/h","20 km/h"], options_as:["১২ কিমি/ঘণ্টা","১৫ কিমি/ঘণ্টা","১৮ কিমি/ঘণ্টা","২০ কিমি/ঘণ্টা"], correct:2, topic:"Time, Speed & Distance", exp_en:"Time = 5/60 = 1/12 hr. Speed = 1.5 / (1/12) = 18 km/h.", exp_as:"সময় = ৫/৬০ = ১/১২ ঘণ্টা। বেগ = ১.৫ / (১/১২) = ১৮ কিমি/ঘণ্টা।" },
+  { q_en:"The ratio of two numbers is 4 : 5 and their LCM is 120. Find the smaller number.", q_as:"দুটা সংখ্যাৰ অনুপাত ৪ : ৫ আৰু সিহঁতৰ ল.সা.গু. ১২০। সৰু সংখ্যাটো নিৰ্ণয় কৰা।", options_en:["18","24","30","36"], options_as:["১৮","২৪","৩০","৩৬"], correct:1, topic:"Number System", exp_en:"Numbers = 4x, 5x. LCM = 20x = 120 → x = 6. Smaller = 24.", exp_as:"সংখ্যা = ৪x, ৫x। ল.সা.গু. = ২০x = ১২০ → x = ৬। সৰু = ২৪।" },
+  { q_en:"A shopkeeper buys an article for ₹800 and spends ₹200 on its repair. If he sells it for ₹1,200, what is his profit percentage?", q_as:"এজন দোকানদাৰে এটা বস্তু ৮০০ টকাত কিনি তাৰ মেৰামতিৰ বাবে ২০০ টকা খৰচ কৰে। যদি তেওঁ বস্তুটো ১,২০০ টকাত বিক্ৰী কৰে, তেন্তে তেওঁৰ লাভৰ শতাংশ কিমান?", options_en:["15%","20%","25%","30%"], options_as:["১৫%","২০%","২৫%","৩০%"], correct:1, topic:"Profit & Loss", exp_en:"CP = 800 + 200 = 1000. Profit = 1200 − 1000 = 200. % = 20%.", exp_as:"ক্ৰয় = ৮০০ + ২০০ = ১০০০। লাভ = ১২০০ − ১০০০ = ২০০। % = ২০%।" },
+  { q_en:"A train 150 metres long crosses a telegraph pole in 9 seconds. What is the speed of the train in km/h?", q_as:"১৫০ মিটাৰ দীঘল এখন ৰেলগাড়ীয়ে ৯ ছেকেণ্ডত এটা টেলেগ্ৰাফ খুটি অতিক্ৰম কৰে। ৰেলগাড়ীখনৰ বেগ কিমি/ঘণ্টাত কিমান?", options_en:["50 km/h","60 km/h","64 km/h","72 km/h"], options_as:["৫০ কিমি/ঘণ্টা","৬০ কিমি/ঘণ্টা","৬৪ কিমি/ঘণ্টা","৭২ কিমি/ঘণ্টা"], correct:1, topic:"Time, Speed & Distance", exp_en:"Speed = 150/9 = 50/3 m/s. × 18/5 = 60 km/h.", exp_as:"বেগ = ১৫০/৯ = ৫০/৩ মি/ছে। × ১৮/৫ = ৬০ কিমি/ঘণ্টা।" },
+  { q_en:"If 12 men can complete a piece of work in 20 days, in how many days can 15 men complete the same work?", q_as:"যদি ১২ জন মানুহে এটা কাম ২০ দিনত সম্পূৰ্ণ কৰিব পাৰে, তেন্তে ১৫ জন মানুহে একেটা কাম কিমান দিনত সম্পূৰ্ণ কৰিব পাৰিব?", options_en:["14 days","16 days","18 days","22 days"], options_as:["১৪ দিন","১৬ দিন","১৮ দিন","২২ দিন"], correct:1, topic:"Time & Work", exp_en:"M₁D₁ = M₂D₂ → 12 × 20 = 15 × D → D = 16 days.", exp_as:"M₁D₁ = M₂D₂ → ১২ × ২০ = ১৫ × D → D = ১৬ দিন।" },
+  { q_en:"The average of five numbers is 27. If one number is excluded, the average becomes 25. What is the excluded number?", q_as:"পাঁচটা সংখ্যাৰ গড় ২৭। যদি এটা সংখ্যা বাদ দিয়া হয়, তেন্তে গড় ২৫ হয়গৈ। বাদ দিয়া সংখ্যাটো কিমান?", options_en:["30","33","35","37"], options_as:["৩০","৩৩","৩৫","৩৭"], correct:2, topic:"Averages", exp_en:"Sum of 5 = 135. Sum of 4 = 100. Excluded = 135 − 100 = 35.", exp_as:"৫ টাৰ যোগ = ১৩৫। ৪ টাৰ যোগ = ১০০। বাদ = ১৩৫ − ১০০ = ৩৫।" },
+  { q_en:"What is the compound interest on ₹8,000 at 10% per annum for 2 years, compounded annually?", q_as:"৮,০০০ টকাৰ ওপৰত বাৰ্ষিক ১০% হাৰত ২ বছৰৰ চক্ৰবৃদ্ধি সুদ কিমান হ'ব?", options_en:["₹1,600","₹1,680","₹1,720","₹1,760"], options_as:["₹১,৬০০","₹১,৬৮০","₹১,৭২০","₹১,৭৬০"], correct:1, topic:"Compound Interest", exp_en:"Amount = 8000 × (11/10)² = 8000 × 121/100 = 9680. CI = 9680 − 8000 = ₹1,680.", exp_as:"মুঠ = ৮০০০ × (১১/১০)² = ৮০০০ × ১২১/১০০ = ৯৬৮০। CI = ৯৬৮০ − ৮০০০ = ₹১,৬৮০।" },
+  { q_en:"If x : y = 3 : 4, find the value of (5x + 2y) : (3x + 4y).", q_as:"যদি x : y = ৩ : ৪ হয়, তেন্তে (৫x + ২y) : (৩x + ৪y) ৰ মান নিৰ্ণয় কৰা।", options_en:["23 : 25","21 : 25","23 : 24","19 : 23"], options_as:["২৩ : ২৫","২১ : ২৫","২৩ : ২৪","১৯ : ২৩"], correct:0, topic:"Ratio & Proportion", exp_en:"x = 3, y = 4: (15 + 8) : (9 + 16) = 23 : 25.", exp_as:"x = ৩, y = ৪: (১৫ + ৮) : (৯ + ১৬) = ২৩ : ২৫।" },
+  { q_en:"The length and breadth of a rectangle are in the ratio 5 : 3. If its perimeter is 64 cm, what is the area of the rectangle?", q_as:"এটা আয়তৰ দৈৰ্ঘ্য আৰু প্ৰস্থৰ অনুপাত ৫ : ৩। যদি ইয়াৰ পৰিসীমা ৬৪ চেমি হয়, তেন্তে আয়তটোৰ কালি কিমান?", options_en:["180 sq.cm","210 sq.cm","240 sq.cm","270 sq.cm"], options_as:["১৮০ বৰ্গ চেমি","২১০ বৰ্গ চেমি","২৪০ বৰ্গ চেমি","২৭০ বৰ্গ চেমি"], correct:2, topic:"Mensuration", exp_en:"2(5x + 3x) = 64 → 16x = 64 → x = 4. Length = 20, breadth = 12. Area = 240.", exp_as:"২(৫x + ৩x) = ৬৪ → ১৬x = ৬৪ → x = ৪। দৈৰ্ঘ্য = ২০, প্ৰস্থ = ১২। কালি = ২৪০।" },
+  { q_en:"Express 0.45 as a fraction in its lowest terms.", q_as:"০.৪৫ ক লঘিষ্ঠ আকাৰৰ ভগ্নাংশত প্ৰকাশ কৰা।", options_en:["9/20","4/9","9/25","11/20"], options_as:["৯/২০","৪/৯","৯/২৫","১১/২০"], correct:0, topic:"Simplification", exp_en:"0.45 = 45/100 = 9/20.", exp_as:"০.৪৫ = ৪৫/১০০ = ৯/২০।" }
+];
+
+const SETS = [
+  { id: "set1", name: "Set 1", questions: SET1, seconds: EXAM_SECONDS },
+  { id: "set2", name: "Set 2", questions: SET2, seconds: EXAM_SECONDS }
+];
+
+const FREE_SET = {
+  id: "free",
+  name: "Free Trial",
+  questions: SET1.slice(0, 6),
+  seconds: 10 * 60
+};
 
 /* ===================================================================
-   SELECTORS
+   STATE
    =================================================================== */
-function buildGradeRow(){
-  const row = document.getElementById("gradeRow");
-  GRADES.forEach((g, i) => {
-    const b = document.createElement("button");
-    b.className = "grade-tab" + (i === 0 ? " active" : "");
-    b.textContent = g;
-    b.addEventListener("click", () => {
-      row.querySelectorAll(".grade-tab").forEach(t => t.classList.remove("active"));
-      b.classList.add("active");
-      activeGrade = g;
-      refreshView();
-    });
-    row.appendChild(b);
-  });
+let examState = null;
+let examTimerInterval = null;
+let activeSet = null;
+
+/* ===================================================================
+   LOCAL STORAGE
+   =================================================================== */
+function getPending(){
+  try { return JSON.parse(localStorage.getItem(PENDING_KEY)) || null; }
+  catch(e){ return null; }
 }
-function buildSubjectRow(){
-  const row = document.getElementById("subjectRow");
-  SUBJECTS.forEach((s, i) => {
-    const b = document.createElement("button");
-    b.className = "subject-tab" + (i === 0 ? " active" : "");
-    b.textContent = s;
-    b.addEventListener("click", () => {
-      row.querySelectorAll(".subject-tab").forEach(t => t.classList.remove("active"));
-      b.classList.add("active");
-      activeSubject = s;
-      refreshView();
-    });
-    row.appendChild(b);
-  });
+function savePending(obj){
+  try { localStorage.setItem(PENDING_KEY, JSON.stringify(obj)); } catch(e){}
+}
+function clearPending(){
+  try { localStorage.removeItem(PENDING_KEY); } catch(e){}
+}
+function isSeriesUnlocked(){
+  try { return localStorage.getItem(UNLOCK_KEY) === "true"; } catch(e){ return false; }
+}
+function setSeriesUnlocked(val){
+  try { localStorage.setItem(UNLOCK_KEY, val ? "true" : "false"); } catch(e){}
 }
 
-function refreshView(){
-  document.getElementById("paidTitle").textContent = `${activeSubject} — full series`;
-  document.getElementById("paidMockDetails").innerHTML = [
-    "20 exam-pattern questions",
-    "Bilingual — English + অসমীয়া",
-    "30-minute timer",
-    "Negative marking (−0.25)",
-    "Detailed solutions",
-    "Topic-wise analysis"
-  ].map(d => `<li>${d}</li>`).join("");
-  refreshPaidAccess();
-}
+/* ===================================================================
+   UI REFRESH
+   =================================================================== */
+function refreshLockState(){
+  const unlocked = isSeriesUnlocked();
+  const btn1 = document.getElementById("startSet1Btn");
+  const btn2 = document.getElementById("startSet2Btn");
+  const stat1 = document.getElementById("unlockStatus1");
+  const stat2 = document.getElementById("unlockStatus2");
 
-function refreshPaidAccess(){
-  const wrap = document.getElementById("paidContentWrap");
-  const banner = document.getElementById("paidBanner");
-  if (isUnlocked(activeGrade, activeSubject)){
-    wrap.style.display = "block";
-    banner.textContent = `Access unlocked — ${activeGrade} · ${activeSubject}`;
+  if (unlocked){
+    btn1.disabled = false; btn1.textContent = "Start Set 1";
+    btn2.disabled = false; btn2.textContent = "Start Set 2";
+    stat1.className = "set-status unlocked"; stat1.textContent = "Unlocked";
+    stat2.className = "set-status unlocked"; stat2.textContent = "Unlocked";
   } else {
-    wrap.style.display = "none";
+    btn1.disabled = true; btn1.textContent = "Locked";
+    btn2.disabled = true; btn2.textContent = "Locked";
+    stat1.className = "set-status locked"; stat1.textContent = "Locked";
+    stat2.className = "set-status locked"; stat2.textContent = "Locked";
   }
+  renderPendingStatus();
+}
+
+function renderPendingStatus(){
+  const area = document.getElementById("pendingStatusArea");
+  const p = getPending();
+  if (!p){ area.innerHTML = ""; return; }
+  if (isSeriesUnlocked()){ area.innerHTML = ""; return; }
+  area.innerHTML = `
+    <div class="status-box">
+      <h4>⏳ Payment submitted — awaiting verification</h4>
+      <p style="margin:6px 0;">We received your payment details on ${new Date(p.ts).toLocaleString()}.</p>
+      <p style="margin:6px 0;"><strong>Reference:</strong> <span class="ref-code">${p.mobile}</span></p>
+      <p style="margin:6px 0;">Verification usually takes 1–2 hours. Click <strong>"Check status"</strong> below or come back later. You'll unlock both sets automatically once verified.</p>
+    </div>
+  `;
 }
 
 /* ===================================================================
@@ -804,10 +704,19 @@ const payModal = document.getElementById("payModal");
 const submitDialog = document.getElementById("submitDialog");
 
 document.getElementById("openPayPanel").addEventListener("click", () => {
-  document.getElementById("payModalSubtitle").textContent = `${activeGrade} · ${activeSubject}`;
-  const upiUrl = `upi://pay?pa=${UPI_ID}&pn=Kuldip%20Sir&am=${PRICE_PER_SUBJECT}&cu=INR&tn=ADRE%20${encodeURIComponent(activeGrade)}%20${encodeURIComponent(activeSubject)}`;
+  if (isSeriesUnlocked()){
+    alert("You already have access to the full series.");
+    return;
+  }
+  const upiUrl = `upi://pay?pa=${UPI_ID}&pn=Kuldip%20Sir&am=${PRICE}&cu=INR&tn=ADRE%20Mock%20Series`;
   document.getElementById("openUpiApp").href = upiUrl;
   document.getElementById("upiQr").src = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${encodeURIComponent(upiUrl)}`;
+  const p = getPending();
+  if (p){
+    document.getElementById("pName").value = p.name || "";
+    document.getElementById("pWhatsapp").value = p.mobile || "";
+    document.getElementById("pUtr").value = p.utr || "";
+  }
   payModal.classList.add("open");
 });
 document.getElementById("payModalClose").addEventListener("click", () => payModal.classList.remove("open"));
@@ -843,11 +752,12 @@ document.getElementById("payForm").addEventListener("submit", async (e) => {
   }
 
   btn.disabled = true;
-  btn.textContent = "Verifying…";
-  msg.textContent = "Please wait — verifying your payment…";
+  btn.textContent = "Submitting…";
+  msg.textContent = "Please wait — recording your payment…";
   msg.className = "form-msg";
 
-  const payload = { name, whatsapp, grade: activeGrade, subject: activeSubject, utr, app: "", amount: PRICE_PER_SUBJECT };
+  const payload = { name, whatsapp, grade: "4th Grade", subject: "Maths", utr, app: "", amount: PRICE };
+
   try {
     await fetch(SHEET_WEBHOOK_URL, {
       method: "POST",
@@ -857,11 +767,9 @@ document.getElementById("payForm").addEventListener("submit", async (e) => {
     });
   } catch (err){}
 
-  const list = getUnlockedList();
-  list.push({ grade: activeGrade, subject: activeSubject, utr, ts: Date.now() });
-  saveUnlockedList(list);
+  savePending({ name, mobile: whatsapp, utr, ts: Date.now() });
 
-  msg.textContent = "Unlocked! Loading…";
+  msg.textContent = "Payment submitted.";
   msg.className = "form-msg ok";
 
   setTimeout(() => {
@@ -869,34 +777,106 @@ document.getElementById("payForm").addEventListener("submit", async (e) => {
     document.getElementById("payForm").reset();
     msg.textContent = "";
     btn.disabled = false;
-    btn.textContent = "Submit & unlock";
-    refreshPaidAccess();
-    document.getElementById("paidContentWrap").scrollIntoView({ behavior: "smooth", block: "start" });
+    btn.textContent = "Submit payment details";
+    renderPendingStatus();
+    document.getElementById("checkStatusArea").scrollIntoView({ behavior: "smooth", block: "start" });
   }, 900);
 });
 
 /* ===================================================================
-   EXAM STATE
+   CHECK STATUS
    =================================================================== */
-let examState = null;
-let examTimerInterval = null;
+document.getElementById("checkStatusBtn").addEventListener("click", async () => {
+  const btn = document.getElementById("checkStatusBtn");
+  const msg = document.getElementById("checkStatusMsg");
+  const input = document.getElementById("statusMobileInput");
+  const p = getPending();
 
-document.getElementById("startExamBtn").addEventListener("click", () => {
+  // Prefer typed number, fall back to saved pending
+  let mobile = input.value.trim();
+  if (!mobile && p) mobile = p.mobile;
+
+  if (!mobile || !/^\d{10}$/.test(mobile)){
+    msg.textContent = "Enter the 10-digit WhatsApp number you paid with.";
+    msg.className = "form-msg err";
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = "Checking…";
+  msg.textContent = "Please wait…";
+  msg.className = "form-msg";
+
+  try {
+    const url = `${SHEET_WEBHOOK_URL}?check=${encodeURIComponent(mobile)}`;
+    const res = await fetch(url);
+    const data = await res.json();
+
+    if (data.status === "verified"){
+      setSeriesUnlocked(true);
+      clearPending();
+      msg.textContent = "✅ Verified! Both sets unlocked.";
+      msg.className = "form-msg ok";
+      refreshLockState();
+      setTimeout(() => {
+        document.getElementById("sets").scrollIntoView({ behavior: "smooth" });
+      }, 800);
+    } else if (data.status === "rejected"){
+      msg.textContent = "❌ Payment could not be verified. Please contact us on WhatsApp.";
+      msg.className = "form-msg err";
+    } else if (data.status === "pending"){
+      msg.textContent = "⏳ Still pending. Verification usually takes 1–2 hours. Please check again soon.";
+      msg.className = "form-msg";
+    } else if (data.status === "notfound"){
+      msg.textContent = "No payment record found for this number. Please check the number or contact us.";
+      msg.className = "form-msg err";
+    } else {
+      msg.textContent = "Could not check status right now. Please try again in a moment.";
+      msg.className = "form-msg err";
+    }
+  } catch (err){
+    msg.textContent = "Network issue. Please try again.";
+    msg.className = "form-msg err";
+  }
+
+  btn.disabled = false;
+  btn.textContent = "Check status";
+});
+
+/* ===================================================================
+   EXAM ENGINE
+   =================================================================== */
+document.getElementById("startFreeBtn").addEventListener("click", () => startExam(FREE_SET));
+document.getElementById("startSet1Btn").addEventListener("click", () => {
+  if (!isSeriesUnlocked()) return;
+  startExam(SETS[0]);
+});
+document.getElementById("startSet2Btn").addEventListener("click", () => {
+  if (!isSeriesUnlocked()) return;
+  startExam(SETS[1]);
+});
+
+function startExam(set){
+  activeSet = set;
   examState = {
-    questions: MATHS_QUESTIONS,
-    answers: new Array(MATHS_QUESTIONS.length).fill(null),
-    flagged: new Array(MATHS_QUESTIONS.length).fill(false),
+    questions: set.questions,
+    answers: new Array(set.questions.length).fill(null),
+    flagged: new Array(set.questions.length).fill(false),
     current: 0,
-    secondsLeft: EXAM_SECONDS,
-    startTime: Date.now()
+    secondsLeft: set.seconds,
+    startTime: Date.now(),
+    setName: set.name
   };
-  document.getElementById("examSubtitle").textContent = `${activeGrade} · ${activeSubject} · 20 questions · 30 minutes`;
+  const mins = Math.round(set.seconds / 60);
+  document.getElementById("examTitle").textContent = set.name === "Free Trial" ? "ADRE Maths — Free Trial" : `ADRE Maths — ${set.name}`;
+  document.getElementById("examSubtitle").textContent = `${set.questions.length} questions · ${mins} minutes`;
+  document.getElementById("examTimer").textContent = `${String(mins).padStart(2, "0")}:00`;
   document.getElementById("examShell").classList.add("open");
   document.body.style.overflow = "hidden";
   renderQuestion();
   renderPalette();
   startExamTimer();
-});
+}
 
 function startExamTimer(){
   if (examTimerInterval) clearInterval(examTimerInterval);
@@ -1013,16 +993,10 @@ function renderPalette(){
   });
 }
 
-/* ===================================================================
-   SUBMIT
-   =================================================================== */
 document.getElementById("examSubmitBtn").addEventListener("click", () => confirmSubmit(false));
 
 function confirmSubmit(autoSubmit){
-  if (autoSubmit){
-    submitExam();
-    return;
-  }
+  if (autoSubmit){ submitExam(); return; }
   const answered = examState.answers.filter(a => a !== null).length;
   const total = examState.questions.length;
   document.getElementById("sdAnswered").textContent = answered;
@@ -1039,7 +1013,7 @@ document.getElementById("sdConfirm").addEventListener("click", () => {
 function submitExam(){
   if (examTimerInterval) clearInterval(examTimerInterval);
   const elapsed = Math.round((Date.now() - examState.startTime) / 1000);
-  const timeUsed = Math.min(elapsed, EXAM_SECONDS);
+  const timeUsed = Math.min(elapsed, examState.secondsLeft === 0 ? activeSet.seconds : elapsed);
 
   let correctCount = 0, wrongCount = 0, skippedCount = 0;
   const details = examState.questions.map((q, idx) => {
@@ -1123,12 +1097,12 @@ function renderResults({ correctCount, wrongCount, skippedCount, rawScore, maxSc
     `;
   }).join("");
 
-  const scoreColor = rawScore >= maxScore * 0.7 ? "#E8AC3D" : rawScore >= maxScore * 0.4 ? "#E8AC3D" : "#FF6A3D";
+  const scoreColor = rawScore >= maxScore * 0.7 ? "#16A34A" : rawScore >= maxScore * 0.4 ? "#E8AC3D" : "#FF6A3D";
 
   document.getElementById("resultsShell").innerHTML = `
     <div class="results-header">
       <h2>Test complete</h2>
-      <p>${activeGrade} · ${activeSubject}</p>
+      <p>${examState.setName} · ${examState.questions.length} questions</p>
       <div class="results-score" style="color:${scoreColor};">${rawScore.toFixed(2)} <span style="font-size:1.2rem;color:#8FA0B6;">/ ${maxScore}</span></div>
       <p>${pct}% · Time used: ${mins}m ${secs}s</p>
     </div>
@@ -1191,9 +1165,7 @@ function renderResults({ correctCount, wrongCount, skippedCount, rawScore, maxSc
    INIT
    =================================================================== */
 document.getElementById("upiDisplay").textContent = UPI_ID;
-buildGradeRow();
-buildSubjectRow();
-refreshView();
+refreshLockState();
 </script>
 </body>
 </html>
