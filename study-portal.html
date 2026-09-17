@@ -697,7 +697,7 @@ document.getElementById("openPayPanel").addEventListener("click", () => {
     alert("You already have access to the full series.");
     return;
   }
-  const upiUrl = `upi://pay?pa=${UPI_ID}&am=${PRICE}&cu=INR&tn=ADRE%20Mock%20Series`;
+  const upiUrl = `upi://pay?pa=${UPI_ID}&am=${PRICE}&cu=INR`;
   document.getElementById("openUpiApp").href = upiUrl;
   document.getElementById("upiQr").src = `https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=${encodeURIComponent(upiUrl)}`;
   const p = getPending();
